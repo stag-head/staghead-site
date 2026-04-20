@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stag Head — Business Central Contract Development</title>
+<meta name="description" content="Independent contract developer specialising in Microsoft Dynamics 365 Business Central. In-house support for end-users; short-term resource for BC partners.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stag Head — Business Central Contract Development">
+<meta property="og:description" content="An extra pair of Business Central hands. Independent contract developer based in New Zealand, working worldwide.">
+<meta property="og:url" content="https://staghead.nz/">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stag Head — Business Central Contract Development">
+<meta name="twitter:description" content="An extra pair of Business Central hands.">
+<meta name="twitter:image" content="https://staghead.nz/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/variations.css">
+<style>
+  .route { display: none; }
+  .route.is-active { display: block; animation: fadeup .4s ease both; }
+
+  .tweaks {
+    position: fixed; right: 20px; bottom: 20px; z-index: 100;
+    background: var(--bg-elev); border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.04);
+    font-family: var(--font-mono); font-size: 11px;
+    width: 260px;
+    display: none;
+  }
+  .tweaks.is-open { display: block; }
+  .tweaks h4 { margin: 0 0 10px; font-family: var(--font-display); font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 600; }
+  .tweaks .row { display: flex; align-items: center; justify-content: space-between; margin: 8px 0; color: var(--ink-2); }
+  .tweaks .row label { letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }
+  .tweaks .swatches { display: flex; gap: 6px; }
+  .tweaks .sw { width: 22px; height: 22px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: transform .15s ease; }
+  .tweaks .sw:hover { transform: scale(1.1); }
+  .tweaks .sw.is-active { border-color: var(--ink); }
+  .tweaks .toggle { background: var(--bg-sunk); border: 1px solid var(--line); border-radius: 999px; display: flex; padding: 2px; }
+  .tweaks .toggle button { background: transparent; border: 0; cursor: pointer; padding: 4px 10px; border-radius: 999px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+  .tweaks .toggle button.is-active { background: var(--ink); color: var(--bg); }
+
+  /* Simplified top nav — just Home & About now */
+  .nav-variants a { text-transform: none !important; font-family: var(--font-body) !important; letter-spacing: 0 !important; font-size: 13px !important; padding: 6px 14px !important; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav__inner">
+    <a class="brand" href="#home" aria-label="Stag Head">
+      <img class="brand__logo" src="assets/logo-mark.png" alt="" width="36" height="36">
+      <span class="brand__text">STAG<b>HEAD</b></span>
+    </a>
+
+    <div class="nav-variants" role="tablist">
+      <a href="#home" data-route="home" class="is-active">Home</a>
+      <a href="#about" data-route="about">About</a>
+    </div>
+
+    <a href="#contact" class="cta-btn">Start a conversation →</a>
+  </div>
+</nav>
+
+<main id="app">
+  <section class="route is-active" data-screen-label="Home" id="route-home"></section>
+  <section class="route" data-screen-label="About" id="route-about"></section>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="src/variations/monolith.js"></script>
+<script src="src/variations/about.js"></script>
+<script src="src/app.js"></script>
+
+</body>
+</html>
