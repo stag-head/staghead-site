@@ -10,8 +10,9 @@ window.SH_About = function () {
     </div>
     <div class="about-lead">
       <p>I&rsquo;m a contract software developer specialising in <strong>Microsoft Dynamics 365
-        Business Central</strong>. I&rsquo;ve worked in and around Microsoft Dynamics for about
-        twenty-five years, and these days I&rsquo;m focused on BC — nothing else.</p>
+        Business Central</strong>. I started with Navision Financials 2.0 back in 1999 — just
+        in time for the Y2K scare — and I&rsquo;ve been in and around the platform ever
+        since.</p>
       <p>I work with two kinds of client. <strong>End-users</strong>: companies running Business
         Central in-house who want help with their implementation without hiring a full-time
         developer for it. And <strong>partners</strong>: Microsoft vendors and BC consultancies
@@ -107,16 +108,6 @@ window.SH_About = function () {
       <a class="contact-row" href="mailto:craig@staghead.nz">
         <span class="k">Email</span>
         <span class="v">craig@staghead.nz</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="contact-row" href="#">
-        <span class="k">LinkedIn</span>
-        <span class="v">linkedin.com/in/staghead</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="contact-row" href="#">
-        <span class="k">Calendar</span>
-        <span class="v">Book a 30-min intro call</span>
         <span class="arrow">→</span>
       </a>
       <div class="contact-row">

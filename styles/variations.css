@@ -446,3 +446,295 @@ a.contact-row:hover .arrow { color: var(--v2-accent-2); transform: translateX(6p
   .about-principle:nth-child(2n) { border-right: 0; }
   .about-skills li { grid-template-columns: 1fr; gap: 8px; }
 }
+
+/* ========== Akahu Consumer Information ========== */
+.akahu-consumer {
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* Hero */
+.akc-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding-top: 72px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--line);
+}
+.akc-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 16px 0 20px;
+}
+.akc-lead {
+  font-size: 18px;
+  color: var(--ink-2);
+  max-width: 48ch;
+  line-height: 1.6;
+  margin: 0;
+}
+.akc-hero .bar { display: inline-block; width: 24px; height: 1px; background: var(--ink-3); vertical-align: middle; margin-right: 8px; }
+.akc-hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+.akc-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+}
+.akc-badge__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.akc-badge__value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Sections */
+.akc-section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--line);
+}
+.akc-section__head {
+  margin-bottom: 40px;
+}
+.akc-section__head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin: 12px 0 0;
+}
+.akc-section__note {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 12px 0 0;
+  max-width: 64ch;
+}
+
+/* Benefits list */
+.akc-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.akc-benefit {
+  display: flex;
+  gap: 20px;
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+.akc-benefit__icon {
+  font-size: 20px;
+  color: var(--accent-ink);
+  width: 32px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+.akc-benefit h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.akc-benefit p {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.6;
+}
+.akc-benefit--soon {
+  opacity: 0.6;
+}
+.akc-soon-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+  vertical-align: middle;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+/* Table */
+.akc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.akc-table thead th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--line-strong);
+  background: var(--bg-sunk);
+}
+.akc-table tbody td {
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.akc-table tbody td:first-child {
+  font-weight: 500;
+  white-space: nowrap;
+  width: 180px;
+}
+.akc-table__no td {
+  color: var(--ink-3);
+}
+.akc-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.akc-pill--read {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+}
+.akc-pill--none {
+  background: var(--bg-sunk);
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+}
+
+/* Grid cards */
+.akc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.akc-card {
+  padding: 28px 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.akc-card__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 12px;
+}
+.akc-card h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.akc-card p {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Akahu band */
+.akc-akahu-band {
+  border-top: 1px solid var(--line);
+  padding: 72px 0;
+  background: var(--bg-elev);
+}
+.akc-akahu-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.akc-akahu-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+.akc-akahu-logo__mark {
+  color: var(--ink);
+}
+.akc-akahu-logo__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.akc-akahu-copy h3 {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.akc-akahu-copy p {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+  max-width: 68ch;
+  line-height: 1.65;
+}
+.akc-akahu-copy a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.akc-akahu-copy a:hover { opacity: 0.8; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .akc-hero { grid-template-columns: 1fr; }
+  .akc-benefits { grid-template-columns: 1fr; }
+  .akc-grid { grid-template-columns: 1fr 1fr; }
+  .akc-akahu-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .akc-grid { grid-template-columns: 1fr; }
+  .akc-table tbody td:first-child { white-space: normal; width: auto; }
+}

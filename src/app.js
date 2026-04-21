@@ -81,7 +81,7 @@ requestAnimationFrame(() => {
   window.parent.postMessage({ type: "__edit_mode_available" }, "*");
 });
 
-const routes = ["home", "about"];
+const routes = ["home", "about", "akahu-consumer"];
 
 function render(route) {
   if (!routes.includes(route)) route = "home";
@@ -104,8 +104,9 @@ function routeFromHash() {
 window.addEventListener("hashchange", () => render(routeFromHash()));
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.SH_Monolith) document.getElementById("route-home").innerHTML = window.SH_Monolith();
-  if (window.SH_About)    document.getElementById("route-about").innerHTML = window.SH_About();
+  if (window.SH_Monolith)        document.getElementById("route-home").innerHTML           = window.SH_Monolith();
+  if (window.SH_About)           document.getElementById("route-about").innerHTML          = window.SH_About();
+  if (window.SH_AkahuConsumer)   document.getElementById("route-akahu-consumer").innerHTML = window.SH_AkahuConsumer();
 
   wireTweaks();
   applyState();
