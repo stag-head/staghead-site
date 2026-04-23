@@ -447,6 +447,51 @@ a.contact-row:hover .arrow { color: var(--v2-accent-2); transform: translateX(6p
   .about-skills li { grid-template-columns: 1fr; gap: 8px; }
 }
 
+/* ========== Mobile (≤640px) ========== */
+@media (max-width: 640px) {
+  /* Nav — hide CTA; pill nav with two items fits fine */
+  .topnav .cta-btn { display: none; }
+
+  /* Hero padding */
+  .v2-hero { padding: 56px 0 72px; }
+  .about-hero { padding: 56px 0 40px; }
+
+  /* Hero h1 — lower the clamp floor */
+  .v2-h1 { font-size: clamp(38px, 11vw, 148px); }
+
+  /* Sub — slightly tighter */
+  .v2-sub { font-size: 16px; }
+
+  /* Actions — stack on narrow screens */
+  .v2-actions { flex-direction: column; align-items: flex-start; }
+
+  /* Section paddings */
+  .v2-grid  { padding: 64px 0 48px; }
+  .v2-engage { padding: 64px 0; }
+  .v2-quote { padding: 64px 0; }
+  .v2-cta   { padding: 64px 0 80px; }
+  .about-skills, .about-principles, .about-contact { padding: 64px 0; }
+
+  /* Steps — full single column */
+  .v2-steps li { grid-template-columns: 1fr; gap: 6px; }
+  .v2-steps .step-p { grid-column: 1; }
+
+  /* About stats — stack */
+  .about-stats { grid-template-columns: 1fr; }
+  .about-stat:first-child { border-right: 0; border-bottom: 1px solid var(--v2-line); padding: 40px 0; }
+  .about-stat:last-child  { padding: 40px 0; }
+
+  /* About principles — single column */
+  .about-principles-grid { grid-template-columns: 1fr; }
+  .about-principle { border-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+  /* Contact rows — stack label above value, keep arrow on the right */
+  .contact-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 2px 12px; }
+  .contact-row .k     { grid-column: 1; grid-row: 1; }
+  .contact-row .v     { grid-column: 1; grid-row: 2; font-size: 18px; }
+  .contact-row .arrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+}
+
 /* ========== Akahu Consumer Information ========== */
 .akahu-consumer {
   background: var(--bg);
