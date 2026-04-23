@@ -71,7 +71,7 @@ window.SH_AkahuSetup = function () {
         <h4>Authorise the Stag Head Service</h4>
         <p>The Stag Head service needs one-time permission to write data back into your BC company — for storing your Akahu token and updating payment statuses.</p>
         <p style="margin-top:10px">Click <strong>Open Microsoft Entra Applications</strong> in the wizard. Create a new entry, set the <strong>Client ID</strong> to the Stag Head App ID shown on screen, and set <strong>State</strong> to Enabled. Then add the <strong>Akahu Service</strong> permission set in the User Permission Sets section on the same card.</p>
-        <p style="margin-top:10px"><strong>Do not click Grant Consent.</strong> That button is for a different scenario — clicking it will produce an error. The required permissions have already been granted in Azure by Stag Head and no action is needed from you.</p>
+        <p style="margin-top:10px"><strong>Do not click Grant Consent.</strong> That button is for a different scenario — clicking it will produce an error. The required permissions have already been granted in Azure by the extension and no action is needed from you.</p>
         <p style="margin-top:10px">Return to the wizard and click <strong>Refresh Status</strong> to confirm and continue.</p>
       </div>
       <div class="akc-card">
