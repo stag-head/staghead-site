@@ -83,7 +83,7 @@ window.SH_AkahuSetup = function () {
       <div class="akc-card">
         <span class="akc-card__num">04</span>
         <h4>Map Bank Accounts</h4>
-        <p>Click <strong>Open Akahu Accounts</strong> to open the Akahu Account List. For each Akahu account you want to use, set the <strong>BC Bank Account No.</strong> field to the corresponding Business Central bank account.</p>
+        <p>Click <strong>Open Bank Accounts</strong> to open the BC Bank Account List. For each bank account you want to connect, set the <strong>Akahu Account ID</strong> column to the corresponding Akahu account from the lookup.</p>
         <p style="margin-top:10px">At least one mapping is required before you can continue. Click <strong>Refresh</strong> once you have mapped at least one account.</p>
       </div>
       <div class="akc-card">
