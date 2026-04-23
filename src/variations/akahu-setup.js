@@ -1,4 +1,4 @@
-/* Akahu Banking for Business Central — Setup Help Page */
+/* Akahu Banking for Business Central: Setup Help Page */
 window.SH_AkahuSetup = function () {
   return `
 <div class="akahu-consumer">
@@ -7,7 +7,7 @@ window.SH_AkahuSetup = function () {
     <div class="akc-hero__text">
       <p class="eyebrow"><span class="bar"></span> Setup Guide</p>
       <h1>Setting Up Akahu Open&nbsp;Banking</h1>
-      <p class="akc-lead">Step-by-step instructions for connecting Microsoft Dynamics&nbsp;365 Business Central to Akahu. The guided setup wizard inside Business Central will walk you through each step — this page provides additional detail and troubleshooting help.</p>
+      <p class="akc-lead">Step-by-step instructions for connecting Microsoft Dynamics&nbsp;365 Business Central to Akahu. The guided setup wizard inside Business Central will walk you through each step. This page provides additional detail and troubleshooting help.</p>
     </div>
     <div class="akc-hero__meta">
       <div class="akc-badge">
@@ -69,9 +69,9 @@ window.SH_AkahuSetup = function () {
       <div class="akc-card">
         <span class="akc-card__num">02</span>
         <h4>Authorise the Stag Head Service</h4>
-        <p>The Stag Head service needs one-time permission to write data back into your BC company — for storing your Akahu token and updating payment statuses.</p>
+        <p>The Stag Head service needs one-time permission to write data back into your BC company, for storing your Akahu token and updating payment statuses.</p>
         <p style="margin-top:10px">Click <strong>Open Microsoft Entra Applications</strong> in the wizard. Create a new entry, set the <strong>Client ID</strong> to the Stag Head App ID shown on screen, and set <strong>State</strong> to Enabled. Then add the <strong>Akahu Service</strong> permission set in the User Permission Sets section on the same card.</p>
-        <p style="margin-top:10px"><strong>Do not click Grant Consent.</strong> That button is for a different scenario — clicking it will produce an error. The required permissions have already been granted in Azure by the extension and no action is needed from you.</p>
+        <p style="margin-top:10px"><strong>Do not click Grant Consent.</strong> That button is for a different scenario; clicking it will produce an error. The required permissions have already been granted in Azure by the extension and no action is needed from you.</p>
         <p style="margin-top:10px">Return to the wizard and click <strong>Refresh Status</strong> to confirm and continue.</p>
       </div>
       <div class="akc-card">
@@ -84,12 +84,12 @@ window.SH_AkahuSetup = function () {
         <span class="akc-card__num">04</span>
         <h4>Map Bank Accounts</h4>
         <p>Click <strong>Open Bank Accounts</strong> to open the BC Bank Account List. For each bank account you want to connect, set the <strong>Akahu Account ID</strong> column to the corresponding Akahu account from the lookup.</p>
-        <p style="margin-top:10px">At least one mapping is required before you can continue. Click <strong>Refresh</strong> once you have mapped at least one account.</p>
+        <p style="margin-top:10px">Map as many accounts as you wish, but at least one mapping is required before you can continue. Click <strong>Refresh</strong> once you are done.</p>
       </div>
       <div class="akc-card">
         <span class="akc-card__num">05</span>
         <h4>Payment Settings</h4>
-        <p>Choose a <strong>Payment Method Code</strong> to identify Akahu payments on vendor cards and payment journals. The default is <code>AKAHU</code> — the wizard will create this code automatically if it doesn't already exist.</p>
+        <p>A payment method code <code>AKAHU</code> has been created to identify vendors you will pay using this integration. You can change this to a different code if you prefer.</p>
         <p style="margin-top:10px">Optionally set a <strong>Maximum Payment Amount</strong> as a safety limit on individual Akahu payments. Set to 0 for no limit.</p>
       </div>
       <div class="akc-card">
@@ -129,7 +129,7 @@ window.SH_AkahuSetup = function () {
         <span class="akc-benefit__icon">◎</span>
         <div>
           <h4>Monitor payment status</h4>
-          <p>Search for <strong>Akahu Payments</strong> in Tell Me to open the payments list. Payment statuses update automatically as Akahu processes each payment — no manual refresh needed.</p>
+          <p>Search for <strong>Akahu Payments</strong> in Tell Me to open the payments list. Payment statuses update automatically as Akahu processes each payment, with no manual refresh needed.</p>
         </div>
       </li>
     </ul>
@@ -154,7 +154,7 @@ window.SH_AkahuSetup = function () {
         </tr>
         <tr>
           <td>Test connection fails</td>
-          <td>Open the <strong>Akahu Setup</strong> page and verify that both the App Token and User Token fields are populated. The User Token is written automatically during the OAuth step — if it is blank, repeat step 3.</td>
+          <td>Open the <strong>Akahu Setup</strong> page and verify that both the App Token and User Token fields are populated. The User Token is written automatically during the OAuth step. If it is blank, repeat step 3.</td>
         </tr>
         <tr>
           <td>No accounts appear in the Akahu Account List</td>
@@ -182,7 +182,7 @@ window.SH_AkahuSetup = function () {
       </div>
       <div class="akc-akahu-copy">
         <h3>Powered by Akahu</h3>
-        <p>This application uses <a href="https://akahu.nz" target="_blank" rel="noopener">Akahu</a> as its open banking platform. Akahu is New Zealand's secure open banking intermediary — it manages your bank connections, handles authorisation, and retrieves financial data on your behalf. Stag Head Ltd does not store your bank credentials at any point.</p>
+        <p>This application uses <a href="https://akahu.nz" target="_blank" rel="noopener">Akahu</a> as its open banking platform. Akahu is New Zealand's secure open banking intermediary that manages your bank connections, handles authorisation, and retrieves financial data on your behalf. Stag Head Ltd does not store your bank credentials at any point.</p>
         <p>You can review and revoke access to your bank accounts at any time through <a href="https://my.akahu.nz" target="_blank" rel="noopener">my.akahu.nz</a>. Revoking access in Akahu will stop all future transaction imports and payment submissions.</p>
       </div>
     </div>
