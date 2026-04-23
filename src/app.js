@@ -81,7 +81,7 @@ requestAnimationFrame(() => {
   window.parent.postMessage({ type: "__edit_mode_available" }, "*");
 });
 
-const routes = ["home", "about", "akahu-consumer", "akahu-setup"];
+const routes = ["home", "about", "akahu-marketing", "akahu-consumer", "akahu-setup"];
 
 function render(route) {
   if (!routes.includes(route)) route = "home";
@@ -106,6 +106,7 @@ window.addEventListener("hashchange", () => render(routeFromHash()));
 document.addEventListener("DOMContentLoaded", () => {
   if (window.SH_Monolith)        document.getElementById("route-home").innerHTML           = window.SH_Monolith();
   if (window.SH_About)           document.getElementById("route-about").innerHTML          = window.SH_About();
+  if (window.SH_AkahuMarketing)  document.getElementById("route-akahu-marketing").innerHTML = window.SH_AkahuMarketing();
   if (window.SH_AkahuConsumer)   document.getElementById("route-akahu-consumer").innerHTML = window.SH_AkahuConsumer();
   if (window.SH_AkahuSetup)     document.getElementById("route-akahu-setup").innerHTML     = window.SH_AkahuSetup();
 
