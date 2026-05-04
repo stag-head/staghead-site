@@ -81,7 +81,7 @@ requestAnimationFrame(() => {
   window.parent.postMessage({ type: "__edit_mode_available" }, "*");
 });
 
-const routes = ["home", "about", "akahu-marketing", "akahu-consumer", "akahu-setup", "akahu-eula", "akahu-privacy"];
+const routes = ["home", "about", "akahu-marketing", "akahu-consumer", "akahu-setup", "extension-eula", "extension-privacy"];
 
 function render(route) {
   if (!routes.includes(route)) route = "home";
@@ -109,8 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.SH_AkahuMarketing)  document.getElementById("route-akahu-marketing").innerHTML = window.SH_AkahuMarketing();
   if (window.SH_AkahuConsumer)   document.getElementById("route-akahu-consumer").innerHTML = window.SH_AkahuConsumer();
   if (window.SH_AkahuSetup)     document.getElementById("route-akahu-setup").innerHTML     = window.SH_AkahuSetup();
-  if (window.SH_AkahuEula)      document.getElementById("route-akahu-eula").innerHTML      = window.SH_AkahuEula();
-  if (window.SH_AkahuPrivacy)   document.getElementById("route-akahu-privacy").innerHTML   = window.SH_AkahuPrivacy();
+  if (window.SH_ExtensionEula)    document.getElementById("route-extension-eula").innerHTML    = window.SH_ExtensionEula();
+  if (window.SH_ExtensionPrivacy) document.getElementById("route-extension-privacy").innerHTML = window.SH_ExtensionPrivacy();
 
   wireTweaks();
   applyState();

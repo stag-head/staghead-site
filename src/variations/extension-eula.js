@@ -1,5 +1,5 @@
-/* Akahu Banking for Business Central: End User Licence Agreement */
-window.SH_AkahuEula = function () {
+/* Stag Head Extension: End User Licence Agreement */
+window.SH_ExtensionEula = function () {
   const updated = '24 April 2026';
   return `
 <div class="akahu-consumer">
@@ -8,7 +8,7 @@ window.SH_AkahuEula = function () {
     <div class="akc-hero__text">
       <p class="eyebrow"><span class="bar"></span> Legal</p>
       <h1>End User Licence Agreement</h1>
-      <p class="akc-lead">This agreement governs your use of the Akahu Open Banking Integration extension for Microsoft Dynamics&nbsp;365 Business Central, published by Stag Head Limited. Please read it carefully before installing or using the extension.</p>
+      <p class="akc-lead">This agreement governs your use of this extension for Microsoft Dynamics&nbsp;365 Business Central, published by Stag Head Limited. Please read it carefully before installing or using the extension.</p>
     </div>
     <div class="akc-hero__meta">
       <div class="akc-badge">
@@ -33,7 +33,7 @@ window.SH_AkahuEula = function () {
     </div>
     <div class="akc-legal-body">
       <p>This End User Licence Agreement (<strong>"Agreement"</strong>) is a legally binding contract between you, or the organisation on whose behalf you are acting (<strong>"Customer"</strong> or <strong>"you"</strong>), and <strong>Stag Head Limited</strong>, a New Zealand limited company (Companies Register number 6750773, NZBN 9429046638891) (<strong>"Stag Head"</strong>, <strong>"we"</strong>, or <strong>"us"</strong>).</p>
-      <p>This Agreement governs your access to and use of the <strong>Akahu Open Banking Integration</strong> extension for Microsoft Dynamics&nbsp;365 Business Central (<strong>"Extension"</strong>), including any related documentation, updates, and support services.</p>
+      <p>This Agreement governs your access to and use of the <strong>Extension</strong> for Microsoft Dynamics&nbsp;365 Business Central, including any related documentation, updates, and support services.</p>
       <p>By installing, activating, or using the Extension, you confirm that you have read, understood, and agree to be bound by this Agreement. If you do not agree, do not install or use the Extension.</p>
       <p>If you are accepting on behalf of an organisation, you represent that you have the authority to bind that organisation to this Agreement.</p>
     </div>
@@ -45,9 +45,8 @@ window.SH_AkahuEula = function () {
       <h2>Definitions</h2>
     </div>
     <div class="akc-legal-body">
-      <p><strong>"Akahu"</strong> means Akahu Limited, the New Zealand open banking platform accessible at akahu.nz, through which bank account data and payment services are provided.</p>
       <p><strong>"Business Central"</strong> means Microsoft Dynamics 365 Business Central, a cloud ERP service provided by Microsoft Corporation.</p>
-      <p><strong>"Extension"</strong> means the Akahu Open Banking Integration software extension, including all updates and accompanying documentation.</p>
+      <p><strong>"Extension"</strong> means the software extension published by Stag Head, including all updates and accompanying documentation.</p>
       <p><strong>"Subscription"</strong> means the right to use the Extension during a paid subscription period, obtained via Microsoft AppSource or such other channel as Stag Head may make available.</p>
       <p><strong>"User"</strong> means any individual who accesses or uses the Extension on behalf of the Customer.</p>
     </div>
@@ -117,9 +116,9 @@ window.SH_AkahuEula = function () {
       <h2>Third-Party Services</h2>
     </div>
     <div class="akc-legal-body">
-      <p>The Extension integrates with third-party services including Akahu Limited and Microsoft Corporation. Your use of those services is governed by their respective terms and privacy policies, which are separate from this Agreement.</p>
-      <p>You are responsible for obtaining and maintaining any accounts, licences, or consents required to use Akahu's services, including completing Akahu's authorisation flow and complying with Akahu's terms of use.</p>
-      <p>Stag Head is not responsible for the availability, accuracy, or performance of any third-party services. Outages or changes to Akahu's API or Microsoft's Business Central platform may affect the functionality of the Extension without Stag Head being in breach of this Agreement.</p>
+      <p>The Extension may integrate with third-party services, including services provided by Microsoft Corporation and other platform providers. Your use of those services is governed by their respective terms and privacy policies, which are separate from this Agreement.</p>
+      <p>You are responsible for obtaining and maintaining any accounts, licences, or consents required to use any third-party services that the Extension integrates with, including completing any required authorisation flows and complying with those services' terms of use.</p>
+      <p>Stag Head is not responsible for the availability, accuracy, or performance of any third-party services. Outages or changes to third-party APIs or Microsoft's Business Central platform may affect the functionality of the Extension without Stag Head being in breach of this Agreement.</p>
     </div>
   </section>
 
@@ -129,8 +128,8 @@ window.SH_AkahuEula = function () {
       <h2>Data and Privacy</h2>
     </div>
     <div class="akc-legal-body">
-      <p>Your use of the Extension involves the processing of certain technical routing data by Stag Head. The nature of this data, how it is used, and your rights in relation to it are described in our <a href="#akahu-privacy">Privacy Statement</a>.</p>
-      <p>Your financial data — including bank transactions, account balances, and payment records — is stored within your own Business Central environment and is not held by Stag Head beyond what is necessary to route data between services.</p>
+      <p>Your use of the Extension involves the processing of certain technical routing data by Stag Head. The nature of this data, how it is used, and your rights in relation to it are described in our <a href="#extension-privacy">Privacy Statement</a>.</p>
+      <p>Your business data is stored within your own Business Central environment and is not held by Stag Head beyond what is necessary to route data between services.</p>
       <p>You are responsible for ensuring that your use of the Extension complies with all applicable privacy and data protection laws, including the New Zealand Privacy Act 2020, particularly in relation to any personal information processed through Business Central.</p>
     </div>
   </section>
@@ -142,7 +141,7 @@ window.SH_AkahuEula = function () {
     </div>
     <div class="akc-legal-body">
       <p>Stag Head will provide support for the Extension on a best-efforts basis. Support is available via email at <a href="mailto:craig@staghead.nz">craig@staghead.nz</a>.</p>
-      <p>Stag Head does not guarantee any specific response time or resolution time. Support does not include configuration of third-party services such as Akahu or Microsoft Business Central, or issues arising from your IT environment, network, or browser.</p>
+      <p>Stag Head does not guarantee any specific response time or resolution time. Support does not include configuration of third-party integrations or Microsoft Business Central, or issues arising from your IT environment, network, or browser.</p>
       <p>Stag Head may release updates to the Extension from time to time. Where updates are made available through Microsoft AppSource, they will be subject to the terms of this Agreement.</p>
     </div>
   </section>
@@ -245,8 +244,8 @@ window.SH_AkahuEula = function () {
   </section>
 
   <footer class="v2-foot shell">
-    <div><span class="mono">Stag Head Limited &nbsp;·&nbsp; Akahu Open Banking Integration &nbsp;·&nbsp; EULA v1.0 &nbsp;·&nbsp; ${updated}</span></div>
-    <div class="mono"><a href="#akahu-privacy">Privacy Statement</a> &nbsp;·&nbsp; <a href="mailto:craig@staghead.nz">craig@staghead.nz</a></div>
+    <div><span class="mono">Stag Head Limited &nbsp;·&nbsp; EULA v1.0 &nbsp;·&nbsp; ${updated}</span></div>
+    <div class="mono"><a href="#extension-privacy">Privacy Statement</a> &nbsp;·&nbsp; <a href="mailto:craig@staghead.nz">craig@staghead.nz</a></div>
   </footer>
 
 </div>

@@ -1,5 +1,5 @@
-/* Akahu Banking for Business Central: Privacy Statement */
-window.SH_AkahuPrivacy = function () {
+/* Stag Head Extension: Privacy Statement */
+window.SH_ExtensionPrivacy = function () {
   const updated = '24 April 2026';
   return `
 <div class="akahu-consumer">
@@ -8,7 +8,7 @@ window.SH_AkahuPrivacy = function () {
     <div class="akc-hero__text">
       <p class="eyebrow"><span class="bar"></span> Legal</p>
       <h1>Privacy Statement</h1>
-      <p class="akc-lead">This statement explains what information Stag Head Limited collects when you use the Akahu Open Banking Integration, how it is used, where it is stored, and what your rights are under the New Zealand Privacy Act&nbsp;2020.</p>
+      <p class="akc-lead">This statement explains what information Stag Head Limited collects when you use this extension, how it is used, where it is stored, and what your rights are under the New Zealand Privacy Act&nbsp;2020.</p>
     </div>
     <div class="akc-hero__meta">
       <div class="akc-badge">
@@ -32,7 +32,7 @@ window.SH_AkahuPrivacy = function () {
       <h2>Who We Are</h2>
     </div>
     <div class="akc-legal-body">
-      <p><strong>Stag Head Limited</strong> (Companies Register No. 6750773, NZBN 9429046638891) is the publisher of the Akahu Open Banking Integration extension for Microsoft Dynamics&nbsp;365 Business Central. We are a New Zealand limited company and are the agency responsible for personal information collected in connection with this extension.</p>
+      <p><strong>Stag Head Limited</strong> (Companies Register No. 6750773, NZBN 9429046638891) is the publisher of this extension for Microsoft Dynamics&nbsp;365 Business Central. We are a New Zealand limited company and are the agency responsible for personal information collected in connection with this extension.</p>
       <p>References to <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"Stag Head"</strong> in this statement mean Stag Head Limited. References to <strong>"you"</strong> or <strong>"your"</strong> mean the organisation or individual using the extension.</p>
     </div>
   </section>
@@ -43,12 +43,8 @@ window.SH_AkahuPrivacy = function () {
       <h2>What the Extension Does</h2>
     </div>
     <div class="akc-legal-body">
-      <p>The extension connects your Microsoft Business Central environment to Akahu, New Zealand's open banking platform. It enables two things:</p>
-      <ul class="akc-legal-list">
-        <li><strong>Transaction import</strong> — bank transactions from your Akahu-connected accounts are fetched and imported into Business Central bank reconciliations.</li>
-        <li><strong>Vendor payments</strong> — payment instructions are submitted from Business Central to Akahu, which processes them through your connected bank account.</li>
-      </ul>
-      <p>Stag Head operates a small set of Azure cloud services to act as a bridge between Business Central and Akahu. These services handle the OAuth2 authorisation flow and route payment status updates back to your Business Central company. They do not store your financial data.</p>
+      <p>The extension connects your Microsoft Business Central environment to one or more third-party platforms. It enables data to flow between Business Central and those platforms to support the extension's functionality.</p>
+      <p>Stag Head operates a small set of Azure cloud services to act as a bridge between Business Central and any connected third-party platforms. These services handle authorisation flows and route status updates back to your Business Central company. They do not store your business data.</p>
     </div>
   </section>
 
@@ -58,7 +54,7 @@ window.SH_AkahuPrivacy = function () {
       <h2>What Information We Collect and Why</h2>
     </div>
     <div class="akc-legal-body">
-      <p>Stag Head collects only the minimum technical routing information needed to operate the bridge services. We do <strong>not</strong> collect or store your bank account numbers, transaction data, account balances, or any personal financial information — that data remains exclusively within your own Business Central environment.</p>
+      <p>Stag Head collects only the minimum technical routing information needed to operate the bridge services. We do <strong>not</strong> collect or store your business records or any personal financial information — that data remains exclusively within your own Business Central environment.</p>
 
       <table class="akc-table" style="margin-top:1.2rem">
         <thead>
@@ -70,18 +66,18 @@ window.SH_AkahuPrivacy = function () {
         </thead>
         <tbody>
           <tr>
-            <td>Your Akahu user token<br><span style="font-size:0.85em;opacity:0.7">(format: user_token_…)</span></td>
-            <td>Returned to us temporarily during the OAuth2 authorisation flow. We write it into your Business Central setup record immediately and retain a mapping so we can identify which BC tenant it belongs to.</td>
+            <td>OAuth2 access token</td>
+            <td>Returned to us temporarily during the authorisation flow. We write it into your Business Central setup record immediately and retain a mapping so we can identify which BC tenant it belongs to.</td>
             <td>Azure Table Storage (Australia East)</td>
           </tr>
           <tr>
             <td>Your Business Central tenant ID, environment name, and company ID</td>
-            <td>Used to route the Akahu token and payment status updates to the correct Business Central company. Not linked to any individual user — these are organisational identifiers.</td>
+            <td>Used to route the access token and status updates to the correct Business Central company. Not linked to any individual user — these are organisational identifiers.</td>
             <td>Azure Table Storage (Australia East)</td>
           </tr>
           <tr>
-            <td>Akahu payment IDs<br><span style="font-size:0.85em;opacity:0.7">(format: pay_…)</span></td>
-            <td>Stored alongside your BC company identifiers so that Akahu webhook notifications can be routed to the correct payment record in Business Central.</td>
+            <td>Payment identifiers</td>
+            <td>Stored alongside your BC company identifiers so that webhook notifications can be routed to the correct payment record in Business Central.</td>
             <td>Azure Table Storage (Australia East)</td>
           </tr>
         </tbody>
@@ -100,10 +96,10 @@ window.SH_AkahuPrivacy = function () {
       <p>The extension stores additional data directly inside your Business Central environment. This data is held under your organisation's own Microsoft tenancy and is subject to Microsoft's terms and privacy policies, not Stag Head's. We do not have access to this data except when acting on your instructions through the Business Central API during normal operation of the extension.</p>
       <p>This includes:</p>
       <ul class="akc-legal-list">
-        <li>Your Akahu app token and user token (stored in the Akahu Setup table);</li>
-        <li>A cache of your Akahu-connected bank accounts (names, account numbers, balances);</li>
-        <li>Imported bank transaction records;</li>
-        <li>Akahu payment records and their status history.</li>
+        <li>OAuth2 tokens (stored in the extension setup table);</li>
+        <li>A cache of any connected account data retrieved from third-party platforms;</li>
+        <li>Imported records and transaction data;</li>
+        <li>Payment records and their status history.</li>
       </ul>
       <p>You can delete any of this data at any time from within Business Central. Uninstalling the extension from Business Central will remove all extension tables and their data from your environment.</p>
     </div>
@@ -117,7 +113,7 @@ window.SH_AkahuPrivacy = function () {
     <div class="akc-legal-body">
       <p>We share information only as necessary to operate the extension:</p>
       <ul class="akc-legal-list">
-        <li><strong>Akahu Limited (New Zealand)</strong> — We pass your authorisation request to Akahu's OAuth2 endpoints to establish your connection. Akahu holds your bank connections and processes payment instructions. Akahu's use of your data is governed by <a href="https://www.akahu.nz/privacy-notice" target="_blank" rel="noopener">Akahu's Privacy Notice</a>.</li>
+        <li><strong>Third-party platform providers</strong> — We pass your authorisation request to any connected platform's OAuth2 endpoints to establish your connection. Each platform's use of your data is governed by their own privacy notice.</li>
         <li><strong>Microsoft Corporation</strong> — The extension operates within Business Central (Microsoft's platform) and uses Azure (Microsoft's cloud infrastructure) for our bridge services. Microsoft's use of data in this context is governed by the <a href="https://www.microsoft.com/en-nz/trust-center" target="_blank" rel="noopener">Microsoft Trust Centre</a> and your organisation's Microsoft agreement.</li>
       </ul>
       <p>We do not sell, rent, or share your information with any other third parties.</p>
@@ -143,7 +139,7 @@ window.SH_AkahuPrivacy = function () {
     <div class="akc-legal-body">
       <p>We retain routing data only for as long as your Subscription is active. When your Subscription ends — whether by cancellation, non-renewal, or termination — we will delete all routing data associated with your Business Central tenant as promptly as practicable.</p>
       <p>You may also request deletion of your data at any time by contacting us at <a href="mailto:craig@staghead.nz">craig@staghead.nz</a>. We will action deletion requests within a reasonable timeframe, typically no more than 30 days.</p>
-      <p>Payment mapping records (Akahu payment ID → BC entry) are retained for the duration of your Subscription to support ongoing webhook routing and will be deleted on termination alongside all other routing data.</p>
+      <p>Payment mapping records (payment ID → BC entry) are retained for the duration of your Subscription to support ongoing webhook routing and will be deleted on termination alongside all other routing data.</p>
     </div>
   </section>
 
@@ -156,8 +152,8 @@ window.SH_AkahuPrivacy = function () {
       <p>We take reasonable steps to protect the routing data we hold against loss, unauthorised access, use, modification, or disclosure. These steps include:</p>
       <ul class="akc-legal-list">
         <li>Storing data in Azure Table Storage with access restricted by Azure Key Vault-managed connection strings;</li>
-        <li>Using HTTPS for all communications between the extension, our bridge services, Akahu, and Business Central;</li>
-        <li>Validating Akahu webhook payloads using HMAC-SHA256 signature verification to prevent spoofed requests;</li>
+        <li>Using HTTPS for all communications between the extension, our bridge services, third-party platforms, and Business Central;</li>
+        <li>Validating webhook payloads using HMAC-SHA256 signature verification to prevent spoofed requests;</li>
         <li>Using function-level authentication keys for internal API calls between our Azure Functions and Business Central.</li>
       </ul>
       <p>No system is completely secure. If you become aware of a security issue related to the extension, please notify us immediately at <a href="mailto:craig@staghead.nz">craig@staghead.nz</a>.</p>
@@ -185,12 +181,12 @@ window.SH_AkahuPrivacy = function () {
   <section class="shell akc-section">
     <div class="akc-section__head">
       <span class="eyebrow">§ 10</span>
-      <h2>Akahu's Role and Your Consent</h2>
+      <h2>Third-Party Services and Your Consent</h2>
     </div>
     <div class="akc-legal-body">
-      <p>Akahu acts as an independent controller of your bank connection data. When you authorise the extension to connect to Akahu, you are entering into a separate relationship with Akahu governed by their terms and privacy notice.</p>
-      <p>Stag Head does not have access to your bank account credentials at any point. Akahu manages your bank connections directly and provides transaction and payment data to the extension using a scoped access token that you authorise through Akahu's own authorisation flow.</p>
-      <p>You can review and revoke the extension's access to your bank accounts at any time through <a href="https://my.akahu.nz" target="_blank" rel="noopener">my.akahu.nz</a>. Revoking access in Akahu will prevent future transaction imports and payment submissions but will not affect data already imported into Business Central.</p>
+      <p>Third-party platform providers connected to this extension act as independent controllers of any data held within their systems. When you authorise the extension to connect to a third-party platform, you are entering into a separate relationship with that provider governed by their own terms and privacy notice.</p>
+      <p>Stag Head does not have access to your credentials for any third-party platform at any point. Each platform manages your connections directly and provides data to the extension using a scoped access token that you authorise through the platform's own authorisation flow.</p>
+      <p>You can review and revoke the extension's access to any connected platform at any time through that platform's account management tools. Revoking access will prevent future data imports or submissions but will not affect data already imported into Business Central.</p>
     </div>
   </section>
 
@@ -221,24 +217,9 @@ window.SH_AkahuPrivacy = function () {
     </div>
   </section>
 
-  <section class="akc-akahu-band">
-    <div class="shell akc-akahu-inner">
-      <div class="akc-akahu-logo">
-        <div class="akc-akahu-logo__mark">
-          <img src="assets/akahu-logo.png" alt="Akahu" width="64" height="64">
-        </div>
-        <span class="akc-akahu-logo__name">Akahu</span>
-      </div>
-      <div class="akc-akahu-copy">
-        <h3>Powered by Akahu</h3>
-        <p>This application uses <a href="https://akahu.nz" target="_blank" rel="noopener">Akahu</a> as its open banking platform. Akahu manages your bank connections, handles authorisation, and retrieves financial data on your behalf. Stag Head does not store your bank credentials at any point. Review Akahu's own <a href="https://www.akahu.nz/privacy-notice" target="_blank" rel="noopener">Privacy Notice</a> for details of how Akahu handles your information.</p>
-      </div>
-    </div>
-  </section>
-
   <footer class="v2-foot shell">
-    <div><span class="mono">Stag Head Limited &nbsp;·&nbsp; Akahu Open Banking Integration &nbsp;·&nbsp; Privacy Statement &nbsp;·&nbsp; ${updated}</span></div>
-    <div class="mono"><a href="#akahu-eula">End User Licence Agreement</a> &nbsp;·&nbsp; <a href="mailto:craig@staghead.nz">craig@staghead.nz</a></div>
+    <div><span class="mono">Stag Head Limited &nbsp;·&nbsp; Privacy Statement &nbsp;·&nbsp; ${updated}</span></div>
+    <div class="mono"><a href="#extension-eula">End User Licence Agreement</a> &nbsp;·&nbsp; <a href="mailto:craig@staghead.nz">craig@staghead.nz</a></div>
   </footer>
 
 </div>
