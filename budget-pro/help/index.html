@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budget Pro — User Guide</title>
+<meta name="description" content="User guide for Budget Pro — collaborative dimension-based budgeting for Microsoft Dynamics 365 Business Central.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="../../styles/variations.css">
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); }
+
+  .help-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    padding: 0 var(--gutter);
+  }
+  .help-nav__inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px; gap: 24px;
+  }
+  .help-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink);
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .help-brand img { width: 28px; height: 28px; }
+  .help-nav__back {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-3); text-decoration: none;
+  }
+  .help-nav__back:hover { color: var(--ink); }
+
+  .help-wrap { max-width: 900px; margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Hero */
+  .help-hero {
+    padding: 72px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .help-hero .eyebrow {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .help-hero .eyebrow .bar { width: 24px; height: 1px; background: var(--ink-3); }
+  .help-hero h1 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: -0.03em; line-height: 1.05;
+    margin: 0 0 20px;
+  }
+  .help-hero p {
+    font-size: 18px; color: var(--ink-2); line-height: 1.6;
+    max-width: 56ch; margin: 0 0 40px;
+  }
+  .help-meta {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+
+  /* TOC */
+  .help-toc {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .help-toc__label {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 20px;
+  }
+  .help-toc__list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  .help-toc__list li {
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 0;
+  }
+  .help-toc__list a {
+    display: flex; gap: 14px; align-items: baseline;
+    padding: 16px 20px; text-decoration: none; color: var(--ink);
+    font-size: 14px; line-height: 1.4;
+    transition: background .15s ease;
+  }
+  .help-toc__list a:hover { background: var(--bg-sunk); }
+  .help-toc__num {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.08em; color: var(--ink-3);
+    flex-shrink: 0; padding-top: 1px;
+  }
+
+  /* Sections */
+  .help-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .help-section__head { margin-bottom: 40px; }
+  .help-section__eyebrow {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 10px;
+  }
+  .help-section__head h2 {
+    font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px);
+    font-weight: 500; letter-spacing: -0.025em;
+    margin: 0; color: var(--ink);
+  }
+
+  /* Body text */
+  .help-body p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin: 0 0 16px; }
+  .help-body p strong { color: var(--ink); }
+  .help-body h3 {
+    font-family: var(--font-display); font-size: 17px; font-weight: 600;
+    letter-spacing: -0.01em; margin: 36px 0 12px; color: var(--ink);
+  }
+  .help-body ul, .help-body ol {
+    font-size: 15px; line-height: 1.7; color: var(--ink-2);
+    margin: 0 0 16px; padding-left: 24px;
+  }
+  .help-body li { margin-bottom: 6px; }
+  .help-body a { color: var(--ink); }
+
+  /* Flow diagram */
+  .help-flow {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px 28px;
+    font-family: var(--font-mono); font-size: 13px;
+    line-height: 1.8; color: var(--ink-2);
+    margin: 24px 0; overflow-x: auto;
+    white-space: pre;
+  }
+
+  /* Status pill */
+  .help-pill {
+    display: inline-block; padding: 2px 10px; border-radius: 999px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.05em; white-space: nowrap;
+    background: var(--bg-sunk); color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .help-pill--green  { background: oklch(0.95 0.06 145); color: oklch(0.40 0.12 145); border-color: oklch(0.88 0.08 145); }
+  .help-pill--amber  { background: oklch(0.96 0.08 70);  color: oklch(0.45 0.14 70);  border-color: oklch(0.88 0.10 70);  }
+  .help-pill--blue   { background: oklch(0.95 0.06 240); color: oklch(0.40 0.12 240); border-color: oklch(0.88 0.08 240); }
+  .help-pill--grey   { background: var(--bg-sunk);       color: var(--ink-3);         border-color: var(--line);          }
+  [data-theme="dark"] .help-pill--green  { background: oklch(0.22 0.06 145); color: oklch(0.72 0.14 145); border-color: oklch(0.32 0.08 145); }
+  [data-theme="dark"] .help-pill--amber  { background: oklch(0.20 0.07 70);  color: oklch(0.78 0.14 70);  border-color: oklch(0.30 0.09 70);  }
+  [data-theme="dark"] .help-pill--blue   { background: oklch(0.20 0.06 240); color: oklch(0.72 0.12 240); border-color: oklch(0.30 0.08 240); }
+
+  /* Screenshot placeholder */
+  .help-screenshot {
+    margin: 32px 0;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .help-screenshot img { width: 100%; display: block; }
+  .help-screenshot figcaption {
+    padding: 10px 16px; font-size: 12px; font-family: var(--font-mono);
+    letter-spacing: 0.06em; color: var(--ink-3);
+    border-top: 1px solid var(--line); background: var(--bg-sunk);
+  }
+
+  /* Footer */
+  .help-foot {
+    padding: 40px 0; display: flex;
+    justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-3); border-top: 1px solid var(--line);
+  }
+  .help-foot a { color: var(--ink-3); text-decoration: none; }
+  .help-foot a:hover { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .help-toc__list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="help-nav">
+  <div class="help-nav__inner">
+    <a class="help-brand" href="https://staghead.nz">
+      <img src="../../assets/logo-mark.png" alt="Stag Head" width="28" height="28">
+      Budget Pro
+    </a>
+    <a class="help-nav__back" href="https://staghead.nz">← staghead.nz</a>
+  </div>
+</nav>
+
+<div class="help-wrap">
+
+  <!-- ── HERO ── -->
+  <header class="help-hero">
+    <p class="eyebrow"><span class="bar"></span> Documentation</p>
+    <h1>User Guide</h1>
+    <p>Budget Pro extends Microsoft Dynamics&nbsp;365 Business Central with collaborative, dimension-based budgeting — no external platform required.</p>
+    <div class="help-meta">
+      <div class="akc-badge">
+        <span class="akc-badge__label">Publisher</span>
+        <span class="akc-badge__value">Stag Head Limited</span>
+      </div>
+      <div class="akc-badge">
+        <span class="akc-badge__label">Platform</span>
+        <span class="akc-badge__value">Microsoft Dynamics 365 Business Central</span>
+      </div>
+      <div class="akc-badge">
+        <span class="akc-badge__label">Version</span>
+        <span class="akc-badge__value">1.0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── TABLE OF CONTENTS ── -->
+  <nav class="help-toc" aria-label="Table of contents">
+    <p class="help-toc__label">Contents</p>
+    <ol class="help-toc__list">
+      <li><a href="#how-it-works"><span class="help-toc__num">01</span> How it works</a></li>
+      <li><a href="#roles"><span class="help-toc__num">02</span> Roles and permissions</a></li>
+      <li><a href="#setup"><span class="help-toc__num">03</span> Initial setup</a></li>
+      <li><a href="#cycles"><span class="help-toc__num">04</span> Budget Cycles</a></li>
+      <li><a href="#assignments"><span class="help-toc__num">05</span> Budget Assignments</a></li>
+      <li><a href="#excel"><span class="help-toc__num">06</span> The Excel round-trip</a></li>
+      <li><a href="#lifecycle"><span class="help-toc__num">07</span> The approval lifecycle</a></li>
+      <li><a href="#work-queue"><span class="help-toc__num">08</span> Approver Work Queue</a></li>
+      <li><a href="#entries"><span class="help-toc__num">09</span> Budget Entries</a></li>
+      <li><a href="#spread"><span class="help-toc__num">10</span> Spread Budget Entry</a></li>
+      <li><a href="#formulas"><span class="help-toc__num">11</span> Budget Formulas</a></li>
+      <li><a href="#payroll"><span class="help-toc__num">12</span> Payroll Budget module</a></li>
+    </ol>
+  </nav>
+
+  <!-- ── 1. HOW IT WORKS ── -->
+  <section class="help-section" id="how-it-works">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 01</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="help-body">
+      <p>The core idea is <strong>ownership</strong>. Every department head is given a Budget Assignment — a record that scopes them to their dimension slice of a G/L Budget. They can only see and edit entries within that scope.</p>
+      <p>The typical flow looks like this:</p>
+      <pre class="help-flow">Finance sets up a Budget Cycle
+       ↓
+Finance creates Budget Assignments (one per department / owner)
+       ↓
+Owners export their assignment to Excel, enter numbers, import back
+       ↓
+Owners submit for approval
+       ↓
+Approver reviews and approves (or returns for revision)
+       ↓
+Approved entries are dimension-stamped and locked in the G/L Budget</pre>
+      <p>Approved entries carry a dedicated dimension value on a configured approval dimension. This means standard BC Account Schedules and budget vs actuals reports work natively — just filter on the Approved dimension value to see only approved budget figures.</p>
+    </div>
+  </section>
+
+  <!-- ── 2. ROLES ── -->
+  <section class="help-section" id="roles">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 02</p>
+      <h2>Roles and permissions</h2>
+    </div>
+    <div class="help-body">
+      <p>Two permission sets ship with Budget Pro:</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Permission Set</th><th>Who gets it</th><th>What they can do</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Budget Pro - Admin</strong></td>
+            <td>Finance team, budget administrators</td>
+            <td>Full read/write on all Budget Pro tables; create and manage cycles, assignments, formulas, payroll cost types</td>
+          </tr>
+          <tr>
+            <td><strong>Budget Pro - User</strong></td>
+            <td>Department heads, budget owners</td>
+            <td>Submit and view their own assignments; enter payroll budget data; read-only on setup tables</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Assign via the standard BC <strong>Permission Sets</strong> page. Neither role requires SUPER.</p>
+    </div>
+  </section>
+
+  <!-- ── 3. SETUP ── -->
+  <section class="help-section" id="setup">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 03</p>
+      <h2>Initial setup</h2>
+    </div>
+    <div class="help-body">
+      <h3>Budget Approval Setup</h3>
+      <p>Open <strong>Budget Approval Setup</strong> from the Finance Manager or Accounting Manager Role Center under the Budget Pro group. There is one setup record per company.</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>What to enter</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Approval Dimension Code</td><td>The dimension that Budget Pro will use to carry approval state (e.g. a dimension called STATUS or APPROVAL). Must exist in BC Dimensions before setup.</td></tr>
+          <tr><td>Unapproved Dim. Value</td><td>The dimension value stamped on every new budget entry (e.g. UNAPPROVED).</td></tr>
+          <tr><td>Approved Dim. Value</td><td>The dimension value stamped when an entry is approved (e.g. APPROVED).</td></tr>
+          <tr><td>Notification Method</td><td>How workflow notifications are sent: Notification (in-app), Email, or Both.</td></tr>
+          <tr><td>Finance Email</td><td>An email address copied on all submission and approval notification emails.</td></tr>
+        </tbody>
+      </table>
+      <p>The approval dimension slot is separate from the G/L Budget's four Budget Dimensions. It is stamped into the entry's full Dimension Set, so it appears in all standard dimension reports.</p>
+
+      <h3>Payroll Cost Types</h3>
+      <p>If you will be using the Payroll Budget module, open <strong>Payroll Cost Types</strong> from the Role Center and create a row for each payroll cost category you want to budget (e.g. Base Salary, Employer NI, Pension). Link each cost type to the G/L account it should post to when payroll entries are sent to the G/L Budget.</p>
+    </div>
+  </section>
+
+  <!-- ── 4. CYCLES ── -->
+  <section class="help-section" id="cycles">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 04</p>
+      <h2>Budget Cycles</h2>
+    </div>
+    <div class="help-body">
+      <p>A Budget Cycle groups a set of Budget Assignments under a single collection cycle with a submission window.</p>
+      <p>Open <strong>Budget Cycles</strong> from the Role Center.</p>
+
+      <h3>Fields</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Code</td><td>Short identifier (e.g. FY2026)</td></tr>
+          <tr><td>Name</td><td>Display name shown to users</td></tr>
+          <tr><td>Budget Name</td><td>The BC G/L Budget Name this cycle writes to</td></tr>
+          <tr><td>Submission Start / End Date</td><td>The window during which owners can submit</td></tr>
+          <tr><td>Status</td><td>See below</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cycle status flow</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Status</th><th>Meaning</th><th>What Finance does to get here</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Open</td><td>Created, not yet started</td><td>(default on creation)</td></tr>
+          <tr><td>Collecting</td><td>Owners are actively submitting</td><td>Click <strong>Set Collecting</strong></td></tr>
+          <tr><td>In Review</td><td>Submissions closed, Finance reviewing</td><td>Click <strong>Set In Review</strong></td></tr>
+          <tr><td>Closed</td><td>Cycle complete</td><td>Click <strong>Close Cycle</strong></td></tr>
+        </tbody>
+      </table>
+      <p>The Budget Cycle Card shows a live progress panel: total assignments, how many are pending approval, and how many are approved.</p>
+
+      <!-- SCREENSHOT: Budget Cycle Card showing the progress panel -->
+    </div>
+  </section>
+
+  <!-- ── 5. ASSIGNMENTS ── -->
+  <section class="help-section" id="assignments">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 05</p>
+      <h2>Budget Assignments</h2>
+    </div>
+    <div class="help-body">
+      <p>A Budget Assignment is the core record — it links an owner, an approver, a budget name, and a set of dimension filters into a single managed scope.</p>
+      <p>Open <strong>Budget Assignments</strong> from the Role Center.</p>
+
+      <h3>Key fields</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Group</th><th>Field</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>General</td><td>Code</td><td>Unique identifier</td></tr>
+          <tr><td>General</td><td>Description</td><td>Human-readable label</td></tr>
+          <tr><td>General</td><td>Status</td><td>Current lifecycle status (read-only; updated by workflow actions)</td></tr>
+          <tr><td>Budget</td><td>Budget Name</td><td>The BC G/L Budget Name entries are written to</td></tr>
+          <tr><td>Budget</td><td>Budget Cycle Code</td><td>Optional — links this assignment to a cycle</td></tr>
+          <tr><td>Budget</td><td>Budget Start / End Date</td><td>The period this budget covers</td></tr>
+          <tr><td>Budget</td><td>Date Locked</td><td>If ticked, entries outside the start/end date range are blocked on import</td></tr>
+          <tr><td>Budget</td><td>G/L Account Filter</td><td>Restricts which G/L accounts this assignment can contain. Leave blank to allow all.</td></tr>
+          <tr><td>Ownership</td><td>User ID</td><td>The department head responsible for this budget</td></tr>
+          <tr><td>Ownership</td><td>Approver User ID</td><td>The person who approves this budget</td></tr>
+          <tr><td>Dimension Filters</td><td>Budget Dim. 1–4 Value Code</td><td>The dimension values that scope this assignment. Entries are always stamped with these values on import — a user cannot override them via the Excel file.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Assignment status flow</h3>
+      <pre class="help-flow">Open → (first import) → Started
+     → (submit)       → Pending Approval
+     → (approve)      → Approved
+     → (reopen)       → Revised
+     → (re-submit)    → Pending Revision
+     → (approve)      → Approved
+     → (close)        → Closed  ← terminal, no further edits</pre>
+
+      <p>The status is colour-coded in the list view:</p>
+      <ul>
+        <li><span class="help-pill help-pill--green">Approved</span> — Approved</li>
+        <li><span class="help-pill help-pill--amber">Pending Approval</span> / <span class="help-pill help-pill--amber">Pending Revision</span> — Awaiting approver action</li>
+        <li><span class="help-pill help-pill--blue">Revised</span> — Returned for changes</li>
+        <li><span class="help-pill help-pill--grey">Closed</span> — Closed, no further edits</li>
+      </ul>
+      <p>The <strong>Submission Log</strong> FactBox on the Assignment Card records every status change with a timestamp and the user who made it.</p>
+
+      <!-- SCREENSHOT: Budget Assignment Card -->
+    </div>
+  </section>
+
+  <!-- ── 6. EXCEL ── -->
+  <section class="help-section" id="excel">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 06</p>
+      <h2>The Excel round-trip</h2>
+    </div>
+    <div class="help-body">
+      <h3>Export</h3>
+      <p>Open the Budget Assignment Card and click <strong>Export to Excel</strong>.</p>
+      <p>The exported workbook contains:</p>
+      <ul>
+        <li>One row per G/L account matching the assignment's G/L Account Filter (or all accounts if no filter is set)</li>
+        <li>A <strong>Prior Year Actuals</strong> column pre-populated as a reference baseline</li>
+        <li>A <strong>Metadata</strong> sheet with assignment details (read-only)</li>
+        <li>Budget Dimension values locked to the assignment's scope — no need for the user to enter dimensions manually</li>
+      </ul>
+
+      <!-- SCREENSHOT: Exported Excel workbook -->
+
+      <h3>Import</h3>
+      <p>When the owner is ready to submit their numbers, they return the Excel file and use the standard BC <strong>Import Budget from Excel</strong> flow. Budget Pro intercepts the import to:</p>
+      <ol>
+        <li><strong>Validate accounts</strong> — entries for accounts outside the G/L Account Filter are rejected</li>
+        <li><strong>Validate dates</strong> — if Date Locked is ticked, entries outside the budget period are rejected</li>
+        <li><strong>Override dimensions</strong> — dimension values from the Excel file are ignored; the assignment's own dimension values are always stamped instead (prevents injection of incorrect dimension values)</li>
+        <li><strong>Stamp approval dimension</strong> — every imported entry receives the Unapproved Dim. Value</li>
+        <li><strong>Advance status</strong> — the assignment moves from Open → Started on the first successful import</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── 7. LIFECYCLE ── -->
+  <section class="help-section" id="lifecycle">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 07</p>
+      <h2>The approval lifecycle</h2>
+    </div>
+    <div class="help-body">
+      <p>All approval actions are on the Budget Assignment Card action bar.</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Action</th><th>Available when</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Export to Excel</td><td>Open, Started, Revised</td><td>Exports the scoped workbook</td></tr>
+          <tr><td>Send for Approval</td><td>Open, Started, Revised</td><td>Moves status to Pending Approval (or Pending Revision if previously revised); notifies the approver</td></tr>
+          <tr><td>Approve</td><td>Pending Approval, Pending Revision</td><td>Stamps Approved Dim. Value on all entries; locks entries against further editing; notifies the owner</td></tr>
+          <tr><td>Return for Revision</td><td>Pending Approval, Pending Revision</td><td>Moves status to Revised; notifies the owner</td></tr>
+          <tr><td>Reopen</td><td>Approved</td><td>Removes entry locks; reverts entries to Unapproved Dim. Value; moves status to Revised</td></tr>
+          <tr><td>Close</td><td>Any status except Closed</td><td>Permanently closes the assignment; no further submissions or edits are possible</td></tr>
+        </tbody>
+      </table>
+      <p>Notifications are sent according to the method configured in Budget Approval Setup. Email notifications copy the Finance Email address.</p>
+
+      <!-- SCREENSHOT: Budget Assignment Card action bar -->
+    </div>
+  </section>
+
+  <!-- ── 8. WORK QUEUE ── -->
+  <section class="help-section" id="work-queue">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 08</p>
+      <h2>Approver Work Queue</h2>
+    </div>
+    <div class="help-body">
+      <p>Open <strong>My Budget Approvals</strong> from the Role Center (or search for Approver Work Queue).</p>
+      <p>This page shows only the Budget Assignments where you are the approver and the status is <span class="help-pill help-pill--amber">Pending Approval</span> or <span class="help-pill help-pill--amber">Pending Revision</span>. Use this as your daily work queue — you can Approve or Return for Revision directly from the list without opening each assignment card.</p>
+
+      <!-- SCREENSHOT: Approver Work Queue list -->
+    </div>
+  </section>
+
+  <!-- ── 9. ENTRIES ── -->
+  <section class="help-section" id="entries">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 09</p>
+      <h2>Budget Entries</h2>
+    </div>
+    <div class="help-body">
+      <p>From the Budget Assignment Card, click <strong>Budget Entries</strong> to open a filtered view of the G/L Budget Entries for that assignment. You can create, edit, and delete entries directly in BC here — no Excel round-trip required for adjustments.</p>
+      <p>Entries created automatically by Budget Formulas are shown but are not editable; their Amount field is locked (a formula recalculates them whenever the source entry changes).</p>
+      <p>The <strong>Dimensions</strong> action (<kbd>Shift+Ctrl+D</kbd>) lets you view or edit the full dimension set on any entry.</p>
+    </div>
+  </section>
+
+  <!-- ── 10. SPREAD ── -->
+  <section class="help-section" id="spread">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 10</p>
+      <h2>Spread Budget Entry</h2>
+    </div>
+    <div class="help-body">
+      <p>From the Budget Entries page, select a row and click <strong>Spread</strong>. This splits the entry's amount equally across multiple periods, creating one new G/L Budget Entry per period.</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Start Date</td><td>The date of the first generated entry</td></tr>
+          <tr><td>Period Length</td><td>The interval between entries (e.g. <code>1M</code> for monthly, <code>1Q</code> for quarterly)</td></tr>
+          <tr><td>No. of Periods</td><td>How many entries to create</td></tr>
+        </tbody>
+      </table>
+      <p>The amount is divided equally and rounded to the company's Amount Rounding Precision. The original entry is not deleted — delete it manually if you want the spread to replace it rather than add to it.</p>
+    </div>
+  </section>
+
+  <!-- ── 11. FORMULAS ── -->
+  <section class="help-section" id="formulas">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 11</p>
+      <h2>Budget Formulas</h2>
+    </div>
+    <div class="help-body">
+      <p>Budget Formulas let Finance define rules that automatically derive entries on a target G/L account whenever entries are added to a source account. Common uses: overhead allocations, payroll on-costs, departmental roll-ups.</p>
+      <p>Open <strong>Budget Formulas</strong> from the Budget Assignment Card action bar or directly from the Role Center.</p>
+
+      <h3>Formula fields</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Budget Name</td><td>The G/L Budget this formula applies to</td></tr>
+          <tr><td>Source Account</td><td>The account that triggers the formula</td></tr>
+          <tr><td>Operator</td><td>Fixed Price, +, −, ×, or ÷</td></tr>
+          <tr><td>Value</td><td>The operand (used with Fixed Price, Multiply, Add, Subtract, Divide)</td></tr>
+          <tr><td>Target Account</td><td>The account the derived entry is written to</td></tr>
+          <tr><td>Dimension Code / Value</td><td>Optional — if set, the formula only fires when the source entry has this dimension value</td></tr>
+        </tbody>
+      </table>
+
+      <h3>How operators work</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Operator</th><th>Derived amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fixed Price</td><td>Always the configured Value, regardless of the source amount</td></tr>
+          <tr><td>+</td><td>Source amount + Value</td></tr>
+          <tr><td>−</td><td>Source amount − Value</td></tr>
+          <tr><td>×</td><td>Source amount × Value</td></tr>
+          <tr><td>÷</td><td>Source amount ÷ Value (rounded to Amount Rounding Precision)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Behaviour</h3>
+      <ul>
+        <li>Derived entries are created automatically when a source entry is <strong>inserted</strong></li>
+        <li>When a source entry's amount or date changes, existing derived entries are <strong>reversed</strong> (a negating entry is created) and new ones are generated with the updated values</li>
+        <li>When a source entry is <strong>deleted</strong>, its derived entries are reversed</li>
+        <li>When a formula is <strong>modified</strong>, all existing derived entries for that formula are reversed and recreated under the new formula</li>
+        <li>When a formula is <strong>deleted</strong>, all derived entries for that formula are reversed</li>
+        <li>Fixed Price entries are not recalculated when the source entry changes (the amount is independent of the source)</li>
+        <li>Derived entries cannot be edited manually; they are identified by the <strong>Created From Formula</strong> flag</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── 12. PAYROLL ── -->
+  <section class="help-section" id="payroll">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 12</p>
+      <h2>Payroll Budget module</h2>
+    </div>
+    <div class="help-body">
+      <p>The Payroll Budget module lets budget owners enter detailed payroll costs by employee and cost type, then roll them up into the G/L Budget as aggregated entries.</p>
+
+      <h3>Payroll Cost Types</h3>
+      <p>Set up under <strong>Payroll Cost Types</strong> (Role Center or search). Each cost type represents a category of payroll cost (e.g. Base Salary, Employer NI, Pension) and links to the G/L account entries are posted to when rolled up.</p>
+
+      <h3>Payroll Budget Worksheet</h3>
+      <p>From the Budget Assignment Card, click <strong>Payroll Budget</strong> to open the worksheet for that assignment.</p>
+      <p>Enter one row per payroll item:</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Employee No.</td><td>The employee this entry relates to</td></tr>
+          <tr><td>Employee Name</td><td>Filled automatically from the employee record</td></tr>
+          <tr><td>Payroll Cost Type</td><td>The cost category (links to the G/L account)</td></tr>
+          <tr><td>Date</td><td>The period date</td></tr>
+          <tr><td>Amount</td><td>The budgeted amount</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Roll-up By</h3>
+      <p>On the Budget Assignment, the <strong>Payroll Roll-up By</strong> field controls how payroll entries are aggregated when sent to the G/L Budget:</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Option</th><th>How entries are created</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Cost Type</strong></td><td>One G/L Budget Entry per Cost Type + Date combination, summing across all employees</td></tr>
+          <tr><td><strong>Employee</strong></td><td>One G/L Budget Entry per Employee + Cost Type + Date combination</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Sending to the G/L Budget</h3>
+      <p>Click <strong>Send to G/L Budget</strong> on the worksheet toolbar. Budget Pro aggregates the payroll entries according to the Roll-up By setting and inserts G/L Budget Entries. After sending, you are offered the option to clear the payroll worksheet entries. If you decline, the worksheet entries remain and can be sent again (useful if you want to adjust and re-send).</p>
+      <p>If Budget Formulas are configured on the payroll G/L accounts, those formulas will fire automatically when the G/L Budget Entries are created, generating any downstream derived entries (e.g. an employer NI percentage formula).</p>
+
+      <!-- SCREENSHOT: Payroll Budget Worksheet -->
+    </div>
+  </section>
+
+  <!-- ── TIPS ── -->
+  <section class="help-section" id="tips">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">Tips</p>
+      <h2>Tips &amp; tricks</h2>
+    </div>
+    <div class="help-body">
+      <ul>
+        <li><strong>Approved-only reporting:</strong> In Account Schedules or the standard BC Budget page, filter on your Approved Dim. Value to report on approved budget figures only. Entries that have not yet been approved carry the Unapproved Dim. Value and will be excluded.</li>
+        <li><strong>Adjusting an approved budget:</strong> Use <strong>Reopen</strong> on the Assignment Card. This removes the entry locks and reverts entries to the Unapproved Dim. Value. The owner can then modify entries and re-submit.</li>
+        <li><strong>The G/L Account Filter:</strong> Use this to restrict a budget owner to a subset of accounts (e.g. only expense accounts 6000–6999). Enter a standard BC filter expression. Entries outside the filter are rejected on import.</li>
+        <li><strong>Date Locked:</strong> Tick this on the assignment and set the Budget Start/End Date to prevent owners from importing entries for dates outside the agreed budget period.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="help-foot">
+    <div>Budget Pro &nbsp;·&nbsp; User Guide &nbsp;·&nbsp; Stag Head Limited</div>
+    <div>
+      <a href="https://staghead.nz/privacy">Privacy</a> &nbsp;·&nbsp;
+      <a href="https://staghead.nz/eula">EULA</a> &nbsp;·&nbsp;
+      <a href="mailto:craig@staghead.nz">craig@staghead.nz</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Minimal theme support — reads from localStorage set by main site
+  (function () {
+    try {
+      const s = JSON.parse(localStorage.getItem('sh.tweaks') || '{}');
+      if (s.theme) document.documentElement.setAttribute('data-theme', s.theme);
+      if (s.accentHue) document.documentElement.style.setProperty('--accent-h', s.accentHue);
+    } catch (e) {}
+  })();
+</script>
+
+</body>
+</html>
