@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "route": "/budget-pro/help",    "rewrite": "/budget-pro/help.html" },
+    { "route": "/budget-pro/support", "rewrite": "/budget-pro/support.html" }
+  ]
+}
