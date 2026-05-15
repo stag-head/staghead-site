@@ -8,7 +8,6 @@
 <meta name="author" content="Stag Head">
 <meta name="theme-color" content="#0A0A0A">
 
-<!-- Open Graph / social -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Stag Head — Business Central Contract Development">
 <meta property="og:description" content="An extra pair of Business Central hands. Independent contract developer based in New Zealand, working worldwide.">
@@ -19,69 +18,144 @@
 <meta name="twitter:description" content="An extra pair of Business Central hands.">
 <meta name="twitter:image" content="https://staghead.nz/assets/og-image.png">
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles/tokens.css">
-<link rel="stylesheet" href="styles/variations.css">
-<style>
-  .route { display: none; }
-  .route.is-active { display: block; animation: fadeup .4s ease both; }
-
-  .tweaks {
-    position: fixed; right: 20px; bottom: 20px; z-index: 100;
-    background: var(--bg-elev); border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 14px 16px;
-    box-shadow: 0 20px 40px -20px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.04);
-    font-family: var(--font-mono); font-size: 11px;
-    width: 260px;
-    display: none;
-  }
-  .tweaks.is-open { display: block; }
-  .tweaks h4 { margin: 0 0 10px; font-family: var(--font-display); font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 600; }
-  .tweaks .row { display: flex; align-items: center; justify-content: space-between; margin: 8px 0; color: var(--ink-2); }
-  .tweaks .row label { letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }
-  .tweaks .swatches { display: flex; gap: 6px; }
-  .tweaks .sw { width: 22px; height: 22px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: transform .15s ease; }
-  .tweaks .sw:hover { transform: scale(1.1); }
-  .tweaks .sw.is-active { border-color: var(--ink); }
-  .tweaks .toggle { background: var(--bg-sunk); border: 1px solid var(--line); border-radius: 999px; display: flex; padding: 2px; }
-  .tweaks .toggle button { background: transparent; border: 0; cursor: pointer; padding: 4px 10px; border-radius: 999px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
-  .tweaks .toggle button.is-active { background: var(--ink); color: var(--bg); }
-
-  /* Simplified top nav — just Home & About now */
-  .nav-variants a { text-transform: none !important; font-family: var(--font-body) !important; letter-spacing: 0 !important; font-size: 13px !important; padding: 6px 14px !important; }
-</style>
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="topnav__inner">
-    <a class="brand" href="#home" aria-label="Stag Head">
-      <img class="brand__logo" src="assets/logo-mark.png" alt="" width="36" height="36">
-      <span class="brand__text">STAG<b>HEAD</b></span>
-    </a>
+<div id="nav-placeholder"></div>
 
-    <div class="nav-variants" role="tablist">
-      <a href="#home" data-route="home" class="is-active">Home</a>
-      <a href="#about" data-route="about">About</a>
+<main>
+<div class="v2">
+
+  <section class="v2-hero">
+    <div class="v2-hex-bg" aria-hidden="true">
+      <svg id="hex-svg" class="hex-lattice" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice"></svg>
     </div>
+    <div class="shell">
+      <p class="v2-eyebrow"><span class="bar"></span> Stag Head · Business Central contract development</p>
+      <h1 class="v2-h1">
+        An extra pair of <span class="amber">Business Central</span> <span class="stroke">hands.</span>
+      </h1>
+      <p class="v2-sub">
+        I&rsquo;m an independent contract developer specialising in Microsoft Dynamics 365
+        Business Central. I work with companies running BC in-house who want help with their
+        implementation, and with partners who need short-term resource when things get busy.
+      </p>
+      <div class="v2-actions">
+        <a href="#contact" class="cta-btn">Start a conversation →</a>
+        <a href="/about.html" class="cta-btn cta-btn--ghost">Read the about</a>
+      </div>
+    </div>
+  </section>
 
-    <a href="#contact" class="cta-btn">Start a conversation →</a>
+  <div class="v2-marquee" aria-hidden="true">
+    <div class="v2-marquee__track">
+      <span>In-house BC support</span><span>Partner overflow</span><span>AL Extensions</span>
+      <span>Reports &amp; layouts</span><span>Small integrations</span><span>Named resource</span>
+      <span>White-label</span>
+      <span>In-house BC support</span><span>Partner overflow</span><span>AL Extensions</span>
+      <span>Reports &amp; layouts</span><span>Small integrations</span><span>Named resource</span>
+      <span>White-label</span>
+    </div>
   </div>
-</nav>
 
-<main id="app">
-  <section class="route is-active" data-screen-label="Home" id="route-home"></section>
-  <section class="route" data-screen-label="About" id="route-about"></section>
-  <section class="route" data-screen-label="Akahu Marketing" id="route-akahu-marketing"></section>
-  <section class="route" data-screen-label="Akahu Consumer" id="route-akahu-consumer"></section>
-  <section class="route" data-screen-label="Akahu Setup" id="route-akahu-setup"></section>
-  <section class="route" data-screen-label="Extension EULA" id="route-extension-eula"></section>
-  <section class="route" data-screen-label="Extension Privacy" id="route-extension-privacy"></section>
+  <section class="shell v2-grid">
+    <div>
+      <span class="eyebrow">§ 01 · Who I work with</span>
+      <h2>Two ways to work <em>together.</em></h2>
+    </div>
+    <div class="v2-cards">
+      <div class="v2-card">
+        <div class="n">01 — For end-users</div>
+        <h3>In-house BC support</h3>
+        <p>You&rsquo;ve implemented Business Central and you&rsquo;d rather not build a full
+          development team around it. I can sit alongside your internal folks — a few days a
+          week, or a few weeks on a project.</p>
+        <ul>
+          <li>Tweaks, fixes &amp; small enhancements</li>
+          <li>AL extensions on your tenant</li>
+          <li>Reports and document layouts</li>
+          <li>Day-to-day BAU support</li>
+        </ul>
+      </div>
+      <div class="v2-card">
+        <div class="n">02 — For partners</div>
+        <h3>Short-term resource</h3>
+        <p>You&rsquo;re a Microsoft partner or BC vendor and a project needs another pair of
+          hands for a few weeks. I slot in under your brand, on a defined piece of work.</p>
+        <ul>
+          <li>Named resource on your project</li>
+          <li>White-label — invisible to your client</li>
+          <li>Fixed scope or time &amp; materials</li>
+          <li>NDAs signed on request</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell v2-engage">
+    <div>
+      <span class="eyebrow">§ 02 · How it works</span>
+      <h2>A typical <em>engagement.</em></h2>
+      <p class="lead">Nothing fancy. A short conversation, a one-page plan, then hands on
+        keyboard. You should always know where things are.</p>
+    </div>
+    <ol class="v2-steps">
+      <li>
+        <div class="step-n">STEP 01</div>
+        <div class="step-h">A short call</div>
+        <div class="step-p">Thirty minutes. You describe what&rsquo;s on your mind; I tell you honestly whether I can help.</div>
+      </li>
+      <li>
+        <div class="step-n">STEP 02</div>
+        <div class="step-h">A one-page plan</div>
+        <div class="step-p">Scope, approach, rough dates, price. Short enough to read on your phone — on purpose.</div>
+      </li>
+      <li>
+        <div class="step-n">STEP 03</div>
+        <div class="step-h">Access &amp; setup</div>
+        <div class="step-p">Sandbox, source control, anything else I need. Usually done the same day you send invites.</div>
+      </li>
+      <li>
+        <div class="step-n">STEP 04</div>
+        <div class="step-h">Build</div>
+        <div class="step-p">Focused work on the agreed items. End-of-day notes when I&rsquo;m coding; weekly demos.</div>
+      </li>
+      <li>
+        <div class="step-n">STEP 05</div>
+        <div class="step-h">Handover</div>
+        <div class="step-p">A written summary, tidy commits, and anything your team needs to pick things up cleanly.</div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="shell v2-quote">
+    <blockquote>
+      I keep things <span class="amber">small,</span> written down, and easy to hand over.
+    </blockquote>
+    <cite><span class="bar"></span><b>How I like to work</b> &nbsp;·&nbsp; nothing dramatic</cite>
+  </section>
+
+  <section class="shell v2-cta" data-contact>
+    <h3>Short engagements. <em>Long memories.</em></h3>
+    <a href="mailto:craig@staghead.nz" class="cta-btn">craig@staghead.nz →</a>
+    <div class="mono-detail">Usually replies within one business day · Based in New Zealand · Working worldwide</div>
+  </section>
+
+  <footer class="v2-foot">
+    <div><span class="mono">Stag Head · Contract Software Development</span></div>
+    <div class="mono">© 2026 · All rights reserved</div>
+  </footer>
+
+</div>
 </main>
 
 <div class="tweaks" id="tweaks">
@@ -102,14 +176,22 @@
   </div>
 </div>
 
-<script src="src/variations/monolith.js"></script>
-<script src="src/variations/about.js"></script>
-<script src="src/variations/akahu-marketing.js"></script>
-<script src="src/variations/akahu-consumer.js"></script>
-<script src="src/variations/akahu-setup.js"></script>
-<script src="src/variations/extension-eula.js"></script>
-<script src="src/variations/extension-privacy.js"></script>
-<script src="src/app.js"></script>
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+<script>
+(function(){
+  var hexes=[], size=60, w=size*Math.sqrt(3), h=size*2;
+  for(var row=-1; row<14; row++){
+    for(var col=-1; col<22; col++){
+      var x=col*w+(row%2?w/2:0), y=row*h*0.75, pts=[];
+      for(var i=0;i<6;i++){var a=(Math.PI/3)*i-Math.PI/2;pts.push((x+size*Math.cos(a)).toFixed(1)+','+(y+size*Math.sin(a)).toFixed(1));}
+      var cls=(row===3&&col===5)||(row===7&&col===12)?'accent-hex':'';
+      hexes.push('<polygon class="'+cls+'" points="'+pts.join(' ')+'"/>');
+    }
+  }
+  document.getElementById('hex-svg').innerHTML=hexes.join('');
+})();
+</script>
 
 </body>
 </html>

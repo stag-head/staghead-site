@@ -1,6 +1,28 @@
-/* Akahu Banking for Business Central: Setup Help Page */
-window.SH_AkahuSetup = function () {
-  return `
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akahu Setup Guide — Stag Head</title>
+<meta name="description" content="Step-by-step instructions for connecting Microsoft Dynamics 365 Business Central to Akahu open banking.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main>
 <div class="akahu-consumer">
 
   <section class="shell akc-hero">
@@ -176,7 +198,7 @@ window.SH_AkahuSetup = function () {
     <div class="shell akc-akahu-inner">
       <div class="akc-akahu-logo">
         <div class="akc-akahu-logo__mark">
-          <img src="assets/akahu-logo.png" alt="Akahu" width="64" height="64">
+          <img src="/assets/akahu-logo.png" alt="Akahu" width="64" height="64">
         </div>
         <span class="akc-akahu-logo__name">Akahu</span>
       </div>
@@ -194,5 +216,28 @@ window.SH_AkahuSetup = function () {
   </footer>
 
 </div>
-  `;
-};
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>
