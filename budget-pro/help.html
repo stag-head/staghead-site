@@ -110,16 +110,24 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
           <tr>
             <td><strong>Budget Pro - Admin</strong></td>
             <td>Finance team, budget administrators</td>
-            <td>Full read/write on all Budget Pro tables; create and manage cycles, assignments, formulas, payroll cost types</td>
+            <td>Full read/write on all Budget Pro tables; create and manage cycles, assignments, formulas, payroll cost types; see all budget assignments regardless of ownership</td>
           </tr>
           <tr>
             <td><strong>Budget Pro - User</strong></td>
             <td>Department heads, budget owners</td>
-            <td>Submit and view their own assignments; enter payroll budget data; read-only on setup tables</td>
+            <td>See only their own assignments and assignments they are the approver for; submit and export; enter payroll budget data; read-only on setup tables</td>
           </tr>
         </tbody>
       </table>
       <p>Assign via the standard BC <strong>Permission Sets</strong> page. Neither role requires SUPER.</p>
+
+      <h3>Visibility scoping</h3>
+      <p>Budget assignment visibility is automatically scoped by user:</p>
+      <ul>
+        <li><strong>Budget Administrators</strong> see every assignment in the company — the full picture across all departments and owners.</li>
+        <li><strong>All other users</strong> see only assignments where they are the <strong>owner</strong> (User ID) or the <strong>approver</strong> (Approver User ID). A department head cannot see another department's budget. An approver can see the assignments they are responsible for reviewing alongside their own.</li>
+      </ul>
+      <p>This scoping is enforced at the list level and cannot be bypassed by filtering.</p>
     </div>
   </section>
 
@@ -145,6 +153,16 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         </tbody>
       </table>
       <p>The approval dimension slot is separate from the G/L Budget's four Budget Dimensions. It is stamped into the entry's full Dimension Set, so it appears in all standard dimension reports.</p>
+
+      <h3>Budget Administrator flag</h3>
+      <p>To grant a user full visibility over all budget assignments, tick the <strong>Budget Administrator</strong> field on their User Setup record:</p>
+      <ol>
+        <li>Search for <strong>User Setup</strong> in BC</li>
+        <li>Open the row for the relevant user</li>
+        <li>Tick <strong>Budget Administrator</strong></li>
+      </ol>
+      <p>Users with this flag see every budget assignment in the company. Users without it see only their own assignments and those assigned to them for approval. Typically this flag is set for Finance Managers and senior approvers who need a consolidated view.</p>
+      <p><em>Note: modifying the Budget Administrator flag requires the Budget Pro - Admin permission set.</em></p>
 
       <h3>Payroll Cost Types</h3>
       <p>If you will be using the Payroll Budget module, open <strong>Payroll Cost Types</strong> from the Role Center and create a row for each payroll cost category you want to budget (e.g. Base Salary, Employer NI, Pension). Link each cost type to the G/L account it should post to when payroll entries are sent to the G/L Budget.</p>
@@ -189,7 +207,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </table>
       <p>The Budget Cycle Card shows a live progress panel: total assignments, how many are pending approval, and how many are approved.</p>
 
-      <!-- SCREENSHOT: Budget Cycle Card showing the progress panel -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Cycle Card showing the progress panel</span>
+        </div>
+        <figcaption>Budget Cycle Card — submission progress panel</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -241,7 +265,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </ul>
       <p>The <strong>Submission Log</strong> FactBox on the Assignment Card records every status change with a timestamp and the user who made it.</p>
 
-      <!-- SCREENSHOT: Budget Assignment Card -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Assignment Card</span>
+        </div>
+        <figcaption>Budget Assignment Card</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -262,7 +292,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         <li>Budget Dimension values locked to the assignment's scope — no need for the user to enter dimensions manually</li>
       </ul>
 
-      <!-- SCREENSHOT: Exported Excel workbook -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Exported Excel workbook showing prior-year actuals column</span>
+        </div>
+        <figcaption>Exported Excel workbook — prior-year actuals reference column</figcaption>
+      </figure>
 
       <h3>Import</h3>
       <p>When the owner is ready to submit their numbers, they return the Excel file and use the standard BC <strong>Import Budget from Excel</strong> flow. Budget Pro intercepts the import to:</p>
@@ -299,7 +335,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </table>
       <p>Notifications are sent according to the method configured in Budget Approval Setup. Email notifications copy the Finance Email address.</p>
 
-      <!-- SCREENSHOT: Budget Assignment Card action bar -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Assignment Card action bar showing approval workflow actions</span>
+        </div>
+        <figcaption>Budget Assignment Card — approval workflow actions</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -313,7 +355,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       <p>Open <strong>My Budget Approvals</strong> from the Role Center (or search for Approver Work Queue).</p>
       <p>This page shows only the Budget Assignments where you are the approver and the status is <span class="help-pill help-pill--amber">Pending Approval</span> or <span class="help-pill help-pill--amber">Pending Revision</span>. Use this as your daily work queue — you can Approve or Return for Revision directly from the list without opening each assignment card.</p>
 
-      <!-- SCREENSHOT: Approver Work Queue list -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Approver Work Queue list</span>
+        </div>
+        <figcaption>Approver Work Queue — pending submissions</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -448,7 +496,13 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       <p>Click <strong>Send to G/L Budget</strong> on the worksheet toolbar. Budget Pro aggregates the payroll entries according to the Roll-up By setting and inserts G/L Budget Entries. After sending, you are offered the option to clear the payroll worksheet entries. If you decline, the worksheet entries remain and can be sent again (useful if you want to adjust and re-send).</p>
       <p>If Budget Formulas are configured on the payroll G/L accounts, those formulas will fire automatically when the G/L Budget Entries are created, generating any downstream derived entries (e.g. an employer NI percentage formula).</p>
 
-      <!-- SCREENSHOT: Payroll Budget Worksheet -->
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Payroll Budget Worksheet</span>
+        </div>
+        <figcaption>Payroll Budget Worksheet</figcaption>
+      </figure>
     </div>
   </section>
 
