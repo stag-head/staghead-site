@@ -1,7 +1,8 @@
 {
   "routes": [
-    { "route": "/budget-pro/help",    "rewrite": "/budget-pro/help.html" },
-    { "route": "/budget-pro/support", "rewrite": "/budget-pro/support.html" },
+    { "route": "/budget-pro/help",        "rewrite": "/budget-pro/help.html" },
+    { "route": "/budget-pro/walkthrough", "rewrite": "/budget-pro/walkthrough.html" },
+    { "route": "/budget-pro/support",     "rewrite": "/budget-pro/support.html" },
     { "route": "/eula",               "rewrite": "/eula.html" },
     { "route": "/privacy",            "rewrite": "/privacy.html" }
   ]

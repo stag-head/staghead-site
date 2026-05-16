@@ -77,15 +77,22 @@
       <h2>How it works</h2>
     </div>
     <div class="help-body">
-      <p>The core idea is <strong>ownership</strong>. Every department head is given a Budget Assignment — a record that scopes them to their dimension slice of a G/L Budget. They can only see and edit entries within that scope.</p>
+      <p>The core idea is <strong>owned, private budgeting</strong>. Every budget owner is given a Budget Assignment — a record that scopes them to their dimension slice of a G/L Budget. They enter their own numbers, submit for approval, and track their status. That is all they can see and do.</p>
+
+      <div class="help-feature">
+        <p class="help-feature__label">Core feature — private by design</p>
+        <p>A budget owner sees <strong>only their own assignment</strong>. They cannot see any colleague's figures, any other department's entries, or any other assignment in the company. Their budget is entirely private to them.</p>
+        <p>Only two groups can see an owner's assignment: their designated <strong>approver</strong> (who needs to review it) and <strong>Finance administrators</strong> (who oversee the whole process). Everyone else — including other budget owners — sees nothing.</p>
+      </div>
+
       <p>The typical flow looks like this:</p>
       <pre class="help-flow">Finance sets up a Budget Cycle
        ↓
-Finance creates Budget Assignments (one per department / owner)
+Finance creates Budget Assignments (one per owner — privately scoped)
        ↓
 Owners export their assignment to Excel, enter numbers, import back
        ↓
-Owners submit for approval
+Owners submit for approval  ← only the approver can now see it
        ↓
 Approver reviews and approves (or returns for revision)
        ↓
@@ -121,13 +128,34 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </table>
       <p>Assign via the standard BC <strong>Permission Sets</strong> page. Neither role requires SUPER.</p>
 
-      <h3>Visibility scoping</h3>
-      <p>Budget assignment visibility is automatically scoped by user:</p>
-      <ul>
-        <li><strong>Budget Administrators</strong> see every assignment in the company — the full picture across all departments and owners.</li>
-        <li><strong>All other users</strong> see only assignments where they are the <strong>owner</strong> (User ID) or the <strong>approver</strong> (Approver User ID). A department head cannot see another department's budget. An approver can see the assignments they are responsible for reviewing alongside their own.</li>
-      </ul>
-      <p>This scoping is enforced at the list level and cannot be bypassed by filtering.</p>
+      <h3>Who can see what</h3>
+      <p>Visibility is automatically scoped the moment a user opens Budget Assignments. There is no filter to apply or setting to configure — the right data appears for the right person, every time.</p>
+      <table class="help-vis-table">
+        <thead>
+          <tr><th>Who</th><th>What they see</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Budget owner</td>
+            <td>Their own assignment only — nothing else in the company</td>
+            <td>Owners should enter their own figures in private. They cannot view, compare against, or be influenced by anyone else's numbers.</td>
+          </tr>
+          <tr>
+            <td>Approver</td>
+            <td>Their own assignment(s) plus all assignments assigned to them for approval</td>
+            <td>Approvers need to see submissions in their queue in order to review and act on them — but only the submissions they are responsible for.</td>
+          </tr>
+          <tr>
+            <td>Budget Administrator</td>
+            <td>Every assignment in the company</td>
+            <td>Finance Managers and senior administrators need the full consolidated view to track submission progress across all departments.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="help-feature">
+        <p class="help-feature__label">Enforced — not optional</p>
+        <p>This scoping is applied at the database level when the page opens. It is <strong>not a filter the user can remove</strong>. A budget owner has no mechanism — through BC, through filtering, or otherwise — to view another owner's assignment or entries.</p>
+      </div>
     </div>
   </section>
 
@@ -265,12 +293,21 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </ul>
       <p>The <strong>Submission Log</strong> FactBox on the Assignment Card records every status change with a timestamp and the user who made it.</p>
 
+      <h3>Private by design</h3>
+      <p>When a user opens the Budget Assignment list, they see only the assignments relevant to them. This is not a filter — it is how the list always works:</p>
+      <ul>
+        <li>If you are the <strong>owner</strong> of one assignment, you see one row. You cannot see your colleagues' assignments, other departments' budgets, or anything else in the list.</li>
+        <li>If you are an <strong>approver</strong> for several owners, you see your own assignment(s) plus those you need to review — nothing more.</li>
+        <li>If you are a <strong>Finance Administrator</strong>, you see every assignment in the company.</li>
+      </ul>
+      <p>This means budget owners can work with confidence that their figures are private until they choose to submit them. No one can see a draft in progress — not a colleague, not a manager — until the owner clicks <strong>Send for Approval</strong>, at which point only the designated approver gains visibility.</p>
+
       <figure class="help-screenshot help-screenshot--pending">
         <div class="help-screenshot__placeholder">
           <span class="help-screenshot__icon">📷</span>
           <span class="help-screenshot__label">Screenshot: Budget Assignment Card</span>
         </div>
-        <figcaption>Budget Assignment Card</figcaption>
+        <figcaption>Budget Assignment Card — the owner's private workspace</figcaption>
       </figure>
     </div>
   </section>

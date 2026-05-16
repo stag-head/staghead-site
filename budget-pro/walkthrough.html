@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budget Pro — FY2027 Walkthrough</title>
+<meta name="description" content="A worked example showing how Penny, Steve, Sam and Rachel use Budget Pro to build and approve the FY2027 budget in Microsoft Dynamics 365 Business Central.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/variations.css">
+<link rel="stylesheet" href="../styles/budget-pro.css">
+</head>
+<body>
+
+<nav class="help-nav">
+  <div class="help-nav__inner">
+    <a class="help-brand" href="https://staghead.nz">
+      <img src="../assets/logo-mark.png" alt="Stag Head" width="28" height="28">
+      Budget Pro
+    </a>
+    <a class="help-nav__back" href="/budget-pro/help">← User Guide</a>
+  </div>
+</nav>
+
+<div class="help-wrap">
+
+  <!-- ── HERO ── -->
+  <header class="help-hero">
+    <p class="eyebrow"><span class="bar"></span> Walkthrough</p>
+    <h1>FY2027 Budget in&nbsp;Action</h1>
+    <p>A worked example showing how a Finance Manager, a department head, and two salespeople use Budget Pro to build, submit, and approve the FY2027 budget — without leaving Business Central.</p>
+    <div class="help-meta">
+      <div class="akc-badge">
+        <span class="akc-badge__label">Scenario</span>
+        <span class="akc-badge__value">Sales Department — FY2027</span>
+      </div>
+      <div class="akc-badge">
+        <span class="akc-badge__label">See also</span>
+        <span class="akc-badge__value"><a href="/budget-pro/help" style="color:inherit">Full User Guide</a></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── CAST ── -->
+  <section class="help-section" id="cast">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 01</p>
+      <h2>Meet the team</h2>
+    </div>
+    <div class="help-body">
+      <p>Northgate Trading Co. is preparing its FY2027 annual budget. Four people are involved in the Sales department process.</p>
+      <div class="wt-cast">
+        <div class="wt-cast-card">
+          <div class="wt-avatar wt-avatar--penny">PP</div>
+          <div class="wt-cast-card__body">
+            <p class="wt-cast-card__name">Penny Profit</p>
+            <p class="wt-cast-card__role">Finance Manager</p>
+            <p class="wt-cast-card__desc">Penny owns the budgeting process. She sets up Budget Pro, creates the FY2027 cycle, and assigns budget responsibilities to the team. She approves Steve's submission and has full visibility over all assignments.</p>
+          </div>
+        </div>
+        <div class="wt-cast-card">
+          <div class="wt-avatar wt-avatar--steve">SS</div>
+          <div class="wt-cast-card__body">
+            <p class="wt-cast-card__name">Steve Strategy</p>
+            <p class="wt-cast-card__role">Sales Department Head</p>
+            <p class="wt-cast-card__desc">Steve is responsible for the Sales department budget. He submits department-level expenses such as administration, travel, and software. He is also the approver for Sam and Rachel's individual revenue assignments.</p>
+          </div>
+        </div>
+        <div class="wt-cast-card">
+          <div class="wt-avatar wt-avatar--sam">SS</div>
+          <div class="wt-cast-card__body">
+            <p class="wt-cast-card__name">Sam Sales</p>
+            <p class="wt-cast-card__role">Salesperson</p>
+            <p class="wt-cast-card__desc">Sam handles a portfolio of accounts and is responsible for budgeting their expected sales revenue for FY2027. They export their assigned template to Excel, enter monthly figures, and submit to Steve for approval.</p>
+          </div>
+        </div>
+        <div class="wt-cast-card">
+          <div class="wt-avatar wt-avatar--rachel">RR</div>
+          <div class="wt-cast-card__body">
+            <p class="wt-cast-card__name">Rachel Revenue</p>
+            <p class="wt-cast-card__role">Salesperson</p>
+            <p class="wt-cast-card__desc">Rachel manages a separate account portfolio and follows the same process as Sam — entering and submitting her revenue budget figures through the Excel round-trip workflow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE 1: PENNY SETS UP ── -->
+  <section class="help-section" id="penny-setup">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 02</p>
+      <h2>Penny sets up FY2027</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--penny">PP</div>
+        <div>
+          <p class="wt-actor__name">Penny Profit</p>
+          <p class="wt-actor__role">Finance Manager · Budget Pro Admin</p>
+        </div>
+      </div>
+
+      <h3>Budget Approval Setup</h3>
+      <p>Before creating any assignments, Penny checks that the Budget Approval Setup is configured correctly. She opens it from her Finance Manager Role Center. The setup was done once when Budget Pro was first installed — she confirms the approval dimension is set to <strong>BUDGSTATUS</strong>, with unapproved entries stamped <strong>DRAFT</strong> and approved entries stamped <strong>APPROVED</strong>.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Approval Setup card</span>
+        </div>
+        <figcaption>Budget Approval Setup — Penny confirms the approval dimension and dimension values</figcaption>
+      </figure>
+
+      <h3>Creating the FY2027 Budget Cycle</h3>
+      <p>Penny opens <strong>Budget Cycles</strong> and creates a new cycle for the year:</p>
+      <table class="akc-table">
+        <thead><tr><th>Field</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Code</td><td>FY2027</td></tr>
+          <tr><td>Name</td><td>Financial Year 2027</td></tr>
+          <tr><td>Budget Name</td><td>FY2027</td></tr>
+          <tr><td>Submission Start Date</td><td>01/11/2026</td></tr>
+          <tr><td>Submission End Date</td><td>30/11/2026</td></tr>
+          <tr><td>Status</td><td>Open (changed to Collecting when ready)</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: FY2027 Budget Cycle card</span>
+        </div>
+        <figcaption>FY2027 Budget Cycle — submission window set to November 2026</figcaption>
+      </figure>
+
+      <h3>Creating Budget Assignments</h3>
+      <p>Penny creates three Budget Assignments — one for each person who will be submitting figures. All three are linked to the FY2027 cycle and the FY2027 G/L Budget, and all are scoped to the <strong>SALES</strong> department dimension.</p>
+      <table class="akc-table">
+        <thead><tr><th>Code</th><th>Owner</th><th>Covers</th><th>Approver</th></tr></thead>
+        <tbody>
+          <tr><td>SALES-SAM</td><td>Sam Sales</td><td>Sales revenue — Sam's accounts</td><td>Steve Strategy</td></tr>
+          <tr><td>SALES-RACHEL</td><td>Rachel Revenue</td><td>Sales revenue — Rachel's accounts</td><td>Steve Strategy</td></tr>
+          <tr><td>SALES-STEVE</td><td>Steve Strategy</td><td>Dept expenses — admin, travel, software</td><td>Penny Profit</td></tr>
+        </tbody>
+      </table>
+      <p>Each assignment has a G/L Account Filter set so owners can only import entries for the accounts relevant to their scope — revenue accounts for Sam and Rachel, expense accounts for Steve.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Assignment List showing all three assignments</span>
+        </div>
+        <figcaption>Budget Assignment List — Penny's admin view showing all three assignments</figcaption>
+      </figure>
+
+      <h3>Marking Steve as Budget Administrator</h3>
+      <p>Because Steve needs to see Sam and Rachel's assignments to review and approve them, Penny checks that Steve's User Setup has <strong>Budget Administrator</strong> ticked. Without this, Steve would only see SALES-STEVE in his list. With it ticked, he sees all three.</p>
+      <div class="wt-callout">
+        <strong>Note:</strong> Sam and Rachel do not need this flag. They will only ever see their own assignment — SALES-SAM and SALES-RACHEL respectively — which is exactly the right level of visibility for budget owners.
+      </div>
+
+      <p>With setup complete, Penny clicks <strong>Set Collecting</strong> on the FY2027 cycle to open the submission window and notifies the team that budgets are due by 30 November.</p>
+    </div>
+  </section>
+
+  <!-- ── SCENE 2: SAM ── -->
+  <section class="help-section" id="sam-budget">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 03</p>
+      <h2>Sam enters her revenue budget</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--sam">SS</div>
+        <div>
+          <p class="wt-actor__name">Sam Sales</p>
+          <p class="wt-actor__role">Salesperson · Budget Pro User</p>
+        </div>
+      </div>
+
+      <p>Sam logs into Business Central and opens <strong>Budget Assignments</strong> from the Role Center. The list shows only one row — <strong>SALES-SAM</strong>. There is no way for Sam to see Rachel's figures or Steve's department expenses.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Sam's Budget Assignment List — showing only SALES-SAM</span>
+        </div>
+        <figcaption>Sam's view — only her own assignment is visible</figcaption>
+      </figure>
+
+      <p>Sam opens the SALES-SAM assignment card and clicks <strong>Export to Excel</strong>. The downloaded workbook contains:</p>
+      <ul>
+        <li>One row per revenue account she is permitted to budget</li>
+        <li>A <strong>Prior Year Actuals</strong> column pre-populated with last year's figures as a reference baseline</li>
+        <li>Twelve monthly columns for FY2027 (Jan–Dec 2027)</li>
+        <li>A read-only Metadata sheet confirming the assignment details</li>
+      </ul>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Sam's exported Excel workbook with prior-year actuals column</span>
+        </div>
+        <figcaption>Exported workbook — prior-year actuals alongside the monthly input columns</figcaption>
+      </figure>
+
+      <p>Sam fills in her monthly sales revenue figures based on her pipeline and the prior-year reference. When done, she uses <strong>Import Budget from Excel</strong> in BC to import the file. Budget Pro validates the accounts and dates, overrides the dimension values from the file with SALES-SAM's own dimension settings, and stamps every entry with the DRAFT approval dimension value. The assignment status moves from <strong>Open</strong> to <strong>Started</strong>.</p>
+      <p>Sam reviews her imported figures in the <strong>Budget Entries</strong> view, makes one adjustment directly in BC, then clicks <strong>Send for Approval</strong>. The status moves to <strong>Pending Approval</strong> and Steve receives a notification that Sam's budget is waiting for his review.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: SALES-SAM assignment card showing Pending Approval status</span>
+        </div>
+        <figcaption>SALES-SAM — status moves to Pending Approval after Sam submits</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── SCENE 3: RACHEL ── -->
+  <section class="help-section" id="rachel-budget">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 04</p>
+      <h2>Rachel enters her revenue budget</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--rachel">RR</div>
+        <div>
+          <p class="wt-actor__name">Rachel Revenue</p>
+          <p class="wt-actor__role">Salesperson · Budget Pro User</p>
+        </div>
+      </div>
+
+      <p>Rachel follows the same process as Sam — she logs in, opens her Budget Assignment, exports to Excel, enters her monthly revenue figures for her account portfolio, and imports the file back into BC.</p>
+      <p>Rachel's workbook shows a different prior-year actuals baseline reflecting her own accounts. Like Sam's assignment, the dimension values in the Excel file are ignored on import — Budget Pro always stamps the values configured on SALES-RACHEL, so Rachel cannot accidentally post entries to the wrong department or dimension combination.</p>
+      <p>Rachel submits for approval. Her assignment status moves to <strong>Pending Approval</strong> and Steve is notified again — both Sam and Rachel's budgets are now waiting for his review.</p>
+    </div>
+  </section>
+
+  <!-- ── SCENE 4: STEVE REVIEWS ── -->
+  <section class="help-section" id="steve-review">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 05</p>
+      <h2>Steve reviews and approves</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--steve">SS</div>
+        <div>
+          <p class="wt-actor__name">Steve Strategy</p>
+          <p class="wt-actor__role">Sales Department Head · Budget Pro Admin</p>
+        </div>
+      </div>
+
+      <p>Steve opens his <strong>Approver Work Queue</strong> from the Role Center. It shows the two assignments pending his review — SALES-SAM and SALES-RACHEL. His own assignment, SALES-STEVE, is not shown here because it is not pending approval.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Steve's Approver Work Queue showing SALES-SAM and SALES-RACHEL</span>
+        </div>
+        <figcaption>Steve's Approver Work Queue — two submissions awaiting review</figcaption>
+      </figure>
+
+      <h3>Approving Sam's budget</h3>
+      <p>Steve opens SALES-SAM and reviews Sam's figures in the Budget Entries view. The numbers look reasonable against the prior-year actuals and Steve's expectations for her accounts. He clicks <strong>Approve</strong>. Budget Pro immediately:</p>
+      <ol class="wt-steps">
+        <li>Stamps every entry with the <strong>APPROVED</strong> dimension value, replacing DRAFT</li>
+        <li>Locks the entries against further editing or re-import</li>
+        <li>Records the approval in the Submission Log with a timestamp</li>
+        <li>Notifies Sam that her budget has been approved</li>
+      </ol>
+      <p>SALES-SAM status is now <span class="help-pill help-pill--green">Approved</span>.</p>
+
+      <h3>Returning Rachel's budget for revision</h3>
+      <p>Steve opens SALES-RACHEL. Rachel's Q4 figures look significantly higher than her prior-year actuals with no obvious explanation. Steve clicks <strong>Return for Revision</strong>. The status moves to <span class="help-pill help-pill--blue">Revised</span> and Rachel receives a notification asking her to review her Q4 figures.</p>
+      <p>Rachel updates her Q4 numbers — she had accidentally entered annual targets rather than quarterly figures — and resubmits. The status moves to <span class="help-pill help-pill--amber">Pending Revision</span>. Steve reviews the corrected figures and clicks <strong>Approve</strong>. SALES-RACHEL is now <span class="help-pill help-pill--green">Approved</span>.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Assignment List showing SALES-SAM and SALES-RACHEL both Approved</span>
+        </div>
+        <figcaption>Both revenue assignments approved — entries locked and stamped APPROVED</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── SCENE 5: STEVE SUBMITS HIS OWN ── -->
+  <section class="help-section" id="steve-submit">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 06</p>
+      <h2>Steve submits department expenses</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--steve">SS</div>
+        <div>
+          <p class="wt-actor__name">Steve Strategy</p>
+          <p class="wt-actor__role">Sales Department Head · Budget Owner</p>
+        </div>
+      </div>
+
+      <p>With his team's revenue budgets approved, Steve turns to his own assignment — SALES-STEVE — which covers the Sales department's operating expenses.</p>
+      <p>Steve opens the Budget Entries view directly in BC and enters his department-level costs for FY2027:</p>
+      <table class="akc-table">
+        <thead><tr><th>Category</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>Administration</td><td>Office supplies, postage, printing</td></tr>
+          <tr><td>Travel &amp; Entertainment</td><td>Client visits, team travel, entertainment</td></tr>
+          <tr><td>Software &amp; Subscriptions</td><td>CRM licences, sales tools</td></tr>
+          <tr><td>Phone &amp; Communications</td><td>Mobile plans, conferencing</td></tr>
+          <tr><td>Training</td><td>Sales training, conferences</td></tr>
+        </tbody>
+      </table>
+      <p>For his larger line items Steve uses the <strong>Spread</strong> function to distribute an annual amount equally across twelve monthly entries, rather than entering each month manually.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: SALES-STEVE Budget Entries view</span>
+        </div>
+        <figcaption>SALES-STEVE — Steve enters department expense entries directly in BC</figcaption>
+      </figure>
+
+      <p>When he is satisfied with his figures, Steve clicks <strong>Send for Approval</strong>. The assignment status moves to <span class="help-pill help-pill--amber">Pending Approval</span> and Penny receives a notification that the Sales department expense budget is ready for her review.</p>
+    </div>
+  </section>
+
+  <!-- ── SCENE 6: PENNY APPROVES ── -->
+  <section class="help-section" id="penny-approve">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 07</p>
+      <h2>Penny reviews and closes the cycle</h2>
+    </div>
+    <div class="help-body">
+      <div class="wt-actor">
+        <div class="wt-avatar wt-avatar--penny">PP</div>
+        <div>
+          <p class="wt-actor__name">Penny Profit</p>
+          <p class="wt-actor__role">Finance Manager · Budget Pro Admin</p>
+        </div>
+      </div>
+
+      <p>Penny opens the Budget Assignment List. Because she is a Budget Administrator she sees all three assignments — she can see the full picture at a glance.</p>
+      <table class="akc-table">
+        <thead><tr><th>Assignment</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>SALES-SAM</td><td>Sam Sales</td><td><span class="help-pill help-pill--green">Approved</span></td></tr>
+          <tr><td>SALES-RACHEL</td><td>Rachel Revenue</td><td><span class="help-pill help-pill--green">Approved</span></td></tr>
+          <tr><td>SALES-STEVE</td><td>Steve Strategy</td><td><span class="help-pill help-pill--amber">Pending Approval</span></td></tr>
+        </tbody>
+      </table>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Penny's Budget Assignment List showing all three assignments and their statuses</span>
+        </div>
+        <figcaption>Penny's admin view — the full Sales department picture in one list</figcaption>
+      </figure>
+
+      <p>Penny opens SALES-STEVE, reviews Steve's expense figures against historical spend and the company's strategic plan for FY2027. She is satisfied and clicks <strong>Approve</strong>. All three Sales department assignments are now <span class="help-pill help-pill--green">Approved</span> and every entry in the FY2027 G/L Budget for the Sales dimension is locked and stamped <strong>APPROVED</strong>.</p>
+
+      <h3>Approved-only reporting</h3>
+      <p>Because the approval state is carried as a dimension value on each G/L Budget Entry, Penny can run the standard BC <strong>Budget vs Actuals</strong> report or any Account Schedule and simply filter on the APPROVED dimension value to report on committed, approved figures only. Entries that were never submitted — or were submitted but not yet approved — carry the DRAFT value and are automatically excluded from the filtered view.</p>
+      <p>No custom reports are needed. The approved Sales department budget for FY2027 flows natively into every BC report that supports dimension filtering.</p>
+
+      <div class="wt-callout">
+        <strong>Final step:</strong> Penny clicks <strong>Set In Review</strong> on the FY2027 cycle to signal that the submission window has closed and the Finance team is consolidating figures across all departments. Once all departments are approved she will click <strong>Close Cycle</strong> to mark FY2027 as complete.
+      </div>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: FY2027 Budget Cycle card showing all assignments approved and cycle In Review</span>
+        </div>
+        <figcaption>FY2027 cycle — all Sales assignments approved, cycle moved to In Review</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── SUMMARY ── -->
+  <section class="help-section" id="summary">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 08</p>
+      <h2>What just happened</h2>
+    </div>
+    <div class="help-body">
+      <p>The entire FY2027 Sales department budget was collected, reviewed, and approved without leaving Business Central — no spreadsheets emailed back and forth, no manual consolidation, no risk of overwritten entries.</p>
+      <ul>
+        <li><strong>Sam and Rachel</strong> only ever saw their own assignments. They could not view each other's figures or Steve's department expenses.</li>
+        <li><strong>Steve</strong> saw all three assignments because Penny flagged him as a Budget Administrator — giving him the consolidated view he needs as department head.</li>
+        <li><strong>Penny</strong> had full visibility throughout and a single approval action locked and stamped the final entries.</li>
+        <li><strong>Approved entries</strong> are now available in standard BC reporting via a simple dimension filter — no custom reports required.</li>
+      </ul>
+      <p>Ready to go deeper? The <a href="/budget-pro/help">full User Guide</a> covers every field, status, and configuration option in detail.</p>
+    </div>
+  </section>
+
+</div><!-- /.help-wrap -->
+
+<footer class="help-wrap help-foot">
+  <span>Budget Pro by Stag Head Limited</span>
+  <span>
+    <a href="/budget-pro/help">User Guide</a> ·
+    <a href="/budget-pro/support">Support</a> ·
+    <a href="/privacy">Privacy</a> ·
+    <a href="/eula">EULA</a>
+  </span>
+</footer>
+
+</body>
+</html>
