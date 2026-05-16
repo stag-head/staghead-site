@@ -1,4 +1,10 @@
 {
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html",
+      "statusCode": 404
+    }
+  },
   "routes": [
     { "route": "/budget-pro/help",        "rewrite": "/budget-pro/help.html" },
     { "route": "/budget-pro/walkthrough", "rewrite": "/budget-pro/walkthrough.html" },
