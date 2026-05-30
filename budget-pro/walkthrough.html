@@ -85,7 +85,7 @@
           <div class="wt-cast-card__body">
             <p class="wt-cast-card__name">Rachel Revenue</p>
             <p class="wt-cast-card__role">Salesperson</p>
-            <p class="wt-cast-card__desc">Rachel manages a separate account portfolio and follows the same process as Sam — entering and submitting her revenue budget figures through the Excel round-trip workflow.</p>
+            <p class="wt-cast-card__desc">Rachel manages a separate account portfolio and enters her revenue budget figures directly in Business Central — no spreadsheet required. She uses the Budget Entries page and Enter Split Amount to build her monthly figures and submit to Steve for approval.</p>
           </div>
         </div>
       </div>
@@ -211,7 +211,7 @@
         <figcaption>Exported workbook — prior-year actuals alongside the monthly input columns</figcaption>
       </figure>
 
-      <p>Sam fills in her monthly sales revenue figures based on her pipeline and the prior-year reference. When done, she uses <strong>Import Budget from Excel</strong> in BC to import the file. Budget Pro validates the accounts and dates, overrides the dimension values from the file with SALES-SAM's own dimension settings, and stamps every entry with the DRAFT approval dimension value. The assignment status moves from <strong>Open</strong> to <strong>Started</strong>.</p>
+      <p>Sam fills in her monthly sales revenue figures based on her pipeline and the prior-year reference. When done, she returns to the Budget Assignment Card and clicks <strong>Import from Excel</strong>. Budget Pro validates the accounts and dates, overrides the dimension values from the file with SALES-SAM's own dimension settings, and stamps every entry with the DRAFT approval dimension value. The assignment status moves from <strong>Open</strong> to <strong>Started</strong>. If she needs to start over at any point, <strong>Delete Budget</strong> removes all entries for her assignment after confirmation.</p>
       <p>Sam reviews her imported figures in the <strong>Budget Entries</strong> view, makes one adjustment directly in BC, then clicks <strong>Send for Approval</strong>. The status moves to <strong>Pending Approval</strong> and Steve receives a notification that Sam's budget is waiting for his review.</p>
 
       <figure class="help-screenshot help-screenshot--pending">
@@ -239,9 +239,22 @@
         </div>
       </div>
 
-      <p>Rachel follows the same process as Sam — she logs in, opens her Budget Assignment, exports to Excel, enters her monthly revenue figures for her account portfolio, and imports the file back into BC.</p>
-      <p>Rachel's workbook shows a different prior-year actuals baseline reflecting her own accounts. Like Sam's assignment, the dimension values in the Excel file are ignored on import — Budget Pro always stamps the values configured on SALES-RACHEL, so Rachel cannot accidentally post entries to the wrong department or dimension combination.</p>
-      <p>Rachel submits for approval. Her assignment status moves to <strong>Pending Approval</strong> and Steve is notified again — both Sam and Rachel's budgets are now waiting for his review.</p>
+      <p>Rachel logs into Business Central and opens <strong>Budget Assignments</strong> from the Role Center. Like Sam, she sees only one row — <strong>SALES-RACHEL</strong>.</p>
+      <p>Rachel prefers to work entirely in BC rather than through a spreadsheet. She clicks <strong>Budget Entries</strong> on the Assignment Card to open her entry view. The page is pre-filtered to her assignment — every new row is automatically stamped with her dimension values, the SALES-RACHEL assignment code, and the DRAFT approval status. She just needs to enter the account, the date, and the amount.</p>
+      <p>For accounts where she wants to spread an annual figure evenly across twelve months, Rachel uses <strong>Enter Split Amount</strong> from the Assignment Card. She picks the account, enters the total annual target, sets Period Length to <code>1M</code> and No. of Periods to <code>12</code>, and Budget Pro creates twelve equal monthly entries in one step — stamped with her assignment's dimensions and the DRAFT status.</p>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Rachel's Budget Entries view showing monthly entries per account</span>
+        </div>
+        <figcaption>Rachel's Budget Entries — entered directly in BC, no spreadsheet required</figcaption>
+      </figure>
+
+      <p>When her figures are complete, Rachel clicks <strong>Send for Approval</strong> on the Assignment Card. Her status moves to <strong>Pending Approval</strong> and Steve is notified — both Sam and Rachel's budgets are now waiting for his review.</p>
+      <div class="wt-callout">
+        <strong>Same result, different path:</strong> Rachel's entries are identical in every way to Sam's imported entries — same dimension values, same approval stamping, same locked-in assignment code. The choice between Excel and direct BC entry is purely a matter of personal workflow preference.
+      </div>
     </div>
   </section>
 
@@ -282,7 +295,7 @@
 
       <h3>Returning Rachel's budget for revision</h3>
       <p>Steve opens SALES-RACHEL. Rachel's Q4 figures look significantly higher than her prior-year actuals with no obvious explanation. Steve clicks <strong>Return for Revision</strong>. The status moves to <span class="help-pill help-pill--blue">Revised</span> and Rachel receives a notification asking her to review her Q4 figures.</p>
-      <p>Rachel updates her Q4 numbers — she had accidentally entered annual targets rather than quarterly figures — and resubmits. The status moves to <span class="help-pill help-pill--amber">Pending Revision</span>. Steve reviews the corrected figures and clicks <strong>Approve</strong>. SALES-RACHEL is now <span class="help-pill help-pill--green">Approved</span>.</p>
+      <p>Rachel opens her Budget Entries, corrects the Q4 figures directly in BC — she had entered annual targets rather than quarterly figures — and resubmits. The status moves to <span class="help-pill help-pill--amber">Pending Revision</span>. Steve reviews the corrected figures and clicks <strong>Approve</strong>. SALES-RACHEL is now <span class="help-pill help-pill--green">Approved</span>.</p>
 
       <figure class="help-screenshot help-screenshot--pending">
         <div class="help-screenshot__placeholder">
@@ -321,7 +334,7 @@
           <tr><td>Training</td><td>Sales training, conferences</td></tr>
         </tbody>
       </table>
-      <p>For his larger line items Steve uses the <strong>Spread</strong> function to distribute an annual amount equally across twelve monthly entries, rather than entering each month manually.</p>
+      <p>For his larger line items Steve uses <strong>Enter Split Amount</strong> from the Assignment Card — he picks an account, enters the total annual figure, sets Period Length to <code>1M</code> and No. of Periods to 12, and Budget Pro creates twelve equal monthly entries in one step. For entries he has already created individually he can use the <strong>Spread</strong> function in the Budget Entries view to achieve the same result from an existing row.</p>
 
       <figure class="help-screenshot help-screenshot--pending">
         <div class="help-screenshot__placeholder">
@@ -397,6 +410,7 @@
     <div class="help-body">
       <p>The entire FY2027 Sales department budget was collected, reviewed, and approved without leaving Business Central — no spreadsheets emailed back and forth, no manual consolidation, no risk of overwritten entries.</p>
       <ul>
+        <li><strong>Sam</strong> used the Excel round-trip — she exported her template, filled in figures offline, and imported back into BC. <strong>Rachel</strong> entered her figures directly in the Budget Entries page, never leaving BC. Both approaches produced identical, correctly-stamped entries.</li>
         <li><strong>Sam and Rachel</strong> only ever saw their own assignments. They could not view each other's figures or Steve's department expenses.</li>
         <li><strong>Steve</strong> saw all three assignments because Penny flagged him as a Budget Administrator — giving him the consolidated view he needs as department head.</li>
         <li><strong>Penny</strong> had full visibility throughout and a single approval action locked and stamped the final entries.</li>

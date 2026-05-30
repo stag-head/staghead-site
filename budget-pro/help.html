@@ -60,11 +60,11 @@
       <li><a href="#setup"><span class="help-toc__num">03</span> Initial setup</a></li>
       <li><a href="#cycles"><span class="help-toc__num">04</span> Budget Cycles</a></li>
       <li><a href="#assignments"><span class="help-toc__num">05</span> Budget Assignments</a></li>
-      <li><a href="#excel"><span class="help-toc__num">06</span> The Excel round-trip</a></li>
+      <li><a href="#excel"><span class="help-toc__num">06</span> Entering via Excel</a></li>
       <li><a href="#lifecycle"><span class="help-toc__num">07</span> The approval lifecycle</a></li>
       <li><a href="#work-queue"><span class="help-toc__num">08</span> Approver Work Queue</a></li>
-      <li><a href="#entries"><span class="help-toc__num">09</span> Budget Entries</a></li>
-      <li><a href="#spread"><span class="help-toc__num">10</span> Spread Budget Entry</a></li>
+      <li><a href="#entries"><span class="help-toc__num">09</span> Entering directly in BC</a></li>
+      <li><a href="#spread"><span class="help-toc__num">10</span> Spread / Enter Split Amount</a></li>
       <li><a href="#formulas"><span class="help-toc__num">11</span> Budget Formulas</a></li>
       <li><a href="#payroll"><span class="help-toc__num">12</span> Payroll Budget module</a></li>
     </ol>
@@ -90,7 +90,7 @@
        ↓
 Finance creates Budget Assignments (one per owner — privately scoped)
        ↓
-Owners export their assignment to Excel, enter numbers, import back
+Owners enter their numbers — directly in BC or via the Excel round-trip
        ↓
 Owners submit for approval  ← only the approver can now see it
        ↓
@@ -316,9 +316,11 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
   <section class="help-section" id="excel">
     <div class="help-section__head">
       <p class="help-section__eyebrow">§ 06</p>
-      <h2>The Excel round-trip</h2>
+      <h2>Entering via Excel</h2>
     </div>
     <div class="help-body">
+      <p>Budget owners can enter their numbers in two ways: via the <strong>Excel round-trip</strong> (export, fill in offline, import back), or <strong>directly in BC</strong> using the Budget Entries page (see <a href="#entries">§ 09</a>). Both produce identical, fully-stamped G/L Budget Entries. Choose whichever suits the owner's workflow — Excel for familiarity and offline flexibility, direct BC entry for a faster in-system experience.</p>
+
       <h3>Export</h3>
       <p>Open the Budget Assignment Card and click <strong>Export to Excel</strong>.</p>
       <p>The exported workbook contains:</p>
@@ -338,7 +340,7 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </figure>
 
       <h3>Import</h3>
-      <p>When the owner is ready to submit their numbers, they return the Excel file and use the standard BC <strong>Import Budget from Excel</strong> flow. Budget Pro intercepts the import to:</p>
+      <p>When the owner is ready to submit their numbers, they return to the Budget Assignment Card and click <strong>Import from Excel</strong>. This runs BC's standard Import Budget from Excel report pre-filtered to the assignment's Budget Name. Budget Pro intercepts the import to:</p>
       <ol>
         <li><strong>Validate accounts</strong> — entries for accounts outside the G/L Account Filter are rejected</li>
         <li><strong>Validate dates</strong> — if Date Locked is ticked, entries outside the budget period are rejected</li>
@@ -346,6 +348,9 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         <li><strong>Stamp approval dimension</strong> — every imported entry receives the Unapproved Dim. Value</li>
         <li><strong>Advance status</strong> — the assignment moves from Open → Started on the first successful import</li>
       </ol>
+
+      <h3>Delete Budget</h3>
+      <p>To clear all entries and start over, click <strong>Delete Budget</strong> on the Budget Assignment Card. After confirmation, all G/L Budget Entries for the assignment are deleted. Available when the assignment is Open, Started, or Revised.</p>
     </div>
   </section>
 
@@ -363,6 +368,10 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         </thead>
         <tbody>
           <tr><td>Export to Excel</td><td>Open, Started, Revised</td><td>Exports the scoped workbook</td></tr>
+          <tr><td>Import from Excel</td><td>Open, Started, Revised</td><td>Runs BC's Import Budget from Excel pre-filtered to this assignment's Budget Name</td></tr>
+          <tr><td>Delete Budget</td><td>Open, Started, Revised</td><td>Deletes all G/L Budget Entries for this assignment after confirmation</td></tr>
+          <tr><td>Copy Budget</td><td>Open, Started, Revised</td><td>Opens BC's Copy G/L Budget report pre-filtered to this assignment's Budget Name</td></tr>
+          <tr><td>Enter Split Amount</td><td>Open, Started, Revised</td><td>Creates budget entries for a G/L account split equally across multiple periods — without requiring an existing entry</td></tr>
           <tr><td>Send for Approval</td><td>Open, Started, Revised</td><td>Moves status to Pending Approval (or Pending Revision if previously revised); notifies the approver</td></tr>
           <tr><td>Approve</td><td>Pending Approval, Pending Revision</td><td>Stamps Approved Dim. Value on all entries; locks entries against further editing; notifies the owner</td></tr>
           <tr><td>Return for Revision</td><td>Pending Approval, Pending Revision</td><td>Moves status to Revised; notifies the owner</td></tr>
@@ -406,23 +415,63 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
   <section class="help-section" id="entries">
     <div class="help-section__head">
       <p class="help-section__eyebrow">§ 09</p>
-      <h2>Budget Entries</h2>
+      <h2>Entering directly in BC</h2>
     </div>
     <div class="help-body">
-      <p>From the Budget Assignment Card, click <strong>Budget Entries</strong> to open a filtered view of the G/L Budget Entries for that assignment. You can create, edit, and delete entries directly in BC here — no Excel round-trip required for adjustments.</p>
-      <p>Entries created automatically by Budget Formulas are shown but are not editable; their Amount field is locked (a formula recalculates them whenever the source entry changes).</p>
-      <p>The <strong>Dimensions</strong> action (<kbd>Shift+Ctrl+D</kbd>) lets you view or edit the full dimension set on any entry.</p>
+      <p>The Budget Entries page is a full alternative to the Excel round-trip. Owners who prefer to stay in Business Central can enter, edit, and manage all their budget figures directly here — no spreadsheet required.</p>
+
+      <h3>Opening Budget Entries</h3>
+      <p>From the Budget Assignment Card, click <strong>Budget Entries</strong>. The page opens pre-filtered to the current assignment — you will only see entries that belong to your assignment, and every new row is automatically stamped with your assignment's dimension values and the DRAFT approval status. You do not need to enter dimension values manually.</p>
+
+      <h3>Creating entries</h3>
+      <p>Each row in the Budget Entries page represents a single G/L Budget Entry. To add a line:</p>
+      <ol>
+        <li>Select a new row at the bottom of the list</li>
+        <li>Enter the <strong>Date</strong> (the budget period — typically the first of a month)</li>
+        <li>Enter the <strong>G/L Account No.</strong> (filtered by the assignment's G/L Account Filter if one is set)</li>
+        <li>Enter an optional <strong>Description</strong></li>
+        <li>Enter the <strong>Amount</strong></li>
+      </ol>
+      <p>Budget Pro handles everything else: dimension values, assignment code, approval stamping, and formula entries are all applied automatically.</p>
+
+      <h3>Editing and deleting entries</h3>
+      <p>Entries can be edited in place when the assignment is Open, Started, or Revised. Click any amount field and type the new value. To delete a row, select it and press Delete. Entries generated automatically by Budget Formulas are shown but cannot be edited — their Amount field is locked, and they are recalculated automatically when the source entry changes.</p>
+
+      <h3>When to use direct entry vs Excel</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Scenario</th><th>Recommended approach</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Entering figures for a handful of accounts</td><td>Direct BC entry — faster for small sets of lines</td></tr>
+          <tr><td>Building a detailed budget across many accounts</td><td>Excel round-trip — easier to review and adjust offline</td></tr>
+          <tr><td>Adjusting a single entry after import</td><td>Direct BC entry — no need to re-export and re-import</td></tr>
+          <tr><td>Working offline or sharing a file for review</td><td>Excel round-trip</td></tr>
+          <tr><td>Using prior-year actuals as a reference while entering</td><td>Excel round-trip — actuals column is pre-populated in the export</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="help-screenshot help-screenshot--pending">
+        <div class="help-screenshot__placeholder">
+          <span class="help-screenshot__icon">📷</span>
+          <span class="help-screenshot__label">Screenshot: Budget Entries page showing monthly rows entered directly in BC</span>
+        </div>
+        <figcaption>Budget Entries page — direct entry with dimensions pre-stamped from the assignment</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ── 10. SPREAD ── -->
+  <!-- ── 10. SPREAD / SPLIT ── -->
   <section class="help-section" id="spread">
     <div class="help-section__head">
       <p class="help-section__eyebrow">§ 10</p>
-      <h2>Spread Budget Entry</h2>
+      <h2>Spread Budget Entry / Enter Split Amount</h2>
     </div>
     <div class="help-body">
-      <p>From the Budget Entries page, select a row and click <strong>Spread</strong>. This splits the entry's amount equally across multiple periods, creating one new G/L Budget Entry per period.</p>
+      <p>Two complementary shortcuts for creating budget entries spread equally across multiple periods.</p>
+
+      <h3>Spread Budget Entry</h3>
+      <p>From the Budget Entries page, select a row and click <strong>Spread</strong>. This takes the existing entry's amount and creates one new G/L Budget Entry per period.</p>
       <table class="akc-table">
         <thead>
           <tr><th>Field</th><th>Description</th></tr>
@@ -434,6 +483,22 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         </tbody>
       </table>
       <p>The amount is divided equally and rounded to the company's Amount Rounding Precision. The original entry is not deleted — delete it manually if you want the spread to replace it rather than add to it.</p>
+
+      <h3>Enter Split Amount</h3>
+      <p>From the Budget Assignment Card, click <strong>Enter Split Amount</strong>. This creates split entries from scratch — no existing entry needed. Useful when you know the total amount you want to budget for an account and want to distribute it across months in one step.</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Account No.</td><td>The G/L account to create entries for (filtered by the assignment's G/L Account Filter if set)</td></tr>
+          <tr><td>Total Amount</td><td>The total amount to split equally across all periods</td></tr>
+          <tr><td>Start Date</td><td>The date of the first generated entry (defaults to the assignment's Budget Start Date)</td></tr>
+          <tr><td>Period Length</td><td>The interval between entries (e.g. <code>1M</code> for monthly, <code>1Q</code> for quarterly)</td></tr>
+          <tr><td>No. of Periods</td><td>How many entries to create (defaults to 12)</td></tr>
+        </tbody>
+      </table>
+      <p>Each entry is stamped with the assignment's dimension values and the Unapproved dimension value. If the assignment was Open, it advances to Started.</p>
     </div>
   </section>
 

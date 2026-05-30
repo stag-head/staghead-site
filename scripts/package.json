@@ -1,0 +1,10 @@
+{
+  "name": "staghead-scripts",
+  "private": true,
+  "scripts": {
+    "screenshots": "node bc-screenshots.js"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}
