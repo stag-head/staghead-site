@@ -108,13 +108,10 @@
       </div>
 
       <h3>Budget Approval Setup</h3>
-      <p>Before creating any assignments, Penny checks that the Budget Approval Setup is configured correctly. She opens it from her Finance Manager Role Center. The setup was done once when Budget Pro was first installed — she confirms the approval dimension is set to <strong>BUDGSTATUS</strong>, with unapproved entries stamped <strong>DRAFT</strong> and approved entries stamped <strong>APPROVED</strong>.</p>
+      <p>Before creating any assignments, Penny checks that the Budget Approval Setup is configured correctly. She opens it from her Finance Manager Role Center. The setup was done once when Budget Pro was first installed — she confirms the approval dimension is set to <strong>BUDGET</strong>, with unapproved entries stamped <strong>DRAFT</strong> and approved entries stamped <strong>APPROVED</strong>.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Approval Setup card</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/01-approval-setup.png" alt="Budget Approval Setup card showing approval dimension BUDGET with DRAFT and APPROVED dimension values">
         <figcaption>Budget Approval Setup — Penny confirms the approval dimension and dimension values</figcaption>
       </figure>
 
@@ -132,11 +129,8 @@
         </tbody>
       </table>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: FY2027 Budget Cycle card</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/02-budget-cycle-collecting.png" alt="FY2027 Budget Cycle card showing Collecting status and submission window dates">
         <figcaption>FY2027 Budget Cycle — submission window set to January–March 2026</figcaption>
       </figure>
 
@@ -152,18 +146,13 @@
       </table>
       <p>Each assignment has a G/L Account Filter set so owners can only import entries for the accounts relevant to their scope — revenue accounts for Sam and Rachel, expense accounts for Steve.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Assignment List showing all three assignments</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/03-assignment-list-admin.png" alt="Budget Assignment List showing all three assignments — SALES-RACHEL, SALES-SAM, and SALES-STEVE — as seen by a Budget Administrator">
         <figcaption>Budget Assignment List — Penny's admin view showing all three assignments</figcaption>
       </figure>
 
-      <h3>Marking Steve as Budget Administrator</h3>
-      <p>Because Steve needs to see Sam and Rachel's assignments to review and approve them, Penny checks that Steve's User Setup has <strong>Budget Administrator</strong> ticked. Without this, Steve would only see SALES-STEVE in his list. With it ticked, he sees all three.</p>
       <div class="wt-callout">
-        <strong>Note:</strong> Sam and Rachel do not need this flag. They will only ever see their own assignment — SALES-SAM and SALES-RACHEL respectively — which is exactly the right level of visibility for budget owners.
+        <strong>Visibility by role:</strong> Each person sees only the assignments relevant to them. Sam and Rachel each see only their own assignment. Steve sees all three — SALES-STEVE because he owns it, and SALES-SAM and SALES-RACHEL because he is their named approver. Penny, as Finance Manager, is marked as <strong>Budget Administrator</strong> in User Setup, which gives her full visibility across all assignments regardless of ownership or approver relationship.
       </div>
 
       <p>With setup complete, Penny clicks <strong>Set Collecting</strong> on the FY2027 cycle to open the submission window and notifies the team that budgets are due by 30 November.</p>
@@ -187,11 +176,8 @@
 
       <p>Sam logs into Business Central and opens <strong>Budget Assignments</strong> from the Role Center. The list shows only one row — <strong>SALES-SAM</strong>. There is no way for Sam to see Rachel's figures or Steve's department expenses.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Sam's Budget Assignment List — showing only SALES-SAM</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/04-assignment-list-sam.png" alt="Sam's Budget Assignment List showing only SALES-SAM with Approved status">
         <figcaption>Sam's view — only her own assignment is visible</figcaption>
       </figure>
 
@@ -203,22 +189,16 @@
         <li>A read-only Metadata sheet confirming the assignment details</li>
       </ul>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Sam's exported Excel workbook with prior-year actuals column</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/05-excel-export.png" alt="Exported Excel workbook showing account rows, PY Actual column, and twelve monthly budget input columns">
         <figcaption>Exported workbook — prior-year actuals alongside the monthly input columns</figcaption>
       </figure>
 
       <p>Sam fills in her monthly sales revenue figures based on her pipeline and the prior-year reference. When done, she returns to the Budget Assignment Card and clicks <strong>Import from Excel</strong>. Budget Pro validates the accounts and dates, overrides the dimension values from the file with SALES-SAM's own dimension settings, and stamps every entry with the DRAFT approval dimension value. The assignment status moves from <strong>Open</strong> to <strong>Started</strong>. If she needs to start over at any point, <strong>Delete Budget</strong> removes all entries for her assignment after confirmation.</p>
       <p>Sam reviews her imported figures in the <strong>Budget Entries</strong> view, makes one adjustment directly in BC, then clicks <strong>Send for Approval</strong>. The status moves to <strong>Pending Approval</strong> and Steve receives a notification that Sam's budget is waiting for his review.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: SALES-SAM assignment card showing Pending Approval status</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/06-assignment-pending.png" alt="SALES-SAM Budget Assignment Card showing Pending Approval status with submission log on the right">
         <figcaption>SALES-SAM — status moves to Pending Approval after Sam submits</figcaption>
       </figure>
     </div>
@@ -243,17 +223,14 @@
       <p>Rachel prefers to work entirely in BC rather than through a spreadsheet. She clicks <strong>Budget Entries</strong> on the Assignment Card to open her entry view. The page is pre-filtered to her assignment — every new row is automatically stamped with her dimension values, the SALES-RACHEL assignment code, and the DRAFT approval status. She just needs to enter the account, the date, and the amount.</p>
       <p>For accounts where she wants to spread an annual figure evenly across twelve months, Rachel uses <strong>Enter Split Amount</strong> from the Assignment Card. She picks the account, enters the total annual target, sets Period Length to <code>1M</code> and No. of Periods to <code>12</code>, and Budget Pro creates twelve equal monthly entries in one step — stamped with her assignment's dimensions and the DRAFT status.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Rachel's Budget Entries view showing monthly entries per account</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/07-budget-entries-direct.png" alt="SALES-RACHEL Budget Entry matrix showing multiple sales account rows with monthly amounts entered across April to August 2026">
         <figcaption>Rachel's Budget Entries — entered directly in BC, no spreadsheet required</figcaption>
       </figure>
 
       <p>When her figures are complete, Rachel clicks <strong>Send for Approval</strong> on the Assignment Card. Her status moves to <strong>Pending Approval</strong> and Steve is notified — both Sam and Rachel's budgets are now waiting for his review.</p>
       <div class="wt-callout">
-        <strong>Same result, different path:</strong> Rachel's entries are identical in every way to Sam's imported entries — same dimension values, same approval stamping, same locked-in assignment code. The choice between Excel and direct BC entry is purely a matter of personal workflow preference.
+        <strong>Same result, different path:</strong> Rachel's entries carry her own assignment's dimension values — different from Sam's — but are processed through exactly the same rules: approval dimension stamped as DRAFT, assignment code locked in, accounts validated against her G/L Account Filter. The choice between Excel and direct BC entry is purely a matter of personal workflow preference.
       </div>
     </div>
   </section>
@@ -275,12 +252,21 @@
 
       <p>Steve opens his <strong>Approver Work Queue</strong> from the Role Center. It shows the two assignments pending his review — SALES-SAM and SALES-RACHEL. His own assignment, SALES-STEVE, is not shown here because it is not pending approval.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Steve's Approver Work Queue showing SALES-SAM and SALES-RACHEL</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/08-approver-work-queue.png" alt="Approver Work Queue showing SALES-RACHEL and SALES-SAM both in Pending Approval status with submission log on the right">
         <figcaption>Steve's Approver Work Queue — two submissions awaiting review</figcaption>
+      </figure>
+
+      <p>Before diving into individual assignments, Steve uses <strong>Budget Approval Overview</strong> to get the full picture. He opens it from the action bar of the Approver Work Queue, selects FY2027, and clicks <strong>View Budget</strong>. The consolidated matrix opens showing every G/L account — with amounts summed across both SALES-SAM and SALES-RACHEL. Both DRAFT and APPROVED entries are visible, so Steve can see the complete budget across his whole team in one view before making any approval decisions. He applies a filter on the BUDGET dimension to show only DRAFT entries, confirming exactly which figures are still pending his decision.</p>
+
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/17-approver-budget-overview.png" alt="Budget Approval Overview list showing FY2027 as the only row, with View Budget action in the toolbar">
+        <figcaption>Budget Approval Overview — only budgets where Steve is a direct approver appear in the list</figcaption>
+      </figure>
+
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/18-approver-budget-matrix.png" alt="Budget Approval View showing FY2027 combined matrix with SALES-SAM and SALES-RACHEL entries across all accounts and monthly columns">
+        <figcaption>Budget Approval Overview — consolidated read-only view across all assignments Steve approves</figcaption>
       </figure>
 
       <h3>Approving Sam's budget</h3>
@@ -297,11 +283,8 @@
       <p>Steve opens SALES-RACHEL. Rachel's Q4 figures look significantly higher than her prior-year actuals with no obvious explanation. Steve clicks <strong>Return for Revision</strong>. The status moves to <span class="help-pill help-pill--blue">Revised</span> and Rachel receives a notification asking her to review her Q4 figures.</p>
       <p>Rachel opens her Budget Entries, corrects the Q4 figures directly in BC — she had entered annual targets rather than quarterly figures — and resubmits. The status moves to <span class="help-pill help-pill--amber">Pending Revision</span>. Steve reviews the corrected figures and clicks <strong>Approve</strong>. SALES-RACHEL is now <span class="help-pill help-pill--green">Approved</span>.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Assignment List showing SALES-SAM and SALES-RACHEL both Approved</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/09-assignment-list-approved.png" alt="Budget Assignment List showing SALES-RACHEL and SALES-SAM both Approved, SALES-STEVE Pending Approval">
         <figcaption>Both revenue assignments approved — entries locked and stamped APPROVED</figcaption>
       </figure>
     </div>
@@ -327,20 +310,17 @@
       <table class="akc-table">
         <thead><tr><th>Category</th><th>Examples</th></tr></thead>
         <tbody>
-          <tr><td>Administration</td><td>Office supplies, postage, printing</td></tr>
-          <tr><td>Travel &amp; Entertainment</td><td>Client visits, team travel, entertainment</td></tr>
-          <tr><td>Software &amp; Subscriptions</td><td>CRM licences, sales tools</td></tr>
-          <tr><td>Phone &amp; Communications</td><td>Mobile plans, conferencing</td></tr>
+          <tr><td>Administration</td><td>Office supplies, postage</td></tr>
+          <tr><td>Travel &amp; Entertainment</td><td>Travel, entertainment and PR, advertising</td></tr>
+          <tr><td>Software &amp; Subscriptions</td><td>Software, consultant services, computer expenses</td></tr>
+          <tr><td>Phone &amp; Communications</td><td>Phone and fax</td></tr>
           <tr><td>Training</td><td>Sales training, conferences</td></tr>
         </tbody>
       </table>
       <p>For his larger line items Steve uses <strong>Enter Split Amount</strong> from the Assignment Card — he picks an account, enters the total annual figure, sets Period Length to <code>1M</code> and No. of Periods to 12, and Budget Pro creates twelve equal monthly entries in one step. For entries he has already created individually he can use the <strong>Spread</strong> function in the Budget Entries view to achieve the same result from an existing row.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: SALES-STEVE Budget Entries view</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/10-budget-entries-steve.png" alt="SALES-STEVE Budget Entry matrix showing expense account rows including Office Supplies, Phone, Consultant Services, Advertising, Entertainment, and Travel with monthly amounts">
         <figcaption>SALES-STEVE — Steve enters department expense entries directly in BC</figcaption>
       </figure>
 
@@ -373,11 +353,8 @@
         </tbody>
       </table>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Penny's Budget Assignment List showing all three assignments and their statuses</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/11-assignment-list-all-statuses.png" alt="Budget Assignment List showing SALES-RACHEL Approved, SALES-SAM Approved, SALES-STEVE Pending Approval">
         <figcaption>Penny's admin view — the full Sales department picture in one list</figcaption>
       </figure>
 
@@ -391,11 +368,8 @@
         <strong>Final step:</strong> Penny clicks <strong>Set In Review</strong> on the FY2027 cycle to signal that the submission window has closed and the Finance team is consolidating figures across all departments. Once all departments are approved she will click <strong>Close Cycle</strong> to mark FY2027 as complete.
       </div>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: FY2027 Budget Cycle card showing all assignments approved and cycle In Review</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/12-budget-cycle-in-review.png" alt="FY2027 Budget Cycle card showing In Review status, 3 assignments all Approved, No. Pending Approval = 0">
         <figcaption>FY2027 cycle — all Sales assignments approved, cycle moved to In Review</figcaption>
       </figure>
     </div>

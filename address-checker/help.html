@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NZ Address Checker — User Guide</title>
+<meta name="description" content="User guide for NZ Address Checker — Addy Solutions address autocomplete for Microsoft Dynamics 365 Business Central.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/variations.css">
+<link rel="stylesheet" href="../styles/budget-pro.css">
+</head>
+<body>
+
+<nav class="help-nav">
+  <div class="help-nav__inner">
+    <a class="help-brand" href="https://staghead.nz">
+      <img src="../assets/logo-mark.png" alt="Stag Head" width="28" height="28">
+      NZ Address Checker
+    </a>
+    <a class="help-nav__back" href="https://staghead.nz">← staghead.nz</a>
+  </div>
+</nav>
+
+<div class="help-wrap">
+
+  <!-- ── HERO ── -->
+  <header class="help-hero">
+    <p class="eyebrow"><span class="bar"></span> Documentation</p>
+    <h1>User Guide</h1>
+    <p>NZ Address Checker integrates the Addy Solutions address autocomplete API into Microsoft Dynamics&nbsp;365 Business Central, so you can look up and populate verified New Zealand postal addresses in a single step.</p>
+    <div class="help-meta">
+      <div class="akc-badge">
+        <span class="akc-badge__label">Publisher</span>
+        <span class="akc-badge__value">Stag Head Limited</span>
+      </div>
+      <div class="akc-badge">
+        <span class="akc-badge__label">Platform</span>
+        <span class="akc-badge__value">Microsoft Dynamics 365 Business Central</span>
+      </div>
+      <div class="akc-badge">
+        <span class="akc-badge__label">Data</span>
+        <span class="akc-badge__value">New Zealand addresses only</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── TABLE OF CONTENTS ── -->
+  <nav class="help-toc" aria-label="Table of contents">
+    <p class="help-toc__label">Contents</p>
+    <ol class="help-toc__list">
+      <li><a href="#how-it-works"><span class="help-toc__num">01</span> How it works</a></li>
+      <li><a href="#prerequisites"><span class="help-toc__num">02</span> Prerequisites</a></li>
+      <li><a href="#setup"><span class="help-toc__num">03</span> Initial setup</a></li>
+      <li><a href="#customer"><span class="help-toc__num">04</span> Lookup on a Customer</a></li>
+      <li><a href="#ship-to"><span class="help-toc__num">05</span> Lookup on a Ship-to Address</a></li>
+      <li><a href="#fields"><span class="help-toc__num">06</span> Address fields populated</a></li>
+      <li><a href="#log"><span class="help-toc__num">07</span> Address Log</a></li>
+    </ol>
+  </nav>
+
+  <!-- ── 1. HOW IT WORKS ── -->
+  <section class="help-section" id="how-it-works">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 01</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="help-body">
+      <p>NZ Address Checker adds a <strong>Lookup Address</strong> action to the Customer Card and Ship-to Address card. When triggered, it opens a dialog powered by the <a href="https://www.addysolutions.com" target="_blank" rel="noopener">Addy Solutions</a> NZ address autocomplete widget.</p>
+      <p>You type the start of a New Zealand address, select from the autocomplete suggestions, and the extension populates the address fields on the record automatically — including creating or updating the Post Code and County records in Business Central if they don't already exist.</p>
+
+      <pre class="help-flow">User clicks Lookup Address (or presses Alt+A)
+       ↓
+Address lookup dialog opens with the Addy widget
+       ↓
+User types a partial address — autocomplete suggestions appear
+       ↓
+User selects the correct address from the list
+       ↓
+BC populates Address, Address 2, City, Post Code, and County
+       ↓
+Post Code and County records are created in BC if needed
+       ↓
+Address is logged to the Addy Address Log</pre>
+
+      <p>The Addy Solutions widget queries the full New Zealand address database, including urban, rural, and PO Box addresses.</p>
+    </div>
+  </section>
+
+  <!-- ── 2. PREREQUISITES ── -->
+  <section class="help-section" id="prerequisites">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 02</p>
+      <h2>Prerequisites</h2>
+    </div>
+    <div class="help-body">
+      <p>Before using NZ Address Checker you need an active <a href="https://www.addysolutions.com" target="_blank" rel="noopener">Addy Solutions</a> account with an API key.</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Requirement</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Addy Solutions account</td>
+            <td>Sign up at <a href="https://www.addysolutions.com" target="_blank" rel="noopener">addysolutions.com</a>. A free tier is available for low-volume use.</td>
+          </tr>
+          <tr>
+            <td>API Key</td>
+            <td>Available from your Addy Solutions dashboard. This is the key used by the address autocomplete widget.</td>
+          </tr>
+          <tr>
+            <td>NZ Country Code</td>
+            <td>A Country/Region code must exist in Business Central for New Zealand (typically <strong>NZ</strong>). This is used when creating Post Code records.</td>
+          </tr>
+          <tr>
+            <td>Internet access</td>
+            <td>The Addy Solutions widget loads from the Addy CDN. The BC server (or the user's browser, depending on your BC deployment) must be able to reach the internet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 3. SETUP ── -->
+  <section class="help-section" id="setup">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 03</p>
+      <h2>Initial setup</h2>
+    </div>
+    <div class="help-body">
+      <p>Open <strong>SHL Addy Setup</strong> by searching for it in Tell Me (the BC search). There is one setup record shared across all companies.</p>
+
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>What to enter</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AddySolutions API Key</td>
+            <td>Your API key from the Addy Solutions dashboard. This is passed to the Addy widget at startup to authorise address lookups.</td>
+          </tr>
+          <tr>
+            <td>AddySolutions API Endpoint</td>
+            <td>The API endpoint URL from your Addy Solutions account (e.g. <code>https://api-nz.addysolutions.com</code>). Used for any direct server-side calls.</td>
+          </tr>
+          <tr>
+            <td>NZ Country Code</td>
+            <td>The Country/Region code in Business Central that represents New Zealand (typically <strong>NZ</strong>). This is stamped on Post Code records created during address lookup.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="help-feature">
+        <p class="help-feature__label">DataPerCompany = false</p>
+        <p>The setup record is shared across all companies in your Business Central environment. You only need to configure it once.</p>
+      </div>
+
+      <h3>Checking your NZ Country Code</h3>
+      <p>To find your NZ Country/Region code in BC, search for <strong>Countries/Regions</strong> in Tell Me and look for the New Zealand entry. Note the value in the <strong>Code</strong> column and enter that same value in the <strong>NZ Country Code</strong> field on the setup page.</p>
+    </div>
+  </section>
+
+  <!-- ── 4. CUSTOMER ── -->
+  <section class="help-section" id="customer">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 04</p>
+      <h2>Lookup on a Customer</h2>
+    </div>
+    <div class="help-body">
+      <p>Open a <strong>Customer Card</strong> in Business Central. The <strong>Lookup Address</strong> action appears in the <em>&amp;Customer</em> action group at the top of the page.</p>
+
+      <h3>Two ways to trigger the lookup</h3>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Method</th><th>How</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Keyboard shortcut</td>
+            <td>Press <strong>Alt+A</strong> from anywhere on the Customer Card</td>
+          </tr>
+          <tr>
+            <td>Action button</td>
+            <td>Click <strong>Lookup &amp;Address</strong> in the Customer action group (also pinned to the promoted action bar)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Using the lookup dialog</h3>
+      <ol>
+        <li>The <strong>Addy Update Address</strong> dialog opens.</li>
+        <li>Click into the <strong>Address Line 1</strong> field and start typing — for example, a street number, street name, or suburb.</li>
+        <li>Autocomplete suggestions appear as you type. Select the correct address from the dropdown.</li>
+        <li>The remaining fields (Address Line 2, Suburb, City, Postcode) fill in automatically.</li>
+        <li>Click <strong>OK</strong> to apply the address to the Customer record, or <strong>Cancel</strong> to discard.</li>
+      </ol>
+
+      <p>In addition to the standard address fields, the Customer record's <strong>Latitude</strong> and <strong>Longitude</strong> fields are not populated directly from the lookup dialog — these are stored separately and can be updated via the API if needed.</p>
+
+      <div class="help-feature">
+        <p class="help-feature__label">Post Code and County records are created automatically</p>
+        <p>When an address is applied, NZ Address Checker checks whether the Post Code exists in Business Central. If it does not, it creates it. If it exists but with a different city, it renames it to match the Addy data. The County (region) record is also created if it doesn't already exist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. SHIP-TO ── -->
+  <section class="help-section" id="ship-to">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 05</p>
+      <h2>Lookup on a Ship-to Address</h2>
+    </div>
+    <div class="help-body">
+      <p>Open a <strong>Ship-to Address</strong> card (from the Customer Card → Ship-to Addresses). The Lookup Address action works identically to the Customer Card.</p>
+
+      <table class="akc-table">
+        <thead>
+          <tr><th>Method</th><th>How</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Keyboard shortcut</td>
+            <td>Press <strong>Alt+A</strong> from anywhere on the Ship-to Address card</td>
+          </tr>
+          <tr>
+            <td>Action button</td>
+            <td>Click <strong>Lookup &amp;Address</strong> in the Processing action group</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The same address field population and Post Code / County creation logic applies as on the Customer Card. Ship-to Address records do not have Latitude and Longitude fields.</p>
+    </div>
+  </section>
+
+  <!-- ── 6. FIELDS ── -->
+  <section class="help-section" id="fields">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 06</p>
+      <h2>Address fields populated</h2>
+    </div>
+    <div class="help-body">
+      <p>When you confirm an address selection, the following fields on the Customer or Ship-to Address record are updated:</p>
+
+      <table class="akc-table">
+        <thead>
+          <tr><th>BC Field</th><th>Populated from</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Address</td>
+            <td>Addy <code>displayline</code></td>
+            <td>The formatted first line of the address (e.g. <em>12 Sample Street</em>)</td>
+          </tr>
+          <tr>
+            <td>Address 2</td>
+            <td>Addy <code>address2</code> or <code>boxbaglobby</code></td>
+            <td>Secondary detail — unit/floor for urban addresses; box bag lobby name for PO Box addresses</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>Addy <code>city</code> (falls back to <code>mailtown</code> if city is blank)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Post Code</td>
+            <td>Addy <code>postcode</code></td>
+            <td>Post Code record created or renamed in BC if needed</td>
+          </tr>
+          <tr>
+            <td>County</td>
+            <td>Addy <code>region</code></td>
+            <td>County record created in BC if it doesn't already exist</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Address types</h3>
+      <p>Addy returns different fields depending on the address type selected:</p>
+      <table class="akc-table">
+        <thead>
+          <tr><th>Addy Type</th><th>Address 2 source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Urban</td><td><code>address2</code> (e.g. unit or floor detail)</td></tr>
+          <tr><td>Rural</td><td><code>address2</code></td></tr>
+          <tr><td>NonPostal</td><td><code>address2</code></td></tr>
+          <tr><td>PostBox (PO Box / Private Bag)</td><td><code>boxbaglobby</code> (the box bag lobby name)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Latitude and Longitude (Customer only)</h3>
+      <p>The Customer table has additional <strong>SHL Latitude</strong> and <strong>SHL Longitude</strong> fields added by this extension. These are visible on the Customer Card in the address area (shown as <em>Latitude</em> and <em>Longitude</em>) and are not currently populated by the lookup dialog — they are available for manual entry or integration with other processes.</p>
+    </div>
+  </section>
+
+  <!-- ── 7. LOG ── -->
+  <section class="help-section" id="log">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 07</p>
+      <h2>Address Log</h2>
+    </div>
+    <div class="help-body">
+      <p>Every address selected through the lookup dialog is saved in full to the <strong>SHL Addy Address Log</strong>. This is a read-only audit log — one row per lookup — storing the complete Addy response including all address components, the Addy record ID, LINZ ID, and a timestamp.</p>
+
+      <p>Open the log by searching for <strong>Addy Address Log</strong> in Tell Me.</p>
+
+      <table class="akc-table">
+        <thead>
+          <tr><th>Field</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Entry No.</td><td>Sequential log entry number</td></tr>
+          <tr><td>Retrieved DateTime</td><td>When the address was selected</td></tr>
+          <tr><td>Full</td><td>The full formatted address string returned by Addy</td></tr>
+          <tr><td>Display Line</td><td>The value written to the BC Address field</td></tr>
+          <tr><td>Post Code</td><td>The NZ postcode</td></tr>
+          <tr><td>City</td><td>The city / mail town</td></tr>
+          <tr><td>Region</td><td>The region (county)</td></tr>
+          <tr><td>ID / LINZ ID / DPID</td><td>Addy's unique identifiers for the address record</td></tr>
+          <tr><td>Type</td><td>The Addy address type (Urban, Rural, PostBox, etc.)</td></tr>
+          <tr><td>x / y</td><td>Coordinates returned by Addy (NZTM2000 easting/northing)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="help-feature">
+        <p class="help-feature__label">Log is append-only</p>
+        <p>Entries are written when an address is confirmed and are never deleted or modified. The log provides a full history of every address lookup performed in the environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="help-foot">
+    <div>NZ Address Checker &nbsp;·&nbsp; User Guide &nbsp;·&nbsp; Stag Head Limited</div>
+    <div>
+      <a href="https://staghead.nz/privacy">Privacy</a> &nbsp;·&nbsp;
+      <a href="https://staghead.nz/eula">EULA</a> &nbsp;·&nbsp;
+      <a href="mailto:help@staghead.nz">help@staghead.nz</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    try {
+      const s = JSON.parse(localStorage.getItem('sh.tweaks') || '{}');
+      if (s.theme) document.documentElement.setAttribute('data-theme', s.theme);
+      if (s.accentHue) document.documentElement.style.setProperty('--accent-h', s.accentHue);
+    } catch (e) {}
+  })();
+</script>
+
+</body>
+</html>

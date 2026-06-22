@@ -63,10 +63,11 @@
       <li><a href="#excel"><span class="help-toc__num">06</span> Entering via Excel</a></li>
       <li><a href="#lifecycle"><span class="help-toc__num">07</span> The approval lifecycle</a></li>
       <li><a href="#work-queue"><span class="help-toc__num">08</span> Approver Work Queue</a></li>
-      <li><a href="#entries"><span class="help-toc__num">09</span> Entering directly in BC</a></li>
-      <li><a href="#spread"><span class="help-toc__num">10</span> Spread / Enter Split Amount</a></li>
-      <li><a href="#formulas"><span class="help-toc__num">11</span> Budget Formulas</a></li>
-      <li><a href="#payroll"><span class="help-toc__num">12</span> Payroll Budget module</a></li>
+      <li><a href="#consolidated-view"><span class="help-toc__num">09</span> Consolidated Budget View</a></li>
+      <li><a href="#entries"><span class="help-toc__num">10</span> Entering directly in BC</a></li>
+      <li><a href="#spread"><span class="help-toc__num">11</span> Spread / Enter Split Amount</a></li>
+      <li><a href="#formulas"><span class="help-toc__num">12</span> Budget Formulas</a></li>
+      <li><a href="#payroll"><span class="help-toc__num">13</span> Payroll Budget module</a></li>
     </ol>
   </nav>
 
@@ -235,11 +236,8 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </table>
       <p>The Budget Cycle Card shows a live progress panel: total assignments, how many are pending approval, and how many are approved.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Cycle Card showing the progress panel</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/02-budget-cycle-collecting.png" alt="Budget Cycle Card showing progress panel with No. of Assignments, No. Approved, and No. Pending Approval">
         <figcaption>Budget Cycle Card — submission progress panel</figcaption>
       </figure>
     </div>
@@ -302,11 +300,8 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </ul>
       <p>This means budget owners can work with confidence that their figures are private until they choose to submit them. No one can see a draft in progress — not a colleague, not a manager — until the owner clicks <strong>Send for Approval</strong>, at which point only the designated approver gains visibility.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Assignment Card</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/14-assignment-card.png" alt="Budget Assignment Card showing General, Budget, Ownership, Dimension Values, and Tracking field groups with Open status">
         <figcaption>Budget Assignment Card — the owner's private workspace</figcaption>
       </figure>
     </div>
@@ -319,7 +314,7 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       <h2>Entering via Excel</h2>
     </div>
     <div class="help-body">
-      <p>Budget owners can enter their numbers in two ways: via the <strong>Excel round-trip</strong> (export, fill in offline, import back), or <strong>directly in BC</strong> using the Budget Entries page (see <a href="#entries">§ 09</a>). Both produce identical, fully-stamped G/L Budget Entries. Choose whichever suits the owner's workflow — Excel for familiarity and offline flexibility, direct BC entry for a faster in-system experience.</p>
+      <p>Budget owners can enter their numbers in two ways: via the <strong>Excel round-trip</strong> (export, fill in offline, import back), or <strong>directly in BC</strong> using the Budget Entries page (see <a href="#entries">§ 10</a>). Both produce identical, fully-stamped G/L Budget Entries. Choose whichever suits the owner's workflow — Excel for familiarity and offline flexibility, direct BC entry for a faster in-system experience.</p>
 
       <h3>Export</h3>
       <p>Open the Budget Assignment Card and click <strong>Export to Excel</strong>.</p>
@@ -331,11 +326,8 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         <li>Budget Dimension values locked to the assignment's scope — no need for the user to enter dimensions manually</li>
       </ul>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Exported Excel workbook showing prior-year actuals column</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/05-excel-export.png" alt="Exported Excel workbook showing account rows, PY Actual column, and twelve monthly budget input columns">
         <figcaption>Exported Excel workbook — prior-year actuals reference column</figcaption>
       </figure>
 
@@ -381,11 +373,8 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       </table>
       <p>Notifications are sent according to the method configured in Budget Approval Setup. Email notifications copy the Finance Email address.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Assignment Card action bar showing approval workflow actions</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/15-assignment-card-actions.png" alt="Budget Assignment Card action bar showing Enter Budget, Export to Excel, Import from Excel, Delete Budget, Copy Budget, Enter Split Amount, Send for Approval, Approve, Return for Revision, Reopen, Close">
         <figcaption>Budget Assignment Card — approval workflow actions</figcaption>
       </figure>
     </div>
@@ -401,20 +390,57 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
       <p>Open <strong>My Budget Approvals</strong> from the Role Center (or search for Approver Work Queue).</p>
       <p>This page shows only the Budget Assignments where you are the approver and the status is <span class="help-pill help-pill--amber">Pending Approval</span> or <span class="help-pill help-pill--amber">Pending Revision</span>. Use this as your daily work queue — you can Approve or Return for Revision directly from the list without opening each assignment card.</p>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Approver Work Queue list</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/08-approver-work-queue.png" alt="Approver Work Queue showing SALES-RACHEL and SALES-SAM both in Pending Approval status">
         <figcaption>Approver Work Queue — pending submissions</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ── 9. ENTRIES ── -->
-  <section class="help-section" id="entries">
+  <!-- ── 9. CONSOLIDATED VIEW ── -->
+  <section class="help-section" id="consolidated-view">
     <div class="help-section__head">
       <p class="help-section__eyebrow">§ 09</p>
+      <h2>Consolidated Budget View</h2>
+    </div>
+    <div class="help-body">
+      <p>The <strong>Budget Approval Overview</strong> gives approvers a consolidated read-only view of all budget entries across every assignment they are responsible for approving — combined into a single matrix, across all accounts and all periods.</p>
+
+      <h3>Opening Budget Approval Overview</h3>
+      <p>Search for <strong>Budget Approval Overview</strong> in Tell Me, or open it from the <strong>Approver Work Queue</strong> action bar. The list shows only the G/L Budget Names where you are the direct approver on at least one active assignment.</p>
+      <p>Select a budget name and click <strong>View Budget</strong> to open the consolidated matrix.</p>
+
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/17-approver-budget-overview.png" alt="Budget Approval Overview list showing FY2027 as the only row, with View Budget action in the toolbar">
+        <figcaption>Budget Approval Overview — only budgets where you are a direct approver appear in the list</figcaption>
+      </figure>
+
+      <h3>What you see in the matrix</h3>
+      <p>The matrix displays one row per G/L account. Each column is a calendar month. The amounts shown are the <strong>sum of all entries across every assignment you approve</strong> for that budget — not just a single owner's figures. Both DRAFT and APPROVED entries are included, giving you the full picture before making approval decisions.</p>
+      <p>Use the standard BC dimension filter controls to narrow the view if needed — for example, filter on your Unapproved Dim. Value to see only figures still awaiting approval.</p>
+
+      <div class="help-feature">
+        <p class="help-feature__label">Read-only — for review only</p>
+        <p>The consolidated matrix is entirely read-only. No cell can be edited from this view. To approve or return an assignment, use the <a href="#work-queue">Approver Work Queue</a> or open the individual Assignment Card.</p>
+      </div>
+
+      <h3>Who sees this page</h3>
+      <p>Only users who are named as the <strong>Approver User ID</strong> on at least one non-Closed Budget Assignment. Users who are budget owners but not approvers will find the list empty. Finance Administrators can use the Budget Assignment list instead for a full company-wide view.</p>
+
+      <h3>Period navigation</h3>
+      <p>Use the <strong>Previous / Next Month</strong> and <strong>Previous / Next Year</strong> actions to shift the 12-month window displayed in the matrix.</p>
+
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/18-approver-budget-matrix.png" alt="Budget Approval View showing FY2027 combined matrix with SALES-SAM and SALES-RACHEL entries across all accounts and monthly columns">
+        <figcaption>Consolidated Budget View — all assignments combined, read-only</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── 10. ENTRIES ── -->
+  <section class="help-section" id="entries">
+    <div class="help-section__head">
+      <p class="help-section__eyebrow">§ 10</p>
       <h2>Entering directly in BC</h2>
     </div>
     <div class="help-body">
@@ -451,20 +477,17 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
         </tbody>
       </table>
 
-      <figure class="help-screenshot help-screenshot--pending">
-        <div class="help-screenshot__placeholder">
-          <span class="help-screenshot__icon">📷</span>
-          <span class="help-screenshot__label">Screenshot: Budget Entries page showing monthly rows entered directly in BC</span>
-        </div>
+      <figure class="help-screenshot">
+        <img src="../assets/screenshots/07-budget-entries-direct.png" alt="Budget Entry matrix showing multiple sales account rows with monthly amounts entered">
         <figcaption>Budget Entries page — direct entry with dimensions pre-stamped from the assignment</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ── 10. SPREAD / SPLIT ── -->
+  <!-- ── 11. SPREAD / SPLIT ── -->
   <section class="help-section" id="spread">
     <div class="help-section__head">
-      <p class="help-section__eyebrow">§ 10</p>
+      <p class="help-section__eyebrow">§ 11</p>
       <h2>Spread Budget Entry / Enter Split Amount</h2>
     </div>
     <div class="help-body">
@@ -502,10 +525,10 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
     </div>
   </section>
 
-  <!-- ── 11. FORMULAS ── -->
+  <!-- ── 12. FORMULAS ── -->
   <section class="help-section" id="formulas">
     <div class="help-section__head">
-      <p class="help-section__eyebrow">§ 11</p>
+      <p class="help-section__eyebrow">§ 12</p>
       <h2>Budget Formulas</h2>
     </div>
     <div class="help-body">
@@ -554,10 +577,10 @@ Approved entries are dimension-stamped and locked in the G/L Budget</pre>
     </div>
   </section>
 
-  <!-- ── 12. PAYROLL ── -->
+  <!-- ── 13. PAYROLL ── -->
   <section class="help-section" id="payroll">
     <div class="help-section__head">
-      <p class="help-section__eyebrow">§ 12</p>
+      <p class="help-section__eyebrow">§ 13</p>
       <h2>Payroll Budget module</h2>
     </div>
     <div class="help-body">
