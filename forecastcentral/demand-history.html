@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demand history you can trust · ForecastCentral · Stag Head</title>
+<meta name="description" content="Planning starts with what was really sold. ForecastCentral keeps its own demand history, fed from Business Central every night. It cleans the numbers without ever deleting the originals.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Demand history you can trust · ForecastCentral · Stag Head">
+<meta property="og:description" content="Planning starts with what was really sold. ForecastCentral keeps its own demand history, fed from Business Central every night. It cleans the numbers without ever deleting the originals.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/demand-history">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/demand-history" aria-current="page">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Part 02 · <span class="fc-pill fc-pill--preview">Built</span></p>
+      <h1>Demand history you can trust</h1>
+      <p class="akc-lead">Planning starts with what was really sold. ForecastCentral keeps its own demand history, fed from Business Central every night. It cleans the numbers without ever deleting the originals.</p>
+    </div>
+    <div class="akc-hero__meta"><div class="akc-badge"><span class="akc-badge__label">Roles</span><span class="akc-badge__value">Demand planner, planning administrator</span></div><div class="akc-badge"><span class="akc-badge__label">Edition</span><span class="akc-badge__value">All Business Central editions</span></div><div class="akc-badge"><span class="akc-badge__label">Source</span><span class="akc-badge__value">Item ledger entries, CSV import</span></div></div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · What it does</span>
+      <h2>Demand history in practice</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Nightly feed</h4><p>New sales are picked up from the item ledger by entry number, so nothing is counted twice. A Build History Now action runs it on demand.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Weekly and monthly periods</h4><p>Demand is summarised by item, location and period. The planning engine and every chart read these summaries.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Clean without losing anything</h4><p>Exclude a one-off order with a reason, or let outliers above a set factor be capped. The original entry always stays, and you can include it again.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Customer groups for planning</h4><p>A planning group on the customer, separate from price groups and posting groups, because pricing and planning are different questions.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Import from a file</h4><p>Bring history from a previous system in a CSV. Rows are checked first, unknown items can be mapped with a unit-of-measure factor, and a reconciliation explains every difference.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Undo an import</h4><p>Delete an imported file and the entries it created go with it. Fix the file and load it again.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">07</span><div><h4>Demo data</h4><p>Generate 200 items with three years of seasonal history to try everything on, then remove it again without touching your own data.</p></div></li>
+      <li class="akc-benefit" aria-hidden="true"></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · In a real situation</span>
+      <h2>The one-off project order</h2>
+    </div>
+    <div class="fc-example">
+      <p class="fc-example__label">Example</p>
+      <p>A customer buys 4,000 units in a single week for a project that will not happen again. Left alone, it lifts the forecast for months.</p><p>The planner selects the entry and chooses Exclude with Reason, typing the project name. The weekly history shows the cleaned quantity, and the original sale is still there, marked as excluded. If the customer orders the same project again next year, one click includes it.</p>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · On screen</span>
+      <h2>What it looks like</h2>
+      <p class="akc-section__note">Screens from Business Central. Where a screen is not shown yet, the part is still being built.</p>
+    </div>
+    <div class="fc-shots">
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/history-01-entries.png" alt="Demand history entries: Demand History list with a sale selected and the Exclude with Reason action visible." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Demand History list with a sale selected and the Exclude with Reason action visible.</div>
+        </div>
+        <figcaption><b>Fig 1</b>Demand history entries. Demand History list with a sale selected and the Exclude with Reason action visible.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/history-02-periods.png" alt="Weekly periods: Demand History Periods filtered to one item, showing weeks with the Outlier Adjustment column." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Demand History Periods filtered to one item, showing weeks with the Outlier Adjustment column.</div>
+        </div>
+        <figcaption><b>Fig 2</b>Weekly periods. Demand History Periods filtered to one item, showing weeks with the Outlier Adjustment column.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/history-03-import.png" alt="Import and reconciliation: History Import with a loaded file, and the Reconciliation page showing zero differences." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>History Import with a loaded file, and the Reconciliation page showing zero differences.</div>
+        </div>
+        <figcaption><b>Fig 3</b>Import and reconciliation. History Import with a loaded file, and the Reconciliation page showing zero differences.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral/setup"><span class="fc-pager__label">← Previous</span><span class="fc-pager__title">Setup that guides you</span></a>
+    <a href="/forecastcentral/demand-plans"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">Budgets and scenarios</span></a>
+  </nav>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budgets and scenarios · ForecastCentral · Stag Head</title>
+<meta name="description" content="Many businesses plan from a budget, not from last year&#x27;s sales. ForecastCentral treats the budget as a first-class input, keeps every version, and never changes the active plan without telling you.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Budgets and scenarios · ForecastCentral · Stag Head">
+<meta property="og:description" content="Many businesses plan from a budget, not from last year&#x27;s sales. ForecastCentral treats the budget as a first-class input, keeps every version, and never changes the active plan without telling you.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/demand-plans">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/demand-plans" aria-current="page">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Part 03 · <span class="fc-pill fc-pill--planned">Planned</span></p>
+      <h1>Budgets and scenarios</h1>
+      <p class="akc-lead">Many businesses plan from a budget, not from last year's sales. ForecastCentral treats the budget as a first-class input, keeps every version, and never changes the active plan without telling you.</p>
+    </div>
+    <div class="akc-hero__meta"><div class="akc-badge"><span class="akc-badge__label">Roles</span><span class="akc-badge__value">Demand planner, operations manager</span></div><div class="akc-badge"><span class="akc-badge__label">Edition</span><span class="akc-badge__value">All Business Central editions</span></div><div class="akc-badge"><span class="akc-badge__label">Status</span><span class="akc-badge__value">Planned</span></div></div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · What it does</span>
+      <h2>Demand plans in practice</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Versioned scenarios</h4><p>Budget, statistical and what-if plans, each with an owner and a status. Exactly one plan is active at a time.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Budget at any level</h4><p>Enter a budget by item category and month, then spread it down to items and locations by historical mix or a profile you choose.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Adjustments that explain themselves</h4><p>Uplifts, period shifts and flat weekly rates are stored as rules, so anyone can see why a number changed.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Compare and promote</h4><p>Put two scenarios side by side with the variance, then promote one. Promotion is an explicit, audited step.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Excel round trip</h4><p>Export to a fixed layout, change it in Excel, import it back. The import creates a new draft and shows you the difference before you accept it.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Bridge to Production Forecast</h4><p>Write the active plan to standard Production Forecast entries for companies moving across from the standard engine.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">07</span><div><h4>Budget accuracy over time</h4><p>The active plan is snapshotted every week, so accuracy and bias can be measured at one to five months ahead.</p></div></li>
+      <li class="akc-benefit" aria-hidden="true"></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · In a real situation</span>
+      <h2>What if the big contract lands?</h2>
+    </div>
+    <div class="fc-example">
+      <p class="fc-example__label">Example</p>
+      <p>The budget says 12,000 units for the year. Sales think a large new contract could add 15 percent from April.</p><p>The planner copies the budget into a what-if scenario, adds a 15 percent uplift from April as a rule, and compares the two. The engine can be run against the what-if without creating a single suggestion, so the purchasing impact is visible before anyone commits. If the contract is signed, the what-if is promoted and the change is on record.</p>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · On screen</span>
+      <h2>What it looks like</h2>
+      <p class="akc-section__note">Screens from Business Central. Where a screen is not shown yet, the part is still being built.</p>
+    </div>
+    <div class="fc-shots">
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/plans-01-matrix.png" alt="Item by period matrix: Demand plan matrix with items down the side and months across." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Demand plan matrix with items down the side and months across.</div>
+        </div>
+        <figcaption><b>Fig 1</b>Item by period matrix. Demand plan matrix with items down the side and months across.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/plans-02-compare.png" alt="Comparing scenarios: Scenario compare page with variance columns." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Scenario compare page with variance columns.</div>
+        </div>
+        <figcaption><b>Fig 2</b>Comparing scenarios. Scenario compare page with variance columns.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/plans-03-excel-diff.png" alt="Excel import review: Import review page showing the difference against the active plan." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Import review page showing the difference against the active plan.</div>
+        </div>
+        <figcaption><b>Fig 3</b>Excel import review. Import review page showing the difference against the active plan.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral/demand-history"><span class="fc-pager__label">← Previous</span><span class="fc-pager__title">Demand history you can trust</span></a>
+    <a href="/forecastcentral/suggestions"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">Suggestions that show their working</span></a>
+  </nav>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

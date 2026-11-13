@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A workbench for the daily job · ForecastCentral · Stag Head</title>
+<meta name="description" content="Buyers and planners work through queues, check the reasons, change what needs changing and create the orders. All of it happens in Business Central, and the orders it creates are the standard ones.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A workbench for the daily job · ForecastCentral · Stag Head">
+<meta property="og:description" content="Buyers and planners work through queues, check the reasons, change what needs changing and create the orders. All of it happens in Business Central, and the orders it creates are the standard ones.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/workbench">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/workbench" aria-current="page">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Part 06 · <span class="fc-pill fc-pill--planned">Planned</span></p>
+      <h1>A workbench for the daily job</h1>
+      <p class="akc-lead">Buyers and planners work through queues, check the reasons, change what needs changing and create the orders. All of it happens in Business Central, and the orders it creates are the standard ones.</p>
+    </div>
+    <div class="akc-hero__meta"><div class="akc-badge"><span class="akc-badge__label">Roles</span><span class="akc-badge__value">Buyer, production planner, demand planner</span></div><div class="akc-badge"><span class="akc-badge__label">Edition</span><span class="akc-badge__value">All Business Central editions</span></div><div class="akc-badge"><span class="akc-badge__label">Status</span><span class="akc-badge__value">Planned</span></div></div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · What it does</span>
+      <h2>Workbench in practice</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Queues by urgency</h4><p>By vendor for purchases, by location for transfers, and by work centre or family for production, with the most urgent first.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Edit where you look</h4><p>Change a planning parameter or a suggested quantity or date on the line, and that item recalculates straight away.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Accept, change or reject</h4><p>Rejections and changes carry a reason, and overrides are tracked, so the numbers can be tuned later.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Standard documents</h4><p>Creating orders produces ordinary purchase, transfer and production orders, and your usual approvals apply.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>The item planning card</h4><p>History, plan and projected stock on one page. Projected stock shows two lines, confirmed supply only and including proposals, against safety stock, with weeks of cover and the supply gap.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Planner proposals persist</h4><p>A suggestion a planner has edited or confirmed is kept as a firm proposal and is not overwritten by the next run.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · In a real situation</span>
+      <h2>Monday with the buyer</h2>
+    </div>
+    <div class="fc-example">
+      <p class="fc-example__label">Example</p>
+      <p>The buyer opens the vendor queue. The first vendor is 400 under its minimum order value, and the workbench says so. The buyer opens one line, reads why it was suggested, brings a quantity forward to top up the order, and sees the projected stock redraw before saving.</p><p>One click creates the purchase order, which then goes through the normal approval.</p>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · On screen</span>
+      <h2>What it looks like</h2>
+      <p class="akc-section__note">Screens from Business Central. Where a screen is not shown yet, the part is still being built.</p>
+    </div>
+    <div class="fc-shots">
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/workbench-01-queue.png" alt="Vendor queue: Workbench queue for one vendor with urgency and minimum order status." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Workbench queue for one vendor with urgency and minimum order status.</div>
+        </div>
+        <figcaption><b>Fig 1</b>Vendor queue. Workbench queue for one vendor with urgency and minimum order status.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/workbench-02-card.png" alt="Item planning card: Item planning card with the history, plan and projected stock chart." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Item planning card with the history, plan and projected stock chart.</div>
+        </div>
+        <figcaption><b>Fig 2</b>Item planning card. Item planning card with the history, plan and projected stock chart.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/workbench-03-order.png" alt="Creating orders: Create orders confirmation and the resulting purchase order." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Create orders confirmation and the resulting purchase order.</div>
+        </div>
+        <figcaption><b>Fig 3</b>Creating orders. Create orders confirmation and the resulting purchase order.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral/supply-locks"><span class="fc-pager__label">← Previous</span><span class="fc-pager__title">Supply you should not touch</span></a>
+    <a href="/forecastcentral/capacity"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">Capacity you can see</span></a>
+  </nav>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

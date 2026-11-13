@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Setup that guides you · ForecastCentral · Stag Head</title>
+<meta name="description" content="A wizard walks a new company through the settings that matter, and a health check keeps finding the gaps afterwards. Every field has a tooltip, and the manual gives a worked example of what changing it does.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Setup that guides you · ForecastCentral · Stag Head">
+<meta property="og:description" content="A wizard walks a new company through the settings that matter, and a health check keeps finding the gaps afterwards. Every field has a tooltip, and the manual gives a worked example of what changing it does.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/setup">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/setup" aria-current="page">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Part 01 · <span class="fc-pill fc-pill--preview">Built</span></p>
+      <h1>Setup that guides you</h1>
+      <p class="akc-lead">A wizard walks a new company through the settings that matter, and a health check keeps finding the gaps afterwards. Every field has a tooltip, and the manual gives a worked example of what changing it does.</p>
+    </div>
+    <div class="akc-hero__meta"><div class="akc-badge"><span class="akc-badge__label">Roles</span><span class="akc-badge__value">Planning administrator</span></div><div class="akc-badge"><span class="akc-badge__label">Edition</span><span class="akc-badge__value">All Business Central editions</span></div><div class="akc-badge"><span class="akc-badge__label">Manual</span><span class="akc-badge__value">Every field explained</span></div></div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · What it does</span>
+      <h2>Setup in practice</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Setup wizard</h4><p>Six steps from Assisted Setup. Leave part way and come back, and your progress is kept. It finishes by opening the health check.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Health check</h4><p>Lists what is missing or broken, such as a nightly feed that is not scheduled or an item mapping that points at a blocked item, and offers a Fix action.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Choose what to plan</h4><p>Add items by filter, for example one item category, and mark them as planned. Run it again and nothing is duplicated.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Planning calendar</h4><p>Uses the base calendar on Company Information, so non-working days such as Good Friday are respected when weeks and months are split.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Roles that match the job</h4><p>Separate permission sets for the administrator, the demand planner and a read-only viewer. A viewer sees every page but cannot change anything.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Tooltips and a manual</h4><p>Each field has a tooltip and its own entry in the manual, with a worked example of the effect of changing it.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · On screen</span>
+      <h2>What it looks like</h2>
+      <p class="akc-section__note">Screens from Business Central. Where a screen is not shown yet, the part is still being built.</p>
+    </div>
+    <div class="fc-shots">
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/setup-01-wizard.png" alt="The setup wizard: Assisted Setup wizard, a middle step with the progress list visible." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Assisted Setup wizard, a middle step with the progress list visible.</div>
+        </div>
+        <figcaption><b>Fig 1</b>The setup wizard. Assisted Setup wizard, a middle step with the progress list visible.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/setup-02-planning-setup.png" alt="Planning setup: Planning Setup page with the General, Calendar, History and Demo data FastTabs open." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Planning Setup page with the General, Calendar, History and Demo data FastTabs open.</div>
+        </div>
+        <figcaption><b>Fig 2</b>Planning setup. Planning Setup page with the General, Calendar, History and Demo data FastTabs open.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/setup-03-health-check.png" alt="Health check: Planning Health Check with at least one problem listed and the Fix action visible." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Planning Health Check with at least one problem listed and the Fix action visible.</div>
+        </div>
+        <figcaption><b>Fig 3</b>Health check. Planning Health Check with at least one problem listed and the Fix action visible.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral"><span class="fc-pager__label">← Back</span><span class="fc-pager__title">ForecastCentral overview</span></a>
+    <a href="/forecastcentral/demand-history"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">Demand history you can trust</span></a>
+  </nav>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

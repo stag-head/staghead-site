@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Supply you should not touch · ForecastCentral · Stag Head</title>
+<meta name="description" content="Standard planning will happily suggest moving a purchase order that is already on a ship. ForecastCentral knows what cannot change, plans around it, and tells you why.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Supply you should not touch · ForecastCentral · Stag Head">
+<meta property="og:description" content="Standard planning will happily suggest moving a purchase order that is already on a ship. ForecastCentral knows what cannot change, plans around it, and tells you why.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/supply-locks">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/supply-locks" aria-current="page">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Part 05 · <span class="fc-pill fc-pill--build">In build</span></p>
+      <h1>Supply you should not touch</h1>
+      <p class="akc-lead">Standard planning will happily suggest moving a purchase order that is already on a ship. ForecastCentral knows what cannot change, plans around it, and tells you why.</p>
+    </div>
+    <div class="akc-hero__meta"><div class="akc-badge"><span class="akc-badge__label">Roles</span><span class="akc-badge__value">Buyer, demand planner</span></div><div class="akc-badge"><span class="akc-badge__label">Edition</span><span class="akc-badge__value">All Business Central editions</span></div><div class="akc-badge"><span class="akc-badge__label">Setup</span><span class="akc-badge__value">Statuses and lock rules</span></div></div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · What it does</span>
+      <h2>Supply locks in practice</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Supply status</h4><p>A short list you control, installed with Open, Confirmed, In-Transit and Arrived. Each status says whether planning may change it.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Lock rules</h4><p>Received or partly received, shipped by the vendor, inside the demand time fence, production started, or locked by a planner. Vendor confirmed and prepayment invoiced can be switched on if you want them.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>On the water, without extra locations</h4><p>An order shows as on the water when a prepayment has been invoiced, a shipped date or vendor shipment number is filled in, or a shipment reference exists. No in-transit location is needed to keep it visible.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Shipment reference</h4><p>Taken from the vessel or flight, container number or bill of lading on the order. Add-ons, such as a landed cost module, can supply their own through a published event.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Inbound pipeline</h4><p>Stock that sits in an in-transit location is treated as a locked receipt at its destination on the expected arrival date, never as available stock and never counted twice.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Locked and explained</h4><p>A locked order is never suggested for change, and the explanation says which rule locked it.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · In a real situation</span>
+      <h2>The container on the water</h2>
+    </div>
+    <div class="fc-example">
+      <p class="fc-example__label">Example</p>
+      <p>A purchase order for 12 pallets left the supplier last week. The vendor has sent a shipment number and the order is marked In-Transit.</p><p>A standard run sees a due date that has not arrived and suggests expediting it or buying more. ForecastCentral sees the status and the shipment number, treats the order as locked supply arriving on its expected date, and plans around it. If the planner opens the item, the explanation names the rule that locked the order.</p>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · On screen</span>
+      <h2>What it looks like</h2>
+      <p class="akc-section__note">Screens from Business Central. Where a screen is not shown yet, the part is still being built.</p>
+    </div>
+    <div class="fc-shots">
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/locks-01-statuses.png" alt="Supply statuses: Supply Status list with the Planning Locked column." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Supply Status list with the Planning Locked column.</div>
+        </div>
+        <figcaption><b>Fig 1</b>Supply statuses. Supply Status list with the Planning Locked column.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/locks-02-rules.png" alt="Supply lock rules: Supply Lock Rules page showing which rules are on." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>Supply Lock Rules page showing which rules are on.</div>
+        </div>
+        <figcaption><b>Fig 2</b>Supply lock rules. Supply Lock Rules page showing which rules are on.</figcaption>
+      </figure>
+      <figure class="fc-shot">
+        <div class="fc-shot__frame">
+          <img src="/assets/forecastcentral/locks-03-purchase-line.png" alt="On the water: A purchase order line showing the on-the-water status and shipment reference." onerror="this.closest('.fc-shot').classList.add('is-missing')">
+          <div class="fc-shot__missing" role="img" aria-label="Screenshot not added yet">Screenshot to come<br>A purchase order line showing the on-the-water status and shipment reference.</div>
+        </div>
+        <figcaption><b>Fig 3</b>On the water. A purchase order line showing the on-the-water status and shipment reference.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral/suggestions"><span class="fc-pager__label">← Previous</span><span class="fc-pager__title">Suggestions that show their working</span></a>
+    <a href="/forecastcentral/workbench"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">A workbench for the daily job</span></a>
+  </nav>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

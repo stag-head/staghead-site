@@ -1,0 +1,129 @@
+/* =========================================================
+   ForecastCentral product pages
+   Builds on tokens.css and the akc-* classes in variations.css
+   ========================================================= */
+
+/* Sub navigation across the product pages */
+.fc-subnav {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.fc-subnav__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex; align-items: center; gap: 4px;
+  overflow-x: auto; white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.fc-subnav__brand {
+  font-family: var(--font-display); font-weight: 600; font-size: 14px;
+  letter-spacing: -0.01em; padding: 14px 18px 14px 0; margin-right: 8px;
+  border-right: 1px solid var(--line);
+}
+.fc-subnav a.fc-subnav__link {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-3); padding: 16px 12px;
+  border-bottom: 2px solid transparent;
+}
+.fc-subnav a.fc-subnav__link:hover { color: var(--ink); }
+.fc-subnav a.fc-subnav__link.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Status pills */
+.fc-pill {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; white-space: nowrap; vertical-align: middle;
+}
+.fc-pill--preview { background: var(--accent-soft); color: var(--accent-ink); border: 1px solid var(--accent-line); }
+.fc-pill--build { background: transparent; color: var(--accent-ink); border: 1px dashed var(--accent-line); }
+.fc-pill--planned { background: var(--bg-sunk); color: var(--ink-3); border: 1px solid var(--line); }
+.akc-benefit h4 .fc-pill { margin-left: 8px; }
+
+/* Five step row */
+.fc-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+}
+.fc-steps .akc-card h4 { font-size: 15px; }
+
+/* Parts of the system, as linked cards */
+.fc-parts {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+}
+a.fc-part, div.fc-part {
+  display: block; padding: 28px 24px;
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  transition: background .15s ease;
+}
+a.fc-part:hover { background: var(--bg-sunk); }
+.fc-part__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--ink-3); display: block; margin-bottom: 12px; }
+.fc-part h4 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+.fc-part p { font-size: 14px; color: var(--ink-2); margin: 0 0 16px; line-height: 1.6; }
+
+/* Worked example call-out */
+.fc-example {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-elev); padding: 28px 32px; max-width: 760px;
+}
+.fc-example__label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 12px;
+}
+.fc-example h3 { font-family: var(--font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 14px; }
+.fc-example p { font-size: 15px; color: var(--ink-2); line-height: 1.65; margin: 0 0 12px; }
+.fc-example p:last-child { margin-bottom: 0; }
+.fc-example ul { margin: 0 0 12px; padding-left: 20px; color: var(--ink-2); font-size: 15px; line-height: 1.65; }
+
+/* Screenshots */
+.fc-shots { display: grid; grid-template-columns: 1fr; gap: 48px; }
+.fc-shot { margin: 0; }
+.fc-shot__frame {
+  position: relative; border: 1px solid var(--line-strong);
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-sunk);
+  box-shadow: 0 24px 48px -32px rgba(0,0,0,.35);
+}
+.fc-shot__frame img { display: block; width: 100%; height: auto; }
+.fc-shot__missing {
+  display: none; aspect-ratio: 16 / 9; padding: 32px;
+  align-items: center; justify-content: center; text-align: center;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+  color: var(--ink-3); line-height: 1.7;
+  background-image: repeating-linear-gradient(135deg, transparent 0 14px, var(--line) 14px 15px);
+}
+.fc-shot.is-missing .fc-shot__missing { display: flex; }
+.fc-shot.is-missing .fc-shot__frame img { display: none; }
+.fc-shot figcaption { font-size: 14px; color: var(--ink-2); margin-top: 14px; max-width: 70ch; line-height: 1.6; }
+.fc-shot figcaption b { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); font-weight: 400; margin-right: 10px; }
+
+/* Previous and next */
+.fc-pager { display: grid; grid-template-columns: 1fr 1fr; margin-top: 0; }
+.fc-pager a { padding: 32px 0; display: block; }
+.fc-pager a:last-child { text-align: right; }
+.fc-pager__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); display: block; margin-bottom: 8px; }
+.fc-pager__title { font-family: var(--font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
+.fc-pager a:hover .fc-pager__title { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--accent); }
+
+/* Contact block */
+.fc-contact { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+.fc-contact h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 500; letter-spacing: -0.025em; margin: 12px 0 0; }
+
+/* Table tweaks */
+.akc-table td .fc-pill { margin: 0; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .fc-steps { grid-template-columns: 1fr 1fr; }
+  .fc-parts { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .fc-steps, .fc-parts { grid-template-columns: 1fr; }
+  .fc-pager { grid-template-columns: 1fr; }
+  .fc-pager a:last-child { text-align: left; border-top: 1px solid var(--line); }
+  .fc-example { padding: 22px 20px; }
+}
+
+/* Line the sections up with the nav and the hero */
+.akahu-consumer .akc-section { padding-left: var(--gutter); padding-right: var(--gutter); }
