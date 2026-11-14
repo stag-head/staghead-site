@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ForecastCentral · Planning for Business Central · Stag Head</title>
+<meta name="description" content="ForecastCentral plans demand, stock and supply inside Microsoft Dynamics 365 Business Central. Every suggestion shows its working, so planners can trust it or challenge it.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ForecastCentral · Planning for Business Central · Stag Head">
+<meta property="og:description" content="ForecastCentral plans demand, stock and supply inside Microsoft Dynamics 365 Business Central. Every suggestion shows its working, so planners can trust it or challenge it.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral" aria-current="page">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/methods">Methods</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> ForecastCentral for Business Central</p>
+      <h1>Planning that<br>shows its working</h1>
+      <p class="akc-lead">ForecastCentral plans demand, stock and supply inside Business Central. Every suggested quantity and date comes with the reasons behind it, so planners can trust it, or challenge it.</p>
+    </div>
+    <div class="akc-hero__meta">
+      <div class="akc-badge"><span class="akc-badge__label">Platform</span><span class="akc-badge__value">Microsoft Dynamics 365 Business Central</span></div>
+      <div class="akc-badge"><span class="akc-badge__label">Deployment</span><span class="akc-badge__value">SaaS and on-premises</span></div>
+      <div class="akc-badge"><span class="akc-badge__label">Status</span><span class="akc-badge__value">In development</span></div>
+      <div class="akc-badge"><span class="akc-badge__label">Planned channel</span><span class="akc-badge__value">Microsoft AppSource</span></div>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · The problem</span>
+      <h2>Where standard planning gets in the way</h2>
+      <p class="akc-section__note">The planning engine in Business Central does a reasonable job for simple supply chains. For manufacturers and distributors with real volumes, the same few things come up again and again.</p>
+    </div>
+    <div class="akc-grid">
+      <div class="akc-card"><span class="akc-card__num">01</span><h4>Locations work alone</h4><p>It suggests buying at one location without looking at spare stock sitting at another.</p></div>
+      <div class="akc-card"><span class="akc-card__num">02</span><h4>Vendor terms are ignored</h4><p>Minimum order values and price breaks are not part of the sums, so buyers end up with many small orders.</p></div>
+      <div class="akc-card"><span class="akc-card__num">03</span><h4>Small changes cause noise</h4><p>A delivery date that moves a day or two can set off a flood of reschedule messages.</p></div>
+    </div>
+    <p class="akc-section__note" style="margin-top:28px">Underneath all three is a bigger one. When the system says "buy 400", nobody can see why, so nobody trusts it.</p>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · What ForecastCentral does</span>
+      <h2>Fewer surprises, and reasons for the rest</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Explains every suggestion</h4><p>Quantity, date and message each show why they exist, step by step, down to the source records.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Uses spare stock first</h4><p>Transfers between locations are considered before anything new is bought.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Leaves locked supply alone</h4><p>Received, shipped and in-production orders are never suggested for change, and the reason is shown.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Builds sensible vendor orders</h4><p>Minimum values, multiples, price breaks and container fill are part of the maths.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Keeps plans calm</h4><p>Frozen, Firm and Open zones and tolerances stop small shifts from creating work.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Plans from budgets and history</h4><p>Versioned budget scenarios sit next to a clean demand history, and nothing is changed without a record.</p></div></li>
+    </ul>
+  </section>
+
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · Standard methods</span>
+      <h2>Textbook planning, with the sums shown</h2>
+      <p class="akc-section__note">Nothing here is a secret formula. ForecastCentral uses the methods planners already know, shows the working, and uses the same terms in the explanation on every suggestion.</p>
+    </div>
+    <div class="fc-parts">
+      <a class="fc-part" href="/forecastcentral/methods#classification"><span class="fc-part__num">ABC and XYZ</span><h4>Sort items by value and by predictability</h4><p>A is the items that make up the first 80 percent of demand value. X is demand steady enough to have a coefficient of variation up to 0.5. Each class gets its own policy.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#safety-stock"><span class="fc-part__num">Safety stock</span><h4>Cover late deliveries and surprise demand</h4><p><code class="fc-code">z × √(L × σd² + d² × σL²)</code><br>Or a simple number of weeks of forward cover. Your choice, per policy.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#order-quantity"><span class="fc-part__num">Reorder point and EOQ</span><h4>When to order, and how much</h4><p><code class="fc-code">EOQ = √(2 × D × S ÷ (C × h))</code><br>With minimum quantities, multiples and maximums applied in a fixed, explained order.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#consumption"><span class="fc-part__num">Forecast consumption</span><h4>Count each unit of demand once</h4><p>Real orders use up the plan around them, so a big order does not sit on top of a forecast for the same sales.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#fences"><span class="fc-part__num">Time fences</span><h4>Frozen, Firm and Open</h4><p>Changes are held back close to today and allowed further out. Defaults are 14 and 42 days, and you can change them.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#accuracy"><span class="fc-part__num">Accuracy and bias</span><h4>Know how good the plan really is</h4><p><code class="fc-code">WAPE = Σ|actual − plan| ÷ Σ actual</code><br>Measured at one to five months ahead, by item, class and planner.</p></a>
+    </div>
+    <p class="akc-section__note" style="margin-top:28px"><a href="/forecastcentral/methods" style="text-decoration:underline;text-underline-offset:4px">See every method with a worked example →</a></p>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 04 · A planning week</span>
+      <h2>The system works overnight, people handle the exceptions</h2>
+    </div>
+    <div class="fc-steps">
+      <div class="akc-card"><span class="akc-card__num">STEP 1 · ONCE</span><h4>Set up</h4><p>Load two or three years of history, classify the items, apply a policy per class, enter vendor terms and define the location network.</p></div>
+      <div class="akc-card"><span class="akc-card__num">STEP 2 · WEEKLY</span><h4>Set the demand plan</h4><p>Maintain the budget and what-if scenarios, in Business Central or through Excel. Promote one to active.</p></div>
+      <div class="akc-card"><span class="akc-card__num">STEP 3 · NIGHTLY</span><h4>Run replenishment</h4><p>Net requirements, consume the plan, explode bills of material, set safety stock, transfer first, build vendor orders, and raise exceptions.</p></div>
+      <div class="akc-card"><span class="akc-card__num">STEP 4 · DAILY</span><h4>Work the queues</h4><p>Buyers and planners check the reasons, edit in place and approve. Approval creates standard orders.</p></div>
+      <div class="akc-card"><span class="akc-card__num">STEP 5 · MONTHLY</span><h4>Tune</h4><p>Review fill rate, stock health and plan accuracy, and adjust classes and policies.</p></div>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 05 · The parts</span>
+      <h2>Six parts, each with its own page</h2>
+      <p class="akc-section__note">Each page shows what the part does, a worked example, and screens from Business Central.</p>
+    </div>
+    <div class="fc-parts">
+      <a class="fc-part" href="/forecastcentral/setup"><span class="fc-part__num">01 · <span class="fc-pill fc-pill--preview">Built</span></span><h4>Setup that guides you</h4><p>A guided wizard and a health check, with a tooltip and a manual entry for every field.</p></a>
+      <a class="fc-part" href="/forecastcentral/demand-history"><span class="fc-part__num">02 · <span class="fc-pill fc-pill--preview">Built</span></span><h4>Demand history you can trust</h4><p>Nightly history from Business Central, cleaned without losing the originals.</p></a>
+      <a class="fc-part" href="/forecastcentral/demand-plans"><span class="fc-part__num">03 · <span class="fc-pill fc-pill--planned">Planned</span></span><h4>Budgets and scenarios</h4><p>Versioned budgets and what-if scenarios, with an Excel round trip.</p></a>
+      <a class="fc-part" href="/forecastcentral/suggestions"><span class="fc-part__num">04 · <span class="fc-pill fc-pill--build">In build</span></span><h4>Suggestions that show their working</h4><p>Every quantity and date comes with the reasons behind it.</p></a>
+      <a class="fc-part" href="/forecastcentral/supply-locks"><span class="fc-part__num">05 · <span class="fc-pill fc-pill--build">In build</span></span><h4>Supply you should not touch</h4><p>Knows which orders cannot change, and plans around them.</p></a>
+      <a class="fc-part" href="/forecastcentral/workbench"><span class="fc-part__num">06 · <span class="fc-pill fc-pill--planned">Planned</span></span><h4>A workbench for the daily job</h4><p>Queues, in-line edits and one click to create standard orders.</p></a>
+      <a class="fc-part" href="#also"><span class="fc-part__num">Also planned</span><h4>And three more</h4><p>Classification, analytics and an optional statistical forecast engine.</p></a>
+      <div class="fc-part" aria-hidden="true"></div>
+      <div class="fc-part" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 06 · Built the Business Central way</span>
+      <h2>No second system to look after</h2>
+    </div>
+    <ul class="akc-benefits">
+      <li class="akc-benefit"><span class="akc-benefit__icon">01</span><div><h4>Native to Business Central</h4><p>Data, setup, screens and order creation all live in Business Central. Nothing syncs, and there is no second system of record.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">02</span><div><h4>Standard documents out</h4><p>It creates ordinary purchase, transfer and production orders. Your approvals and reports keep working.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">03</span><div><h4>Nothing overwritten quietly</h4><p>Imports and what-ifs make new versions. Promoting a plan is an explicit step, and it is recorded.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">04</span><div><h4>Works with your add-ons</h4><p>It depends on standard Business Central only. Add-ons, such as landed cost, connect through published events.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">05</span><div><h4>Your Azure, if you want it</h4><p>The optional statistical engine runs in your own tenant. Stag Head hosts nothing, and the product works fully without it.</p></div></li>
+      <li class="akc-benefit"><span class="akc-benefit__icon">06</span><div><h4>Online or on-premises</h4><p>Runs in Business Central online and on-premises, from version 27 onwards, with English text that is ready for translation.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 07 · Who uses it</span>
+      <h2>Five roles, often one or two people</h2>
+    </div>
+    <table class="akc-table">
+      <thead><tr><th>Role</th><th>Main job</th><th>How often</th></tr></thead>
+      <tbody>
+        <tr><td>Demand planner</td><td>Maintains budgets and scenarios, reviews forecast exceptions, runs what-ifs, promotes the active plan.</td><td>Weekly to monthly</td></tr>
+        <tr><td>Buyer</td><td>Works the vendor queues, adjusts and approves purchase and transfer suggestions.</td><td>Daily</td></tr>
+        <tr><td>Production planner</td><td>Reviews production suggestions and firms production orders.</td><td>Daily to weekly</td></tr>
+        <tr><td>Operations manager</td><td>Sets policies and service levels, reviews the figures, approves a scenario going active.</td><td>Monthly</td></tr>
+        <tr><td>Planning administrator</td><td>Setup, classification rules, vendor terms, integrations and data loads.</td><td>As needed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="shell akc-section" id="also">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 08 · Where it is up to</span>
+      <h2>An honest status</h2>
+      <p class="akc-section__note">ForecastCentral is being built part by part. Setup and demand history are built and being reviewed. The planning engine is being built now, and the rest follows.</p>
+    </div>
+    <table class="akc-table">
+      <thead><tr><th>Part</th><th>Status</th><th>What it covers</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/forecastcentral/setup">Setup</a></td><td><span class="fc-pill fc-pill--preview">Built</span></td><td>A guided wizard and a health check, with a tooltip and a manual entry for every field.</td></tr>
+        <tr><td><a href="/forecastcentral/demand-history">Demand history</a></td><td><span class="fc-pill fc-pill--preview">Built</span></td><td>Nightly history from Business Central, cleaned without losing the originals.</td></tr>
+        <tr><td><a href="/forecastcentral/demand-plans">Demand plans</a></td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Versioned budgets and what-if scenarios, with an Excel round trip.</td></tr>
+        <tr><td><a href="/forecastcentral/suggestions">Suggestions</a></td><td><span class="fc-pill fc-pill--build">In build</span></td><td>Every quantity and date comes with the reasons behind it.</td></tr>
+        <tr><td><a href="/forecastcentral/supply-locks">Supply locks</a></td><td><span class="fc-pill fc-pill--build">In build</span></td><td>Knows which orders cannot change, and plans around them.</td></tr>
+        <tr><td><a href="/forecastcentral/workbench">Workbench</a></td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Queues, in-line edits and one click to create standard orders.</td></tr>
+        <tr><td>Classification and policies</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>ABC by value and XYZ by variability, with a policy template for each class, and a change report before any reclassification is applied.</td></tr>
+        <tr><td>Analytics and KPIs</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Fill rate, stockouts, inventory health, forecast and budget accuracy, and supplier lead time performance, with cues on the role centre.</td></tr>
+        <tr><td>Statistical forecast engine</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Optional. Chooses a model for each item, including intermittent demand, and flags budgets that disagree with history. Runs in your own Azure tenant, and everything works without it.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>
