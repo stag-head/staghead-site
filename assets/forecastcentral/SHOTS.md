@@ -28,7 +28,5 @@ This folder is not git-ignored, so the screenshots deploy with the site. Do not 
 | 16 | `workbench-01-queue.png` | workbench | Vendor queue: Workbench queue for one vendor with urgency and minimum order status. |
 | 17 | `workbench-02-card.png` | workbench | Item planning card: Item planning card with the history, plan and projected stock chart. |
 | 18 | `workbench-03-order.png` | workbench | Creating orders: Create orders confirmation and the resulting purchase order. |
-| 19 | `capacity-01-heatmap.png` | capacity | Capacity heat map: Weekly load heat map across work centres with one overloaded week. |
-| 20 | `capacity-02-drilldown.png` | capacity | Drill-down: The orders behind an overloaded week, with the move action. |
 
-Parts marked Planned (demand plans, workbench, capacity) cannot be captured until those milestones are built. Their placeholders show until then.
+Parts marked Planned (demand plans, workbench) cannot be captured until those milestones are built. Their placeholders show until then.

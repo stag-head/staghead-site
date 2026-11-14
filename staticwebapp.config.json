@@ -17,7 +17,6 @@
     { "route": "/forecastcentral/suggestions", "rewrite": "/forecastcentral/suggestions.html" },
     { "route": "/forecastcentral/supply-locks", "rewrite": "/forecastcentral/supply-locks.html" },
     { "route": "/forecastcentral/workbench", "rewrite": "/forecastcentral/workbench.html" },
-    { "route": "/forecastcentral/capacity", "rewrite": "/forecastcentral/capacity.html" },
     { "route": "/eula",               "rewrite": "/eula.html" },
     { "route": "/privacy",            "rewrite": "/privacy.html" }
   ]

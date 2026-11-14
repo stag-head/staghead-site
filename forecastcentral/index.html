@@ -36,7 +36,6 @@
 <a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
 <a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
 <a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
-<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
 </div></div>
 
 <main>
@@ -63,12 +62,11 @@
       <p class="akc-section__note">The planning engine in Business Central does a reasonable job for simple supply chains. For manufacturers and distributors with real volumes, the same few things come up again and again.</p>
     </div>
     <div class="akc-grid">
-      <div class="akc-card"><span class="akc-card__num">01</span><h4>Capacity is assumed</h4><p>Every order is scheduled as if machines never run out of time. Planners smooth the overloads by hand.</p></div>
-      <div class="akc-card"><span class="akc-card__num">02</span><h4>Locations work alone</h4><p>It suggests buying at one location without looking at spare stock sitting at another.</p></div>
-      <div class="akc-card"><span class="akc-card__num">03</span><h4>Vendor terms are ignored</h4><p>Minimum order values and price breaks are not part of the sums, so buyers end up with many small orders.</p></div>
-      <div class="akc-card"><span class="akc-card__num">04</span><h4>Small changes cause noise</h4><p>A delivery date that moves a day or two can set off a flood of reschedule messages.</p></div>
+      <div class="akc-card"><span class="akc-card__num">01</span><h4>Locations work alone</h4><p>It suggests buying at one location without looking at spare stock sitting at another.</p></div>
+      <div class="akc-card"><span class="akc-card__num">02</span><h4>Vendor terms are ignored</h4><p>Minimum order values and price breaks are not part of the sums, so buyers end up with many small orders.</p></div>
+      <div class="akc-card"><span class="akc-card__num">03</span><h4>Small changes cause noise</h4><p>A delivery date that moves a day or two can set off a flood of reschedule messages.</p></div>
     </div>
-    <p class="akc-section__note" style="margin-top:28px">Underneath all four is a bigger one. When the system says "buy 400", nobody can see why, so nobody trusts it.</p>
+    <p class="akc-section__note" style="margin-top:28px">Underneath all three is a bigger one. When the system says "buy 400", nobody can see why, so nobody trusts it.</p>
   </section>
 
   <section class="shell akc-section">
@@ -121,7 +119,7 @@
   <section class="shell akc-section">
     <div class="akc-section__head">
       <span class="eyebrow">§ 05 · The parts</span>
-      <h2>Seven parts, each with its own page</h2>
+      <h2>Six parts, each with its own page</h2>
       <p class="akc-section__note">Each page shows what the part does, a worked example, and screens from Business Central.</p>
     </div>
     <div class="fc-parts">
@@ -131,8 +129,8 @@
       <a class="fc-part" href="/forecastcentral/suggestions"><span class="fc-part__num">04 · <span class="fc-pill fc-pill--build">In build</span></span><h4>Suggestions that show their working</h4><p>Every quantity and date comes with the reasons behind it.</p></a>
       <a class="fc-part" href="/forecastcentral/supply-locks"><span class="fc-part__num">05 · <span class="fc-pill fc-pill--build">In build</span></span><h4>Supply you should not touch</h4><p>Knows which orders cannot change, and plans around them.</p></a>
       <a class="fc-part" href="/forecastcentral/workbench"><span class="fc-part__num">06 · <span class="fc-pill fc-pill--planned">Planned</span></span><h4>A workbench for the daily job</h4><p>Queues, in-line edits and one click to create standard orders.</p></a>
-      <a class="fc-part" href="/forecastcentral/capacity"><span class="fc-part__num">07 · <span class="fc-pill fc-pill--planned">Planned</span></span><h4>Capacity you can see</h4><p>Weekly load against capacity, shown as a heat map.</p></a>
       <a class="fc-part" href="#also"><span class="fc-part__num">Also planned</span><h4>And three more</h4><p>Classification, analytics and an optional statistical forecast engine.</p></a>
+      <div class="fc-part" aria-hidden="true"></div>
       <div class="fc-part" aria-hidden="true"></div>
     </div>
   </section>
@@ -162,7 +160,7 @@
       <tbody>
         <tr><td>Demand planner</td><td>Maintains budgets and scenarios, reviews forecast exceptions, runs what-ifs, promotes the active plan.</td><td>Weekly to monthly</td></tr>
         <tr><td>Buyer</td><td>Works the vendor queues, adjusts and approves purchase and transfer suggestions.</td><td>Daily</td></tr>
-        <tr><td>Production planner</td><td>Reviews production suggestions, checks capacity load, firms production orders.</td><td>Daily to weekly</td></tr>
+        <tr><td>Production planner</td><td>Reviews production suggestions and firms production orders.</td><td>Daily to weekly</td></tr>
         <tr><td>Operations manager</td><td>Sets policies and service levels, reviews the figures, approves a scenario going active.</td><td>Monthly</td></tr>
         <tr><td>Planning administrator</td><td>Setup, classification rules, vendor terms, integrations and data loads.</td><td>As needed</td></tr>
       </tbody>
@@ -184,7 +182,6 @@
         <tr><td><a href="/forecastcentral/suggestions">Suggestions</a></td><td><span class="fc-pill fc-pill--build">In build</span></td><td>Every quantity and date comes with the reasons behind it.</td></tr>
         <tr><td><a href="/forecastcentral/supply-locks">Supply locks</a></td><td><span class="fc-pill fc-pill--build">In build</span></td><td>Knows which orders cannot change, and plans around them.</td></tr>
         <tr><td><a href="/forecastcentral/workbench">Workbench</a></td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Queues, in-line edits and one click to create standard orders.</td></tr>
-        <tr><td><a href="/forecastcentral/capacity">Capacity</a></td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Weekly load against capacity, shown as a heat map.</td></tr>
         <tr><td>Classification and policies</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>ABC by value and XYZ by variability, with a policy template for each class, and a change report before any reclassification is applied.</td></tr>
         <tr><td>Analytics and KPIs</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Fill rate, stockouts, inventory health, forecast and budget accuracy, and supplier lead time performance, with cues on the role centre.</td></tr>
         <tr><td>Statistical forecast engine</td><td><span class="fc-pill fc-pill--planned">Planned</span></td><td>Optional. Chooses a model for each item, including intermittent demand, and flags budgets that disagree with history. Runs in your own Azure tenant, and everything works without it.</td></tr>
