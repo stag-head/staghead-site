@@ -10,6 +10,7 @@
     { "route": "/budget-pro/walkthrough", "rewrite": "/budget-pro/walkthrough.html" },
     { "route": "/budget-pro/support",     "rewrite": "/budget-pro/support.html" },
     { "route": "/forecastcentral",       "rewrite": "/forecastcentral/index.html" },
+    { "route": "/forecastcentral/methods", "rewrite": "/forecastcentral/methods.html" },
     { "route": "/forecastcentral/setup", "rewrite": "/forecastcentral/setup.html" },
     { "route": "/forecastcentral/demand-history", "rewrite": "/forecastcentral/demand-history.html" },
     { "route": "/forecastcentral/demand-plans", "rewrite": "/forecastcentral/demand-plans.html" },

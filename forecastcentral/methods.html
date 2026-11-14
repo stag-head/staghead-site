@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methods · ForecastCentral · Stag Head</title>
+<meta name="description" content="The standard planning methods ForecastCentral uses, with the formulas and a worked example for each: ABC and XYZ classification, safety stock, EOQ, forecast consumption, time fences and forecast accuracy.">
+<meta name="author" content="Stag Head">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Methods · ForecastCentral · Stag Head">
+<meta property="og:description" content="The standard planning methods ForecastCentral uses, with the formulas and a worked example for each: ABC and XYZ classification, safety stock, EOQ, forecast consumption, time fences and forecast accuracy.">
+<meta property="og:url" content="https://staghead.nz/forecastcentral/methods">
+<meta property="og:image" content="https://staghead.nz/assets/og-image.png">
+<script>try{var s=JSON.parse(localStorage.getItem('sh.tweaks')||'{}');if(s.theme)document.documentElement.setAttribute('data-theme',s.theme);if(s.accentHue)document.documentElement.style.setProperty('--accent-h',s.accentHue)}catch(e){}</script>
+<link rel="preload" href="/partials/nav.html" as="fetch" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/variations.css">
+<link rel="stylesheet" href="/styles/forecastcentral.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div class="fc-subnav"><div class="fc-subnav__inner">
+<a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
+<a class="fc-subnav__link" href="/forecastcentral">Overview</a>
+<a class="fc-subnav__link is-active" href="/forecastcentral/methods" aria-current="page">Methods</a>
+<a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
+<a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
+<a class="fc-subnav__link" href="/forecastcentral/suggestions">Suggestions</a>
+<a class="fc-subnav__link" href="/forecastcentral/supply-locks">Supply locks</a>
+<a class="fc-subnav__link" href="/forecastcentral/workbench">Workbench</a>
+<a class="fc-subnav__link" href="/forecastcentral/capacity">Capacity</a>
+</div></div>
+
+<main>
+<div class="akahu-consumer">
+
+  <section class="shell akc-hero">
+    <div class="akc-hero__text">
+      <p class="eyebrow"><span class="bar"></span> Methods</p>
+      <h1>Standard methods,<br>shown in full</h1>
+      <p class="akc-lead">Planners trust a number when they can check it. Every method here is a recognised one, the sums are laid out, and the explanation on each suggestion uses the same terms.</p>
+    </div>
+    <div class="akc-hero__meta">
+      <div class="akc-badge"><span class="akc-badge__label">Classification</span><span class="akc-badge__value">ABC by value, XYZ by variability</span></div>
+      <div class="akc-badge"><span class="akc-badge__label">Stock</span><span class="akc-badge__value">Service level, weeks of cover, EOQ</span></div>
+      <div class="akc-badge"><span class="akc-badge__label">Measurement</span><span class="akc-badge__value">WAPE and bias</span></div>
+    </div>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">On this page</span>
+      <h2>Seven methods</h2>
+      <p class="akc-section__note">The label beside each one says whether it is built yet. All the figures are the product's defaults, and the settings are yours to change.</p>
+    </div>
+    <ul class="fc-toc">
+      <li><a href="#classification"><span class="fc-part__num">01</span>Sorting items: ABC and XYZ</a></li>
+      <li><a href="#safety-stock"><span class="fc-part__num">02</span>Safety stock</a></li>
+      <li><a href="#order-quantity"><span class="fc-part__num">03</span>Reorder point, order quantity and rounding</a></li>
+      <li><a href="#history-cleaning"><span class="fc-part__num">04</span>Cleaning demand history</a></li>
+      <li><a href="#consumption"><span class="fc-part__num">05</span>Forecast consumption</a></li>
+      <li><a href="#fences"><span class="fc-part__num">06</span>Time fences</a></li>
+      <li><a href="#accuracy"><span class="fc-part__num">07</span>Accuracy and bias</a></li>
+    </ul>
+  </section>
+
+  <section class="shell akc-section" id="classification">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 01 · <span class="fc-pill fc-pill--planned">Planned</span></span>
+      <h2>Sorting items: ABC and XYZ</h2>
+      <p class="akc-section__note">Not every item deserves the same attention. ABC ranks items by how much value they move. XYZ ranks them by how predictable their demand is. The two together give nine classes, and each class gets its own policy.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">Coefficient of variation  =  standard deviation of weekly demand  ÷  average weekly demand</div>
+        <ul class="fc-points"><li><b>ABC</b><span>Rank items by twelve months of demand value, which is quantity multiplied by unit cost, highest first. Add up the running share. A is the items that make up the first 80 percent, B the next 15, C the last 5. Items with no demand are class N. The thresholds are in setup.</span></li><li><b>XYZ</b><span>Divide the standard deviation of weekly demand by its average over 52 weeks. That is the coefficient of variation. X is up to 0.5, Y is up to 1.0, and Z is above that. Items whose sales come in occasional bursts, with an average gap of more than 1.32 weeks between sales, are also flagged as intermittent.</span></li><li><b>Policy per class</b><span>Each class pair gets a policy template with a service level, a safety stock method and a review period. Reclassification runs on a schedule, shows what would change, and applies it only when you confirm.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>Five items with twelve-month demand values of 50,000, 30,000, 10,000, 6,000 and 4,000. The running share is 50, 80, 90, 96 and 100 percent, so the classes are A, A, B, C and C.</p><p>An item sells 100 a week on average with a standard deviation of 30. The coefficient of variation is 0.3, so it is class X.</p>
+        <table class="akc-table fc-mini"><caption>Default target service levels by class. Change them in setup.</caption><thead><tr><th></th><th>X (steady)</th><th>Y (variable)</th><th>Z (erratic)</th></tr></thead><tbody><tr><td>A</td><td>98%</td><td>97%</td><td>95%</td></tr><tr><td>B</td><td>97%</td><td>95%</td><td>92%</td></tr><tr><td>C</td><td>95%</td><td>92%</td><td>90%</td></tr></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="safety-stock">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 02 · <span class="fc-pill fc-pill--build">In build</span></span>
+      <h2>Safety stock</h2>
+      <p class="akc-section__note">Safety stock covers two things: demand that comes in higher than planned, and a delivery that arrives late. The service level method adds both. The weeks of cover method is simpler, and is the default for new installs.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">Safety stock  =  z × √( L × σd²  +  d² × σL² )</div>
+        <ul class="fc-points"><li><b>Service level</b><span>z is the number of standard deviations that gives your target service level, from a lookup table. L is the lead time in weeks. d is the average weekly demand. σd is how far the weekly plan has been off, measured over the last 26 weeks. σL is how late this vendor's deliveries have been, in weeks, over the last 10 receipts.</span></li><li><b>Weeks of cover</b><span>Safety stock is the total demand expected over the next N weeks. If there is no plan to look at, it falls back to the recent order rate.</span></li><li><b>Floors and ceilings</b><span>Either method can have a minimum and a maximum quantity applied afterwards.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>Target service level 95 percent, so z = 1.6449. Lead time L = 4 weeks, average demand d = 100 a week, σd = 20, and the vendor is late by σL = 0.5 weeks on average.</p><p>Inside the root: 4 × 400 = 1,600 for demand error, and 100² × 0.25 = 2,500 for late deliveries. The total is 4,100, the root is 64.03, and 64.03 × 1.6449 = 105.3. Safety stock is 106.</p><p>With a vendor who is never late, σL = 0 and the root is 40, so safety stock is 66. The late deliveries alone are worth 40 units of stock.</p><p>Weeks of cover with N = 3, where demand in the next three weeks is 40, 45 and 50, gives a safety stock of 135.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="order-quantity">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 03 · <span class="fc-pill fc-pill--build">In build</span></span>
+      <h2>Reorder point, order quantity and rounding</h2>
+      <p class="akc-section__note">The policy decides when an item needs supply and how much to raise stock to. Rounding to the vendor's minimums and multiples then happens in a fixed order, and each step shows in the explanation.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">Reorder point  =  safety stock  +  average weekly demand × lead time in weeks</div><div class="fc-formula">EOQ  =  √( 2 × D × S  ÷  ( C × h ) )</div><div class="fc-formula">Order up to  =  safety stock  +  average weekly demand × ( lead time + review period )</div>
+        <ul class="fc-points"><li><b>Reorder point</b><span>Order when projected stock falls below the safety stock plus the demand expected during the lead time.</span></li><li><b>Economic order quantity</b><span>The order size that balances the cost of placing orders against the cost of holding stock. Order cost and holding rate come from setup and can be set per vendor and item.</span></li><li><b>Periodic review</b><span>Check the item only on review days, every R weeks, and order up to a level that covers the lead time plus the review period.</span></li><li><b>Also</b><span>Min and max, lot for lot, and make to order.</span></li><li><b>Rounding order</b><span>First raise to the minimum order quantity. Then round up to the order multiple. If the result is above the maximum order quantity, split it into several lines.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>D is annual demand, S is the cost of placing an order, C is the unit cost and h is the holding rate. With D = 5,200, S = 80.00, C = 12.00 and h = 25 percent: 2 × 5,200 × 80 = 832,000, and 12.00 × 0.25 = 3.00. The root of 277,333 is 526.6, so the order quantity is 527.</p><p>Rounding: the need is 137, the vendor's minimum is 200 and the multiple is 48. Raised to 200, then rounded up to the next multiple of 48, the order is for 240.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="history-cleaning">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 04 · <span class="fc-pill fc-pill--preview">Built</span></span>
+      <h2>Cleaning demand history</h2>
+      <p class="akc-section__note">One huge order should not set next year's forecast. Unusual weeks are capped using the median, which large values barely move, and the original quantity always stays on record.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">Cap  =  median  +  k × MAD</div><div class="fc-formula">Cleaned quantity  =  raw  −  excluded  +  outlier adjustment  +  stockout adjustment</div>
+        <ul class="fc-points"><li><b>Outlier cap</b><span>For each item and location, take the weekly totals over the last 52 weeks. Find the median and the median absolute deviation, MAD. A week above the cap is brought down to the cap. The factor k is a setting, and the default is 5.</span></li><li><b>Exclusions</b><span>A planner can exclude any entry with a reason, and include it again later.</span></li><li><b>Stockout add-back</b><span>Optional, and off by default. A week with an empty shelf understates demand, so the average of the previous 8 normal weeks is added back for the days stock ran out.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>Thirteen weekly totals: 40, 42, 38, 45, 41, 39, 300, 44, 40, 43, 37, 41, 42. The median is 41 and the MAD is 2, so the cap is 41 + 5 × 2 = 51.</p><p>The 300 week keeps its raw quantity of 300, gets an outlier adjustment of −249, and shows a cleaned quantity of 51. Every other week is unchanged.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="consumption">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 05 · <span class="fc-pill fc-pill--build">In build</span></span>
+      <h2>Forecast consumption</h2>
+      <p class="akc-section__note">Real orders use up the plan around them, so the same sale is not counted twice. The default window method lets an order use its own week's plan first, then the week before, then the week after.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">Total demand in a week  =  orders in the week  +  plan left after consumption</div>
+        <ul class="fc-points"><li><b>Window method</b><span>Orders are processed by date. Each uses the plan in its own week first, then up to B weeks earlier, then up to F weeks later. The defaults are 1 and 1. An order never creates a negative plan.</span></li><li><b>Same week method</b><span>A simpler option for businesses that prefer it: the plan in a week is reduced only by orders in that same week.</span></li><li><b>Overdue orders</b><span>Orders already past their date consume nothing.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>The plan is 100 a week for four weeks. There is an order for 180 in week 2 and an order for 40 in week 3. The week 2 order uses its own 100, then 80 from week 1.</p><p>Total demand is 400. Adding plan and orders separately would have counted 480.</p>
+        <table class="akc-table fc-mini"><caption>Window method, one week either side.</caption><thead><tr><th>Week</th><th>Plan</th><th>Orders</th><th>Plan left</th><th>Total demand</th></tr></thead><tbody><tr><td>1</td><td>100</td><td>0</td><td>20</td><td>20</td></tr><tr><td>2</td><td>100</td><td>180</td><td>0</td><td>180</td></tr><tr><td>3</td><td>100</td><td>40</td><td>60</td><td>100</td></tr><tr><td>4</td><td>100</td><td>0</td><td>100</td><td>100</td></tr></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="fences">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 06 · <span class="fc-pill fc-pill--build">In build</span></span>
+      <h2>Time fences</h2>
+      <p class="akc-section__note">A plan that changes every night is a plan nobody follows. Time fences hold changes back close to today, where people have already acted, and allow them further out.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        
+        <ul class="fc-points"><li><b>Three zones</b><span>Frozen runs to the demand time fence, Firm runs to the planning time fence, and Open is everything beyond. The defaults are 14 and 42 days, and the fence day itself is inside the zone.</span></li><li><b>Tolerances</b><span>A reschedule in of up to 3 days, a reschedule out of up to 7 days, and a quantity change of up to 10 percent are left alone by default, so small shifts do not become messages.</span></li><li><b>Planner proposals persist</b><span>A suggestion a planner has edited or confirmed is kept as a firm proposal, and the nightly run does not overwrite it.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Example</p>
+        <p>A delivery is promised for the 12th and the vendor moves it to the 13th. That is inside the tolerance, so nothing is raised. If it moves by two weeks, the planner gets one message with the reason, not a pile of them.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="shell akc-section" id="accuracy">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 07 · <span class="fc-pill fc-pill--planned">Planned</span></span>
+      <h2>Accuracy and bias</h2>
+      <p class="akc-section__note">Trust in a plan comes from knowing how good it has been. The active plan is saved every week, so it can be compared with what really happened one, two, three and five months later.</p>
+    </div>
+    <div class="fc-method">
+      <div class="fc-method__text">
+        <div class="fc-formula">WAPE  =  Σ | actual − plan |  ÷  Σ actual</div><div class="fc-formula">Bias  =  ( Σ plan − Σ actual )  ÷  Σ actual</div>
+        <ul class="fc-points"><li><b>WAPE</b><span>Weighted absolute percentage error. Total absolute error divided by total actual demand, so large items count for more than small ones.</span></li><li><b>Accuracy</b><span>One minus WAPE, never below zero.</span></li><li><b>Bias</b><span>Whether the plan is usually too high or too low. A positive bias means over-forecasting.</span></li><li><b>Usage against plan</b><span>Average weekly use over 4, 8, 13 and 26 weeks, compared with the plan going forward and as it stood in the past.</span></li></ul>
+      </div>
+      <div class="fc-example">
+        <p class="fc-example__label">Worked example</p>
+        <p>One month, three items. The plan was 100, 50 and 20 and the actual demand was 80, 60 and 0. The errors are 20, 10 and 20, which total 50, and the actual total is 140.</p><p>WAPE is 50 ÷ 140 = 35.7 percent, so accuracy is 64.3 percent. The plan totalled 170 against 140 sold, so bias is +21.4 percent: the plan ran high.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <nav class="shell fc-pager" aria-label="More of ForecastCentral">
+    <a href="/forecastcentral"><span class="fc-pager__label">← Back</span><span class="fc-pager__title">ForecastCentral overview</span></a>
+    <a href="/forecastcentral/setup"><span class="fc-pager__label">Next →</span><span class="fc-pager__title">Setup that guides you</span></a>
+  </nav>
+  <section class="shell akc-section" data-contact>
+    <div class="fc-contact">
+      <div>
+        <span class="eyebrow">Talk to us</span>
+        <h2>Want to see it?</h2>
+        <p class="akc-section__note">Email us and we will arrange a walk-through, or answer questions about how it would fit your planning.</p>
+      </div>
+      <a class="cta-btn cta-btn--accent" href="mailto:help@staghead.nz?subject=ForecastCentral">Email help@staghead.nz →</a>
+    </div>
+  </section>
+  <footer class="v2-foot shell">
+    <div><span class="mono">Stag Head Ltd · ForecastCentral for Business Central</span></div>
+    <div class="mono">Questions? <a href="mailto:help@staghead.nz">help@staghead.nz</a></div>
+  </footer>
+
+</div>
+</main>
+
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Theme</label>
+    <div class="toggle" id="themeToggle">
+      <button data-theme-val="light" class="is-active">Light</button>
+      <button data-theme-val="dark">Dark</button>
+    </div>
+  </div>
+  <div class="row" style="align-items:flex-start; flex-direction:column; gap:8px;">
+    <label>Accent hue</label>
+    <div class="swatches" id="accentSwatches"></div>
+  </div>
+  <div class="row" style="border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px;">
+    <span style="color: var(--ink-3);">// toggle from toolbar to hide</span>
+  </div>
+</div>
+
+<script src="/src/tweaks.js"></script>
+<script src="/src/includes.js"></script>
+
+</body>
+</html>

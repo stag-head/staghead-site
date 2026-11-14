@@ -29,6 +29,7 @@
 <div class="fc-subnav"><div class="fc-subnav__inner">
 <a class="fc-subnav__brand" href="/forecastcentral">ForecastCentral</a>
 <a class="fc-subnav__link is-active" href="/forecastcentral" aria-current="page">Overview</a>
+<a class="fc-subnav__link" href="/forecastcentral/methods">Methods</a>
 <a class="fc-subnav__link" href="/forecastcentral/setup">Setup</a>
 <a class="fc-subnav__link" href="/forecastcentral/demand-history">Demand history</a>
 <a class="fc-subnav__link" href="/forecastcentral/demand-plans">Demand plans</a>
@@ -85,9 +86,27 @@
     </ul>
   </section>
 
+
   <section class="shell akc-section">
     <div class="akc-section__head">
-      <span class="eyebrow">§ 03 · A planning week</span>
+      <span class="eyebrow">§ 03 · Standard methods</span>
+      <h2>Textbook planning, with the sums shown</h2>
+      <p class="akc-section__note">Nothing here is a secret formula. ForecastCentral uses the methods planners already know, shows the working, and uses the same terms in the explanation on every suggestion.</p>
+    </div>
+    <div class="fc-parts">
+      <a class="fc-part" href="/forecastcentral/methods#classification"><span class="fc-part__num">ABC and XYZ</span><h4>Sort items by value and by predictability</h4><p>A is the items that make up the first 80 percent of demand value. X is demand steady enough to have a coefficient of variation up to 0.5. Each class gets its own policy.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#safety-stock"><span class="fc-part__num">Safety stock</span><h4>Cover late deliveries and surprise demand</h4><p><code class="fc-code">z × √(L × σd² + d² × σL²)</code><br>Or a simple number of weeks of forward cover. Your choice, per policy.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#order-quantity"><span class="fc-part__num">Reorder point and EOQ</span><h4>When to order, and how much</h4><p><code class="fc-code">EOQ = √(2 × D × S ÷ (C × h))</code><br>With minimum quantities, multiples and maximums applied in a fixed, explained order.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#consumption"><span class="fc-part__num">Forecast consumption</span><h4>Count each unit of demand once</h4><p>Real orders use up the plan around them, so a big order does not sit on top of a forecast for the same sales.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#fences"><span class="fc-part__num">Time fences</span><h4>Frozen, Firm and Open</h4><p>Changes are held back close to today and allowed further out. Defaults are 14 and 42 days, and you can change them.</p></a>
+      <a class="fc-part" href="/forecastcentral/methods#accuracy"><span class="fc-part__num">Accuracy and bias</span><h4>Know how good the plan really is</h4><p><code class="fc-code">WAPE = Σ|actual − plan| ÷ Σ actual</code><br>Measured at one to five months ahead, by item, class and planner.</p></a>
+    </div>
+    <p class="akc-section__note" style="margin-top:28px"><a href="/forecastcentral/methods" style="text-decoration:underline;text-underline-offset:4px">See every method with a worked example →</a></p>
+  </section>
+
+  <section class="shell akc-section">
+    <div class="akc-section__head">
+      <span class="eyebrow">§ 04 · A planning week</span>
       <h2>The system works overnight, people handle the exceptions</h2>
     </div>
     <div class="fc-steps">
@@ -101,7 +120,7 @@
 
   <section class="shell akc-section">
     <div class="akc-section__head">
-      <span class="eyebrow">§ 04 · The parts</span>
+      <span class="eyebrow">§ 05 · The parts</span>
       <h2>Seven parts, each with its own page</h2>
       <p class="akc-section__note">Each page shows what the part does, a worked example, and screens from Business Central.</p>
     </div>
@@ -120,7 +139,7 @@
 
   <section class="shell akc-section">
     <div class="akc-section__head">
-      <span class="eyebrow">§ 05 · Built the Business Central way</span>
+      <span class="eyebrow">§ 06 · Built the Business Central way</span>
       <h2>No second system to look after</h2>
     </div>
     <ul class="akc-benefits">
@@ -135,7 +154,7 @@
 
   <section class="shell akc-section">
     <div class="akc-section__head">
-      <span class="eyebrow">§ 06 · Who uses it</span>
+      <span class="eyebrow">§ 07 · Who uses it</span>
       <h2>Five roles, often one or two people</h2>
     </div>
     <table class="akc-table">
@@ -152,7 +171,7 @@
 
   <section class="shell akc-section" id="also">
     <div class="akc-section__head">
-      <span class="eyebrow">§ 07 · Where it is up to</span>
+      <span class="eyebrow">§ 08 · Where it is up to</span>
       <h2>An honest status</h2>
       <p class="akc-section__note">ForecastCentral is being built part by part. Setup and demand history are built and being reviewed. The planning engine is being built now, and the rest follows.</p>
     </div>
